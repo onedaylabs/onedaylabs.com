@@ -1,0 +1,155 @@
+
+html{
+	font-size: 16px;
+}
+
+body.home #content .nav-tabs a{
+	text-decoration: none;
+}
+body.home .nav-tabs span.fa{
+	font-size: 3rem;
+	display: block;
+	text-align: center;
+}
+
+
+body.home .nav-tabs li{
+	text-align: center;
+	min-width: 15%;
+}
+
+body.home .tab-content{
+	background-color: #fff;
+	padding: 2rem;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+body.home .front-page-hero {
+	color: #fff;	
+	text-align: center;
+}
+body.home .front-page-hero .fl-row-content-wrap h1, 
+body.home .front-page-hero .fl-row-content-wrap h2, 
+body.home .front-page-hero .fl-row-content-wrap h3, 
+body.home .front-page-hero .fl-row-content-wrap h4, 
+body.home .front-page-hero .fl-row-content-wrap h5, 
+body.home .front-page-hero .fl-row-content-wrap h6{
+	color: #fff;
+}
+
+body.home .front-page-hero .fl-row-content-wrap h1{
+	font-size: 3rem;	
+}
+
+body.home #content .front-page-hero a.fl-button{
+	text-decoration: none;
+}
+body.home .the-process,
+body.home .process-cta{
+	text-align: center;
+}
+
+
+/* https://stackoverflow.com/a/9422253 */
+body.home .nav-tabs > li, .nav-tabs > li {
+    float:none;
+    display:inline-block;
+}
+body.home .nav-tabs, .nav-pills {
+    text-align:center;
+}
+
+body.home #content .process-cta .btn,
+body.home #content .pricing-container .btn{
+text-decoration: none;	
+}
+
+body.home .pricing-container{
+	padding: 1rem 3rem 1rem 3rem;	
+}
+
+body.home .pricing-container .btn{
+	text-decoration: none;
+}
+
+body.home .pricing-container h1{
+	font-size: 6rem;
+}
+body.home .pricing-container ul{
+	margin-bottom: 1rem;
+}
+body.home .pricing-container li{
+	margin-bottom: .5rem;
+}
+body.home .pricing-container h3{
+	text-align: center;
+}
+body.home .pricing-container .pricing{
+	font-size: 2rem;
+}
+
+.internal-header h1{
+	color: #fff;
+	font-size: 26px;
+}
+.internal-header{
+	text-align: center;
+	color: #fff;
+}
+
+
+body.page-id-26 .process-intro{
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+}
+body.page-id-26 .process-intro p{
+	margin-bottom: 0;
+}
+
+/* pricing page */
+body.page-id-40 .pricing-table .fl-pricing-table-features{
+	margin: 0px;
+}
+body.page-id-40 .pricing-table .fl-button{
+	margin-bottom: 1rem;
+}
+body.page-id-40 .maintenance-pricing .fl-button{
+	display: none;
+}
+body.page-id-40 .maintenance-pricing .fl-pricing-table-features{
+	margin-bottom: 0;
+}
+
+
+/* get started form page */
+body.page-id-45  .container{
+	min-height: 900px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+
+/* pricing box container */
+@media (min-width: 768px){
+	.fl-node-566cb5a3bcf38{ 
+		max-width: 70%;
+		margin: 0 auto;	
+	}
+	body.home .pricing-container .description{
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+
+@media (max-width: 767px){
+	body.home .nav-tabs span.fa{
+		font-size: 2rem;
+	}	
+	body.home #content .nav-tabs a{
+		text-decoration: none;
+	}
+
+}

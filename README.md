@@ -1,2 +1,1 @@
-# onedaylabs.com
-Codebase for OneDayLabs.com
+The website of OneDayLabs.com
