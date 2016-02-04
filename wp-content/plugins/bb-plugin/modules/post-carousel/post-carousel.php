@@ -11,11 +11,11 @@ class FLPostCarouselModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Posts Carousel', 'fl-builder'),
-			'description'   => __('Display a carousel of your WordPress posts.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false,
-			'enabled'       => true
+			'name'          	=> __('Posts Carousel', 'fl-builder'),
+			'description'   	=> __('Display a carousel of your WordPress posts.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 
 		$this->add_css('jquery-bxslider');

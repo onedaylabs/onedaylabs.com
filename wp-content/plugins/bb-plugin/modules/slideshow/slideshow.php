@@ -11,10 +11,11 @@ class FLSlideshowModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Slideshow', 'fl-builder'),
-			'description'   => __('Display multiple photos in a slideshow view.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Slideshow', 'fl-builder'),
+			'description'   	=> __('Display multiple photos in a slideshow view.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 
 		$this->add_js('yui3');

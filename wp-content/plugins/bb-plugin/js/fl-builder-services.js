@@ -81,14 +81,14 @@
 			selectRow.siblings( 'tr.fl-builder-service-field-row' ).remove();
 			$( '.fl-builder-service-error' ).remove();
 				
-			if ( '' == service ) {
+			if ( '' === service ) {
 				return;
 			}
 			
 			FLBuilderServices._startSettingsLoading( select );
 			
 			FLBuilder.ajax( {
-				action  : 'fl_builder_render_service_settings',
+				action  : 'render_service_settings',
 				node_id : nodeId,
 				service : service
 			}, FLBuilderServices._serviceChangeComplete );
@@ -129,7 +129,7 @@
 				name            = null,
 				i               = 0,
 				data            = {
-					action          : 'fl_builder_connect_service',
+					action          : 'connect_service',
 					node_id         : nodeId,
 					service         : select.val(),
 					fields          : {}
@@ -138,7 +138,7 @@
 			for ( ; i < connectInputs.length; i++ ) {
 				input                   = connectInputs.eq( i );
 				name                    = input.attr( 'name' );
-				data['fields'][ name ]  = input.val();
+				data.fields[ name ]  = input.val();
 			}
 			
 			connectRows.hide();
@@ -208,15 +208,15 @@
 			
 			if ( 'add_new_account' == value ) {
 				data = {
-					action  : 'fl_builder_render_service_settings',
+					action  : 'render_service_settings',
 					node_id : nodeId,
 					service : select.val(),
 					add_new : true
 				};
 			}
-			else if ( '' != value ) {
+			else if ( '' !== value ) {
 				data = {
-					action  : 'fl_builder_render_service_fields',
+					action  : 'render_service_fields',
 					node_id : nodeId,
 					service : select.val(),
 					account : value
@@ -263,7 +263,7 @@
 				
 				wrap.find( '.fl-builder-service-account-delete' ).remove();
 				
-				if ( '' != account.val() && 'add_new_account' != account.val() ) {
+				if ( '' !== account.val() && 'add_new_account' != account.val() ) {
 					account.after( '<a href="javascript:void(0);" class="fl-builder-service-account-delete">' + FLBuilderStrings.deleteAccount + '</a>' );
 				}
 			}
@@ -284,7 +284,7 @@
 			if ( confirm( FLBuilderStrings.deleteAccountWarning ) ) {
 			
 				FLBuilder.ajax( {
-					action  : 'fl_builder_delete_service_account',
+					action  : 'delete_service_account',
 					service : select.val(),
 					account : account.val()
 				}, FLBuilderServices._accountDeleteComplete );
@@ -328,17 +328,17 @@
 				list        = wrap.find( '.fl-builder-service-list-select' ),
 				value       = client.val();
 			
-			if ( 0 != list.length ) {
+			if ( 0 !== list.length ) {
 				list.closest( 'tr' ).remove();
 			}
-			if ( '' == value ) {
+			if ( '' === value ) {
 				return;
 			}
 			
 			FLBuilderServices._startSettingsLoading( select );
 			
 			FLBuilder.ajax( {
-				action  : 'fl_builder_render_service_fields',
+				action  : 'render_service_fields',
 				node_id : nodeId,
 				service : select.val(),
 				account : account.val(),
@@ -382,14 +382,14 @@
 			
 			$( '.fl-builder-mailchimp-group-select' ).closest( 'tr' ).remove();
 			
-			if ( '' == list.val() ) {
+			if ( '' === list.val() ) {
 				return;
 			}
 			
 			FLBuilderServices._startSettingsLoading( select );
 			
 			FLBuilder.ajax( {
-				action  : 'fl_builder_render_service_fields',
+				action  : 'render_service_fields',
 				node_id : nodeId,
 				service : select.val(),
 				account : account.val(),

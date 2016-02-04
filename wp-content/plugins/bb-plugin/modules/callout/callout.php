@@ -11,9 +11,10 @@ class FLCalloutModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Callout', 'fl-builder'),
-			'description'   => __('A heading and snippet of text with an optional link, icon and image.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Callout', 'fl-builder'),
+			'description'   	=> __('A heading and snippet of text with an optional link, icon and image.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 

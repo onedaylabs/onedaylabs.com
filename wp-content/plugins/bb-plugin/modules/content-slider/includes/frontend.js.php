@@ -15,6 +15,13 @@
 			video: true,
 			onSliderLoad: function() { 
 				$('.fl-node-<?php echo $id; ?> .fl-content-slider-wrapper').addClass('fl-content-slider-loaded'); 
+			},
+			onSlideAfter: function( ele, oldIndex, newIndex ) {
+				$( '.fl-node-<?php echo $id; ?> .fl-slide-' + oldIndex + ' iframe[src*="youtube"]' ).each( function(){
+					var src = $( this ).attr( 'src' );
+					$( this ).attr( 'src', '' );
+					$( this ).attr( 'src', src );
+				} );
 			}
 		});
 	   

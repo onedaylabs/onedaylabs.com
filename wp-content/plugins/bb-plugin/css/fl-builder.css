@@ -172,7 +172,7 @@ ul.fl-builder-submenu {
 	display: block;
 }
 ul.fl-builder-submenu li a {
-	color: #fff;
+	color: #fff !important;
 	display: block;
     line-height: 13px;
     font-size: 13px;
@@ -1018,7 +1018,8 @@ form.fl-builder-settings {
 	display: block;
 }
 .fl-builder-settings-tab-description {
-	padding: 0 10px 15px 10px;
+	background: #f5f5f5;
+	padding: 10px 15px;
 }
 
 /* Settings Tables
@@ -1062,7 +1063,7 @@ form.fl-builder-settings {
 	top: 10px;	
 }
 .fl-builder-settings-fields .fl-nanoscroller-content {
-	padding: 15px 20px 20px 20px;
+	padding: 15px 20px;
 }
 .fl-builder-settings-fields textarea, 
 .fl-builder-settings-fields input[type=text], 
@@ -1344,6 +1345,20 @@ form.fl-builder-settings {
 	margin: 0 0 0 11px;
 }
 
+/* Multiple Audio Fields */
+.fl-multiple-audios-field .fl-multiple-audios-select,
+.fl-multiple-audios-field.fl-multiple-audios-empty .fl-multiple-audios-edit,
+.fl-multiple-audios-field.fl-multiple-audios-empty .fl-multiple-audios-add {
+	display: none;
+}
+.fl-multiple-audios-field.fl-multiple-audios-empty .fl-multiple-audios-select {
+	display: block;
+}
+.fl-multiple-audios-field .fl-multiple-audios-add {
+	margin: 0 0 0 8px;
+}
+
+
 /* Icon Fields */
 .fl-icon-field .fl-icon-select,
 .fl-icon-field.fl-icon-empty .fl-icon-preview {
@@ -1434,6 +1449,27 @@ form.fl-builder-settings {
 	font-size: 12px !important;
 	font-weight: 400 !important;
 	letter-spacing: 0 !important;
+}
+.fl-builder-layout-settings #fl-builder-settings-tab-css,
+.fl-builder-layout-settings #fl-builder-settings-tab-js,
+.fl-builder-global-settings #fl-builder-settings-tab-css,
+.fl-builder-global-settings #fl-builder-settings-tab-js,
+.fl-builder-html-settings #fl-builder-settings-tab-general {
+	width: 560px;
+}
+.fl-builder-layout-settings #fl-builder-settings-section-css,
+.fl-builder-layout-settings #fl-builder-settings-section-js,
+.fl-builder-global-settings #fl-builder-settings-section-css,
+.fl-builder-global-settings #fl-builder-settings-section-js,
+.fl-builder-html-settings #fl-builder-settings-section-general {
+	margin-bottom: 0;
+}
+.fl-builder-layout-settings #fl-builder-settings-tab-css td,
+.fl-builder-layout-settings #fl-builder-settings-tab-js td,
+.fl-builder-global-settings #fl-builder-settings-tab-css td,
+.fl-builder-global-settings #fl-builder-settings-tab-js td,
+.fl-builder-html-settings #fl-builder-settings-section-general td {
+	padding: 0;
 }
 
 /* Layout Fields */
@@ -1802,4 +1838,19 @@ body > .fl-builder-tour-dimmed {
 	display: block;
 	float: none;
 	width: 100%;
+}
+
+/* Shortcodes
+------------------------------------------------------ */
+
+.fl-builder-shortcode-mask-wrap {
+	position: relative;
+}
+.fl-builder-shortcode-mask {
+	bottom: -1px;
+	left: -1px;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+	z-index: 1;
 }

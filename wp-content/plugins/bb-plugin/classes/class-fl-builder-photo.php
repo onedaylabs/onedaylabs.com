@@ -21,6 +21,11 @@ final class FLBuilderPhoto {
 		$sizes = array();
 
 		foreach(get_intermediate_image_sizes() as $size) {
+			
+			// Hidden size added in 4.4 for responsive images. We don't need it.
+			if ( 'medium_large' == $size ) {
+				continue;
+			}
 
 			$sizes[$size] = array(0, 0);
 

@@ -10,7 +10,7 @@
 	<!-- Freddie Logo -->
 	<img src="<?php echo YIKES_MC_URL . 'includes/images/MailChimp_Assets/Freddie_60px.png'; ?>" alt="<?php _e( 'Freddie - MailChimp Mascot' , 'yikes-inc-easy-mailchimp-extender' ); ?>" class="yikes-mc-freddie-logo" />
 		
-	<h2>YIKES Easy Forms for MailChimp | <?php echo __( 'Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?> &nbsp; <a href="https://yikesplugins.com/plugins/?plugins=MailChimp" target="_blank" class="button-primary coming-soon-button" title="<?php _e( 'View All Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?>"><?php _e( 'View All Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?> <span class="dashicons dashicons-external"></span></a></h2>				
+	<h1>YIKES Easy Forms for MailChimp | <?php echo __( 'Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?> &nbsp; <a href="https://yikesplugins.com/plugins/?plugins=MailChimp" target="_blank" class="button-primary coming-soon-button" title="<?php _e( 'View All Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?>"><?php _e( 'View All Add-Ons' , 'yikes-inc-easy-mailchimp-extender' ); ?> <span class="dashicons dashicons-external"></span></a></h1>				
 		
 	<!-- Addons Page Description -->
 	<p class="yikes-easy-mc-about-text about-text"><?php _e( "Below you'll find a list of add-ons available for YIKES Easy Forms for MailChimp. Each add-on extends the base functionality of the free plugin." , 'yikes-inc-easy-mailchimp-extender' ); ?></p>
@@ -35,7 +35,7 @@
 			$feed->set_cache_class( 'WP_Feed_Cache' );
 			/* Tell SimplePie to use the WordPress class for retrieving feed files */
 			$feed->set_file_class( 'WP_SimplePie_File' );
-			$feed->enable_cache( false ); // temporary
+			$feed->enable_cache( true ); // temporary
 			/* Tell SimplePie how long to cache the feed data in the WordPress database */
 			$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 43200, $feed_url ) );
 			/* Run any other functions or filters that WordPress normally runs on feeds */
@@ -69,7 +69,7 @@
 					<div class="type-download">
 
 						<div class="featured-img">
-							<a href="<?php echo $permalink; ?>" title="<?php _e( 'Add-on Title' , 'yikes-inc-easy-mailchimp-extender' ); ?>" target="_blank">
+							<a href="<?php echo $permalink; ?>" title="<?php echo $add_on_title; ?>" target="_blank">
 								<?php echo $image; ?>
 							</a>		
 						</div>

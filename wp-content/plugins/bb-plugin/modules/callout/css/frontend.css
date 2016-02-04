@@ -86,8 +86,7 @@ body h6.fl-callout-title {
 }
 .fl-callout-icon-right .fl-icon,
 .fl-callout-icon-right-text .fl-icon {
-	display: inline;
-	float: right;
+	vertical-align: top;
 	padding-left: 15px;
 }
 .fl-callout-icon-left .fl-callout-content,

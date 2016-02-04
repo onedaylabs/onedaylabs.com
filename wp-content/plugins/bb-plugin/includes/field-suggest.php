@@ -1,7 +1,11 @@
 <?php
 
-$action = isset($field['action']) ? $field['action'] : '';
-$data   = isset($field['data']) ? $field['data'] : '';
+$class 			= isset( $field['class'] ) ? ' ' . $field['class'] : '';
+$action 		= isset( $field['action'] ) ? $field['action'] : '';
+$data   		= isset( $field['data'] ) ? $field['data'] : '';
+$placeholder 	= isset( $field['placeholder'] ) ? esc_attr( $field['placeholder'] ) : esc_attr( 'Start typing...', 'fl-builder' );
+$limit 			= isset( $field['limit'] ) ? $field['limit'] : 'false';
+$value  		= FLBuilderAutoSuggest::get_value( $action, $value, $data );
 
 ?>
-<input type="text" name="<?php echo $name; ?>" data-value='<?php echo FLBuilderAutoSuggest::get_value($action, $value, $data); ?>' data-action="<?php echo $action; ?>" data-action-data="<?php echo $data; ?>" class="text text-full fl-suggest-field<?php if(isset($field['class'])) echo ' '. $field['class']; ?>" placeholder="<?php if ( isset( $field['placeholder'] ) ) echo esc_attr( $field['placeholder'] ); else esc_attr_e( 'Start typing...', 'fl-builder' ); ?>" />
+<input type="text" class="text text-full fl-suggest-field<?php echo $class; ?>" name="<?php echo $name; ?>" data-value='<?php echo $value; ?>' data-action="<?php echo $action; ?>" data-action-data="<?php echo $data; ?>" data-limit="<?php echo $limit; ?>" placeholder="<?php echo $placeholder; ?>" />

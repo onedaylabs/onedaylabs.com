@@ -53,7 +53,7 @@ msgstr "Skabeloner"
 #: classes/class-fl-builder-admin-settings.php:163
 #: includes/admin-settings-post-types.php:3
 msgid "Post Types"
-msgstr "Indlægstyper"
+msgstr "IndlÃ¦gstyper"
 
 #: classes/class-fl-builder-admin-settings.php:167
 #: modules/icon-group/icon-group.php:27
@@ -73,7 +73,7 @@ msgstr "Branding"
 
 #: classes/class-fl-builder-admin-settings.php:179
 msgid "Help Button"
-msgstr "Hjælpknap"
+msgstr "HjÃ¦lpknap"
 
 #: classes/class-fl-builder-admin-settings.php:183
 #: includes/admin-settings-cache.php:3
@@ -88,7 +88,7 @@ msgstr "Afinstaller"
 
 #: classes/class-fl-builder-admin-settings.php:439
 msgid "Error! You must have at least one icon set enabled."
-msgstr "Fejl! Du skal have mindst ét ikonsæt aktiveret."
+msgstr "Fejl! Du skal have mindst Ã©t ikonsÃ¦t aktiveret."
 
 #: classes/class-fl-builder-admin-settings.php:481
 msgid "Error! Could not unzip file."
@@ -96,7 +96,7 @@ msgstr "Fejl! Kunne ikke udpakke fil."
 
 #: classes/class-fl-builder-admin-settings.php:515
 msgid "Error! Please upload an icon set from either Icomoon or Fontello."
-msgstr "Fejl! Venligst overfør et ikonsæt fra enten Icomoon eller Fontello."
+msgstr "Fejl! Venligst overfÃ¸r et ikonsÃ¦t fra enten Icomoon eller Fontello."
 
 #: classes/class-fl-builder-admin-settings.php:620
 msgid "Error! Please enter an iframe for the video embed code."
@@ -104,7 +104,7 @@ msgstr "Fejl! Venligst indtast en iframe for videoens indlejringskode."
 
 #: classes/class-fl-builder-admin-settings.php:638
 msgid "Error! You must have at least one feature of the help button enabled."
-msgstr "Fejl! Du skal have mindst en af hjælpknappens features aktiveret."
+msgstr "Fejl! Du skal have mindst en af hjÃ¦lpknappens features aktiveret."
 
 #: classes/class-fl-builder-admin.php:45
 #, php-format
@@ -122,8 +122,8 @@ msgid ""
 "The <strong>Page Builder</strong> plugin requires WordPress version 3.5 or "
 "greater. Please update WordPress before activating the plugin."
 msgstr ""
-"<strong>Page Builder</strong>-pluginnet kræver WordPress version 3.5 eller "
-"senere. Venligst opgrader WordPress før du aktiverer pluginnet."
+"<strong>Page Builder</strong>-pluginnet krÃ¦ver WordPress version 3.5 eller "
+"senere. Venligst opgrader WordPress fÃ¸r du aktiverer pluginnet."
 
 #: classes/class-fl-builder-admin.php:112
 #, php-format
@@ -211,7 +211,7 @@ msgstr "Indholdssider"
 #: classes/class-fl-builder-photo.php:95 classes/class-fl-builder-photo.php:100
 msgctxt "Image size."
 msgid "Full Size"
-msgstr "Fuld størrelse"
+msgstr "Fuld stÃ¸rrelse"
 
 #: classes/class-fl-builder-photo.php:101
 msgctxt "Image size."
@@ -230,7 +230,7 @@ msgstr "Thumbnail"
 
 #: classes/class-fl-builder-service-activecampaign.php:69
 msgid "Error: You must provide an API URL."
-msgstr "Fejl: Du må angive en API URL."
+msgstr "Fejl: Du mÃ¥ angive en API URL."
 
 #: classes/class-fl-builder-service-activecampaign.php:73
 #: classes/class-fl-builder-service-campaign-monitor.php:55
@@ -241,11 +241,11 @@ msgstr "Fejl: Du må angive en API URL."
 #: classes/class-fl-builder-service-madmimi.php:73
 #: classes/class-fl-builder-service-mailchimp.php:67
 msgid "Error: You must provide an API key."
-msgstr "Fejl: Du må angive en API nøgle."
+msgstr "Fejl: Du mÃ¥ angive en API nÃ¸gle."
 
 #: classes/class-fl-builder-service-activecampaign.php:81
 msgid "Error: Please check your API URL and API key."
-msgstr "Fejl: Venligst kontroller din API URL og API nøgle."
+msgstr "Fejl: Venligst kontroller din API URL og API nÃ¸gle."
 
 #: classes/class-fl-builder-service-activecampaign.php:108
 msgid "API URL"
@@ -268,14 +268,14 @@ msgstr ""
 #: classes/class-fl-builder-service-madmimi.php:121
 #: classes/class-fl-builder-service-mailchimp.php:100
 msgid "API Key"
-msgstr "API nøgle"
+msgstr "API nÃ¸gle"
 
 #: classes/class-fl-builder-service-activecampaign.php:120
 msgid ""
 "Your API key can be found in your ActiveCampaign account under My Settings > "
 "API."
 msgstr ""
-"Du kan finde din API nøgle i din ActiveCampaign konto under Mine "
+"Du kan finde din API nÃ¸gle i din ActiveCampaign konto under Mine "
 "Indstillinger > API."
 
 #: classes/class-fl-builder-service-activecampaign.php:169
@@ -293,7 +293,7 @@ msgstr ""
 #: classes/class-fl-builder-services.php:288 includes/service-settings.php:21
 #: modules/woocommerce/woocommerce.php:60
 msgid "Choose..."
-msgstr "Vælg..."
+msgstr "VÃ¦lg..."
 
 #: classes/class-fl-builder-service-activecampaign.php:181
 #: classes/class-fl-builder-service-aweber.php:192
@@ -316,7 +316,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til ActiveCampaign. Kontoen er "
-"ikke længere forbundet."
+"ikke lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-activecampaign.php:239
 msgid "Error: Invalid API data."
@@ -348,11 +348,11 @@ msgid ""
 "There was an error subscribing to AWeber. The account is no longer connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til AWeber. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-aweber.php:242
 msgid "There was an error connecting to AWeber. Please try again."
-msgstr "Der opstod en fejl under tilslutningen til AWeber. Venligst prøv igen."
+msgstr "Der opstod en fejl under tilslutningen til AWeber. Venligst prÃ¸v igen."
 
 #: classes/class-fl-builder-service-aweber.php:247
 #, php-format
@@ -365,15 +365,15 @@ msgstr "Der opstod en fejl under abonneringsprocessen til AWeber. %s"
 #: classes/class-fl-builder-service-getresponse.php:132
 #: classes/class-fl-builder-service-hatchbuck.php:63
 msgid "Error: Please check your API key."
-msgstr "Fejl: Venligst kontroller din API nøgle."
+msgstr "Fejl: Venligst kontroller din API nÃ¸gle."
 
 #: classes/class-fl-builder-service-campaign-monitor.php:89
 msgid ""
 "Your API key can be found in your Campaign Monitor account under Account "
 "Settings > API Key."
 msgstr ""
-"Du kan finde din API nøgle i din Campaign Monitor konto under Konto "
-"Indstillinger > API nøgle"
+"Du kan finde din API nÃ¸gle i din Campaign Monitor konto under Konto "
+"Indstillinger > API nÃ¸gle"
 
 #: classes/class-fl-builder-service-campaign-monitor.php:158
 msgctxt "A client account in Campaign Monitor."
@@ -386,7 +386,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til Campaign Monitor. Kontoen "
-"er ikke længere forbundet."
+"er ikke lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-campaign-monitor.php:253
 msgid "There was an error subscribing to Campaign Monitor."
@@ -404,7 +404,7 @@ msgstr "Fejl: Kunne ikke forbinde til Constant Contact. %s"
 
 #: classes/class-fl-builder-service-constant-contact.php:89
 msgid "Your Constant Contact API key."
-msgstr "Din Constant Contact API nøgle."
+msgstr "Din Constant Contact API nÃ¸gle."
 
 #: classes/class-fl-builder-service-constant-contact.php:99
 msgid "Access Token"
@@ -422,7 +422,7 @@ msgid ""
 "for complete instructions."
 msgstr ""
 "Du skal registrere en <a%s>Developerkonto</a> hos Constant Contact for at "
-"modtage en API nøgle og adgangstoken. Venligst se <a%s>Få en API nøgle</a> "
+"modtage en API nÃ¸gle og adgangstoken. Venligst se <a%s>FÃ¥ en API nÃ¸gle</a> "
 "for fulde instruktioner."
 
 #: classes/class-fl-builder-service-constant-contact.php:193
@@ -431,7 +431,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til Constant Contact. Kontoen "
-"er ikke længere forbundet."
+"er ikke lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-constant-contact.php:245
 #: classes/class-fl-builder-service-constant-contact.php:279
@@ -453,7 +453,7 @@ msgstr "E-mailadresse"
 #: classes/class-fl-builder-service-email-address.php:110
 msgid "There was an error subscribing. The account is no longer connected."
 msgstr ""
-"Der opstod en fejl under abonneringsprocessen. Kontoen er ikke længere "
+"Der opstod en fejl under abonneringsprocessen. Kontoen er ikke lÃ¦ngere "
 "forbundet."
 
 #: classes/class-fl-builder-service-email-address.php:114
@@ -472,14 +472,14 @@ msgstr "Navn"
 #: classes/class-fl-builder-service-email-address.php:124
 #: modules/subscribe-form/subscribe-form.php:73
 msgid "There was an error subscribing. Please try again."
-msgstr "Der opstod en fejl under tilslutningen. Venligst prøv igen."
+msgstr "Der opstod en fejl under tilslutningen. Venligst prÃ¸v igen."
 
 #: classes/class-fl-builder-service-getresponse.php:101
 msgid ""
 "Your API key can be found in your GetResponse account under My Account > "
 "GetResponse API."
 msgstr ""
-"Du kan finde din API nøgle i din GetResponse konto under Mine Indstillinger "
+"Du kan finde din API nÃ¸gle i din GetResponse konto under Mine Indstillinger "
 "> API."
 
 #: classes/class-fl-builder-service-getresponse.php:191
@@ -488,7 +488,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til GetResponse. Kontoen er "
-"ikke længere forbundet."
+"ikke lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-getresponse.php:202
 #, php-format
@@ -500,7 +500,7 @@ msgid ""
 "Your API key can be found in your Hatchbuck account under Account Settings > "
 "Web API."
 msgstr ""
-"Du kan finde din API nøgle i din Hatchbuck konto under Konto Indstillinger > "
+"Du kan finde din API nÃ¸gle i din Hatchbuck konto under Konto Indstillinger > "
 "Web API."
 
 #: classes/class-fl-builder-service-hatchbuck.php:134
@@ -514,12 +514,12 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til Hatchbuck. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-hatchbuck.php:190
 msgid "There was an error subscribing to Hatchbuck. The API key is invalid."
 msgstr ""
-"Der opstod en fejl under abonneringsprocessen til Hatchbuck. API nøglen er "
+"Der opstod en fejl under abonneringsprocessen til Hatchbuck. API nÃ¸glen er "
 "ugyldig."
 
 #: classes/class-fl-builder-service-hatchbuck.php:200
@@ -585,7 +585,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til iContact. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-icontact.php:280
 #, php-format
@@ -607,8 +607,8 @@ msgid ""
 "URL for your account is myaccount.infusionsoft.com, your App ID would be "
 "<strong>myaccount</strong>."
 msgstr ""
-"Du kan finde dit App ID i URL’en for din konto. For eksempel, hvis URL’en "
-"for din konto er myaccount.infusionsoft.com, ville dit App ID være "
+"Du kan finde dit App ID i URLâ€™en for din konto. For eksempel, hvis URLâ€™en "
+"for din konto er myaccount.infusionsoft.com, ville dit App ID vÃ¦re "
 "<strong>myaccount</strong>."
 
 #: classes/class-fl-builder-service-infusionsoft.php:130
@@ -616,8 +616,8 @@ msgid ""
 "Your API key can be found in your Infusionsoft account under Admin > "
 "Settings > Application > API > Encrypted Key."
 msgstr ""
-"Du kan finde din API nøgle i din Infusionsoft konto under Admin > "
-"Indstillinger > Applikation > API > Krypteret Nøgle"
+"Du kan finde din API nÃ¸gle i din Infusionsoft konto under Admin > "
+"Indstillinger > Applikation > API > Krypteret NÃ¸gle"
 
 #: classes/class-fl-builder-service-infusionsoft.php:242
 msgid ""
@@ -625,7 +625,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocessen til Infusionsoft. Kontoen er "
-"ikke længere forbundet."
+"ikke lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-infusionsoft.php:291
 #, php-format
@@ -646,7 +646,7 @@ msgid ""
 "Your API key can be found in your Mad Mimi account under Account > Settings "
 "&amp; Billing > API."
 msgstr ""
-"Du kan finde din API nøgle i din Mad Mimi konto under Konto > Indstillinger "
+"Du kan finde din API nÃ¸gle i din Mad Mimi konto under Konto > Indstillinger "
 "&amp; Billing > API."
 
 #: classes/class-fl-builder-service-madmimi.php:156
@@ -663,15 +663,15 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocesen til Mad Mimi. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-mailchimp.php:101
 msgid ""
 "Your API key can be found in your MailChimp account under Account > Extras > "
 "API Keys."
 msgstr ""
-"Du kan finde din API nøgle i din MailChimp konto under Konto > Ekstra > API "
-"nøgler."
+"Du kan finde din API nÃ¸gle i din MailChimp konto under Konto > Ekstra > API "
+"nÃ¸gler."
 
 #: classes/class-fl-builder-service-mailchimp.php:215
 msgid "No Group"
@@ -688,7 +688,7 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocesen til MailChimp. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-mailchimp.php:352
 #, php-format
@@ -706,13 +706,13 @@ msgstr ""
 
 #: classes/class-fl-builder-service-sendinblue.php:67
 msgid "Error: You must provide an Access Key."
-msgstr "Fejl: Du skal angive en adgangsnøgle."
+msgstr "Fejl: Du skal angive en adgangsnÃ¸gle."
 
 #: classes/class-fl-builder-service-sendinblue.php:76
 #: classes/class-fl-builder-service-sendinblue.php:136
 msgid "There was an error connecting to SendinBlue. Please try again."
 msgstr ""
-"Der opstod en fejl under tilslutningen til SendinBlue. Venligst prøv igen."
+"Der opstod en fejl under tilslutningen til SendinBlue. Venligst prÃ¸v igen."
 
 #: classes/class-fl-builder-service-sendinblue.php:79
 #: classes/class-fl-builder-service-sendinblue.php:139
@@ -722,15 +722,15 @@ msgstr "Fejl: Kunne ikke forbinde til SendinBlue. %s"
 
 #: classes/class-fl-builder-service-sendinblue.php:103
 msgid "Access Key"
-msgstr "Adgangsnøgle"
+msgstr "AdgangsnÃ¸gle"
 
 #: classes/class-fl-builder-service-sendinblue.php:104
 msgid ""
 "Your Access Key can be found in your SendinBlue account under API & "
 "Integration > Manager Your Keys > Version 2.0 > Access Key."
 msgstr ""
-"Du kan finde din adgangsnøgle i din SendinBlue konto under API & "
-"Intergration > Administrer Dine Nøgler > Version 2.0 > Adgangsnøgle."
+"Du kan finde din adgangsnÃ¸gle i din SendinBlue konto under API & "
+"Intergration > Administrer Dine NÃ¸gler > Version 2.0 > AdgangsnÃ¸gle."
 
 #: classes/class-fl-builder-service-sendinblue.php:198
 msgid ""
@@ -738,12 +738,12 @@ msgid ""
 "connected."
 msgstr ""
 "Der opstod en fejl under abonneringsprocesen til SendinBlue. Kontoen er ikke "
-"længere forbundet."
+"lÃ¦ngere forbundet."
 
 #: classes/class-fl-builder-service-sendinblue.php:220
 msgid "There was an error subscribing to SendinBlue. Please try again."
 msgstr ""
-"Der opstod en fejl under abonneringsprocessen til SendinBlue. Venligst prøv "
+"Der opstod en fejl under abonneringsprocessen til SendinBlue. Venligst prÃ¸v "
 "igen."
 
 #: classes/class-fl-builder-service-sendinblue.php:223
@@ -780,7 +780,7 @@ msgid ""
 "Used to identify this connection within the accounts list and can be "
 "anything you like."
 msgstr ""
-"Bruges til at identificere denne forbindelse på kontolisten og kan være lige "
+"Bruges til at identificere denne forbindelse pÃ¥ kontolisten og kan vÃ¦re lige "
 "hvad du vil have."
 
 #: classes/class-fl-builder-services.php:267
@@ -789,7 +789,7 @@ msgstr "Forbind"
 
 #: classes/class-fl-builder-services.php:295
 msgid "Add Account..."
-msgstr "Tilføj konto…"
+msgstr "TilfÃ¸j kontoâ€¦"
 
 #: classes/class-fl-builder-services.php:302
 msgid "Account"
@@ -801,7 +801,7 @@ msgstr "Page Builder-skabeloner"
 
 #: classes/class-fl-builder-templates-override.php:49
 msgid "Error! Please enter a number for the site ID."
-msgstr "Fejl! Venligst indtast et nummer for websted ID’et"
+msgstr "Fejl! Venligst indtast et nummer for websted IDâ€™et"
 
 #: classes/class-fl-builder-templates-override.php:53
 msgid "Error! A site with that ID doesn't exist."
@@ -818,20 +818,20 @@ msgstr "Opgrader!"
 
 #: classes/class-fl-builder.php:656
 msgid "Buy Now!"
-msgstr "Køb nu!"
+msgstr "KÃ¸b nu!"
 
 #: classes/class-fl-builder.php:660 includes/ui-js-config.php:36
 #: includes/ui-js-templates.php:100
 msgid "Done"
-msgstr "Færdig"
+msgstr "FÃ¦rdig"
 
 #: classes/class-fl-builder.php:664
 msgid "Tools"
-msgstr "Værktøjer"
+msgstr "VÃ¦rktÃ¸jer"
 
 #: classes/class-fl-builder.php:672 includes/ui-js-config.php:88
 msgid "Add Content"
-msgstr "Tilføj indhold"
+msgstr "TilfÃ¸j indhold"
 
 #: classes/class-fl-builder.php:1032
 #, php-format
@@ -852,12 +852,12 @@ msgstr "Skabelon"
 #: classes/class-fl-builder.php:1130
 msgctxt "Custom post type label."
 msgid "Add New"
-msgstr "Tilføj ny"
+msgstr "TilfÃ¸j ny"
 
 #: classes/class-fl-builder.php:1131
 msgctxt "Custom post type label."
 msgid "Add New Template"
-msgstr "Tilføj ny skabelon"
+msgstr "TilfÃ¸j ny skabelon"
 
 #: classes/class-fl-builder.php:1132
 msgctxt "Custom post type label."
@@ -882,12 +882,12 @@ msgstr "Alle skabeloner"
 #: classes/class-fl-builder.php:1136
 msgctxt "Custom post type label."
 msgid "Search Templates"
-msgstr "Søg i skabeloner"
+msgstr "SÃ¸g i skabeloner"
 
 #: classes/class-fl-builder.php:1137
 msgctxt "Custom post type label."
 msgid "Parent Templates:"
-msgstr "Forælderskabeloner:"
+msgstr "ForÃ¦lderskabeloner:"
 
 #: classes/class-fl-builder.php:1138
 msgctxt "Custom post type label."
@@ -912,7 +912,7 @@ msgstr "Kategori"
 #: classes/class-fl-builder.php:1155
 msgctxt "Custom taxonomy label."
 msgid "Search Categories"
-msgstr "Søg i kategorier"
+msgstr "SÃ¸g i kategorier"
 
 #: classes/class-fl-builder.php:1156
 msgctxt "Custom taxonomy label."
@@ -922,12 +922,12 @@ msgstr "Alle kategorier"
 #: classes/class-fl-builder.php:1157
 msgctxt "Custom taxonomy label."
 msgid "Parent Category"
-msgstr "Forælderkategorier"
+msgstr "ForÃ¦lderkategorier"
 
 #: classes/class-fl-builder.php:1158
 msgctxt "Custom taxonomy label."
 msgid "Parent Category:"
-msgstr "Forælderkategori:"
+msgstr "ForÃ¦lderkategori:"
 
 #: classes/class-fl-builder.php:1159
 msgctxt "Custom taxonomy label."
@@ -942,12 +942,12 @@ msgstr "Opdater kategori"
 #: classes/class-fl-builder.php:1161
 msgctxt "Custom taxonomy label."
 msgid "Add New Category"
-msgstr "Tilføj ny kategori"
+msgstr "TilfÃ¸j ny kategori"
 
 #: classes/class-fl-builder.php:1162
 msgctxt "Custom taxonomy label."
 msgid "New Category Name"
-msgstr "Tilføj kategorinavn"
+msgstr "TilfÃ¸j kategorinavn"
 
 #: classes/class-fl-builder.php:1172
 msgctxt "Custom taxonomy label."
@@ -978,7 +978,7 @@ msgctxt ""
 "The first %s stands for custom branded \"Page Builder\" name. The second %s "
 "stands for the post type name."
 msgid "%s is currently active for this %s."
-msgstr "%s er i øjeblikket aktiv for dette %s."
+msgstr "%s er i Ã¸jeblikket aktiv for dette %s."
 
 #: includes/admin-posts.php:8
 #, php-format
@@ -996,8 +996,8 @@ msgid ""
 "Additionally, you may also add a custom icon by entering the URL of an image "
 "below. Leave the field blank if you do not wish to use an icon."
 msgstr ""
-"Derudover kan du også tilføje et brugerdefineret ikon ved at indtaste URL’en "
-"af et billede nedenfor. Lad feltet forblive blankt, hvis du ikke ønsker at "
+"Derudover kan du ogsÃ¥ tilfÃ¸je et brugerdefineret ikon ved at indtaste URLâ€™en "
+"af et billede nedenfor. Lad feltet forblive blankt, hvis du ikke Ã¸nsker at "
 "bruge et ikon."
 
 #: includes/admin-settings-branding.php:14
@@ -1013,31 +1013,31 @@ msgid ""
 "button below."
 msgstr ""
 "En CSS og JavaScript fil er dynamisk genereret og cached hver gang, du "
-"opretter et nyt layout. Noglegange bliver cachen nødt til at blive "
-"opdateret, når du migrerer dit websted til en anden server eller opdaterer "
-"til den seneste version. Hvis der opstår problemer, venligst forsøg at rydde "
-"cachen ved at klikke på knappen nedenfor."
+"opretter et nyt layout. Noglegange bliver cachen nÃ¸dt til at blive "
+"opdateret, nÃ¥r du migrerer dit websted til en anden server eller opdaterer "
+"til den seneste version. Hvis der opstÃ¥r problemer, venligst forsÃ¸g at rydde "
+"cachen ved at klikke pÃ¥ knappen nedenfor."
 
 #: includes/admin-settings-cache.php:12 includes/admin-settings-cache.php:14
 #: includes/admin-settings-uninstall.php:7
 #: includes/admin-settings-uninstall.php:10
 #: includes/updater/includes/form.php:31
 msgid "NOTE:"
-msgstr "BEMÆRK:"
+msgstr "BEMÃ†RK:"
 
 #: includes/admin-settings-cache.php:12
 #: includes/admin-settings-uninstall.php:10
 #: includes/updater/includes/form.php:31
 msgid "This applies to all sites on the network."
-msgstr "Dette gælder for at websteder på netværket."
+msgstr "Dette gÃ¦lder for at websteder pÃ¥ netvÃ¦rket."
 
 #: includes/admin-settings-cache.php:14
 msgid ""
 "This only applies to this site. Please visit the Network Admin Settings to "
 "clear the cache for all sites on the network."
 msgstr ""
-"Dette gælder kun for dette websted: Venligst besøg Netværksadmin-"
-"indstillinger for at rydde alle websteder på netværket."
+"Dette gÃ¦lder kun for dette websted: Venligst besÃ¸g NetvÃ¦rksadmin-"
+"indstillinger for at rydde alle websteder pÃ¥ netvÃ¦rket."
 
 #: includes/admin-settings-cache.php:19
 msgid "Clear Cache"
@@ -1052,7 +1052,7 @@ msgstr "Rediger indstillinger"
 #: includes/admin-settings-post-types.php:10
 #: includes/admin-settings-templates.php:16
 msgid "Override network settings?"
-msgstr "Overskriv netværksindstillinger?"
+msgstr "Overskriv netvÃ¦rksindstillinger?"
 
 #: includes/admin-settings-editing.php:16
 msgid "Editing Capability"
@@ -1064,8 +1064,8 @@ msgid ""
 "Set the <a%s>capability</a> required for users to access advanced builder "
 "editing such as adding, deleting or moving modules."
 msgstr ""
-"Indstil <a%s>evne</a> som kræves for at brugere kan få adgang til avancerede "
-"byggerredigering som f.eks. at tilføje, slette eller flytte moduler."
+"Indstil <a%s>evne</a> som krÃ¦ves for at brugere kan fÃ¥ adgang til avancerede "
+"byggerredigering som f.eks. at tilfÃ¸je, slette eller flytte moduler."
 
 #: includes/admin-settings-editing.php:21
 msgid "Global Templates Editing Capability"
@@ -1074,7 +1074,7 @@ msgstr "Globale skabelonredigeringsevne"
 #: includes/admin-settings-editing.php:22
 #, php-format
 msgid "Set the <a%s>capability</a> required for users to global templates."
-msgstr "Indstil <a%s>capability</a> krævet for brugere til globale skabeloner."
+msgstr "Indstil <a%s>capability</a> krÃ¦vet for brugere til globale skabeloner."
 
 #: includes/admin-settings-editing.php:28
 msgid "Save Editing Settings"
@@ -1082,31 +1082,31 @@ msgstr "Gem redigeringsindstillinger"
 
 #: includes/admin-settings-help-button.php:8
 msgid "Help Button Settings"
-msgstr "Hjælpknap-indstillinger"
+msgstr "HjÃ¦lpknap-indstillinger"
 
 #: includes/admin-settings-help-button.php:17
 msgid "Enable Help Button"
-msgstr "Aktiver hjælpknap"
+msgstr "Aktiver hjÃ¦lpknap"
 
 #: includes/admin-settings-help-button.php:23
 msgid "Help Tour"
-msgstr "Hjælptour"
+msgstr "HjÃ¦lptour"
 
 #: includes/admin-settings-help-button.php:27
 msgid "Enable Help Tour"
-msgstr "Aktiver hjælptour"
+msgstr "Aktiver hjÃ¦lptour"
 
 #: includes/admin-settings-help-button.php:31
 msgid "Help Video"
-msgstr "Hjælpvideo"
+msgstr "HjÃ¦lpvideo"
 
 #: includes/admin-settings-help-button.php:35
 msgid "Enable Help Video"
-msgstr "Aktiver hjælpvideo"
+msgstr "Aktiver hjÃ¦lpvideo"
 
 #: includes/admin-settings-help-button.php:39
 msgid "Help Video Embed Code"
-msgstr "Hjælpvideo indlejringskode"
+msgstr "HjÃ¦lpvideo indlejringskode"
 
 #: includes/admin-settings-help-button.php:45
 msgid "Knowledge Base"
@@ -1134,7 +1134,7 @@ msgstr "Forummer URL"
 
 #: includes/admin-settings-help-button.php:77
 msgid "Save Help Button Settings"
-msgstr "Gem hjælpknap-indstillinger"
+msgstr "Gem hjÃ¦lpknap-indstillinger"
 
 #: includes/admin-settings-icons.php:3
 msgid "Icon Settings"
@@ -1142,7 +1142,7 @@ msgstr "Ikonindstillinger"
 
 #: includes/admin-settings-icons.php:13
 msgid "Icons for the main site must be managed in the network admin."
-msgstr "Ikoner for hovedsiden skal adminstreres i netværksadminen."
+msgstr "Ikoner for hovedsiden skal adminstreres i netvÃ¦rksadminen."
 
 #: includes/admin-settings-icons.php:33
 #, php-format
@@ -1150,8 +1150,8 @@ msgid ""
 "Enable or disable icon sets using the options below or upload a custom icon "
 "set from either <a%s>Icomoon</a> or <a%s>Fontello</a>."
 msgstr ""
-"Aktiver eller deaktiver iconsæt ved hjælp af funktionerne nedenfor eller "
-"overfør et brugerdefineret ikonsæt fra enten %s>Icomoon</a> eller <a"
+"Aktiver eller deaktiver iconsÃ¦t ved hjÃ¦lp af funktionerne nedenfor eller "
+"overfÃ¸r et brugerdefineret ikonsÃ¦t fra enten %s>Icomoon</a> eller <a"
 "%s>Fontello</a>."
 
 #: includes/admin-settings-icons.php:48
@@ -1161,7 +1161,7 @@ msgstr "Slet"
 
 #: includes/admin-settings-icons.php:59
 msgid "Upload Icon Set"
-msgstr "Overfør ikonsæt"
+msgstr "OverfÃ¸r ikonsÃ¦t"
 
 #: includes/admin-settings-icons.php:60
 msgid "Save Icon Settings"
@@ -1169,14 +1169,14 @@ msgstr "Gem ikonindstillinger"
 
 #: includes/admin-settings-js-config.php:4
 msgid "Select File"
-msgstr "Vælg fil"
+msgstr "VÃ¦lg fil"
 
 #: includes/admin-settings-js-config.php:5
 msgid ""
 "Please type \"uninstall\" in the box below to confirm that you really want "
 "to uninstall the page builder and all of its data."
 msgstr ""
-"Venligst indtast “afinstaller” i boksen nedenfor for at bekræfte, at du vil "
+"Venligst indtast â€œafinstallerâ€ i boksen nedenfor for at bekrÃ¦fte, at du vil "
 "afinstallere sidebyggeren og alt dens data."
 
 #: includes/admin-settings-modules.php:3
@@ -1202,25 +1202,25 @@ msgid ""
 "Enter a comma separated list of the post types you would like the builder to "
 "work with."
 msgstr ""
-"Indtast en kommasepareret liste af indlægstyperne du ønsker, at sidebyggeren "
+"Indtast en kommasepareret liste af indlÃ¦gstyperne du Ã¸nsker, at sidebyggeren "
 "skal arbejde med"
 
 #: includes/admin-settings-post-types.php:19
 #: includes/admin-settings-post-types.php:39
 msgid "NOTE: Not all custom post types may be supported."
-msgstr "BEMÆRK: Ikke alle brugerdefinerede indlægstyper er understøttet"
+msgstr "BEMÃ†RK: Ikke alle brugerdefinerede indlÃ¦gstyper er understÃ¸ttet"
 
 #: includes/admin-settings-post-types.php:34
 msgid "Example: page, post, product"
-msgstr "Eksempel: side, indlæg, produkt"
+msgstr "Eksempel: side, indlÃ¦g, produkt"
 
 #: includes/admin-settings-post-types.php:38
 msgid "Select the post types you would like the builder to work with."
-msgstr "Vælg den indlægstype du ønsker, at sidebyggeren skal arbejde med."
+msgstr "VÃ¦lg den indlÃ¦gstype du Ã¸nsker, at sidebyggeren skal arbejde med."
 
 #: includes/admin-settings-post-types.php:70
 msgid "Save Post Types"
-msgstr "Gem indlægstyper"
+msgstr "Gem indlÃ¦gstyper"
 
 #: includes/admin-settings-templates-override.php:1
 #: includes/admin-settings-templates-override.php:12
@@ -1233,8 +1233,8 @@ msgid ""
 "builder templates. Leave this field blank if you do not wish to override "
 "core templates."
 msgstr ""
-"Indtast ID’et af et websted på netværket, hvis skabelon skulle overskrive "
-"kerne sidebygger skabeloner. Lad feltet forblive blankt, hvis du ikke ønsker "
+"Indtast IDâ€™et af et websted pÃ¥ netvÃ¦rket, hvis skabelon skulle overskrive "
+"kerne sidebygger skabeloner. Lad feltet forblive blankt, hvis du ikke Ã¸nsker "
 "at overskrive kerneskabeloner."
 
 #: includes/admin-settings-templates-override.php:8
@@ -1250,13 +1250,13 @@ msgid ""
 "the builder panel. A new section will be created for each row or module "
 "category that you have defined."
 msgstr ""
-"Du kan også vælge at vise dine række- og modulskabeloner som sektioner inden "
-"for sidebyggerpanelet. En ny sektion vil blive oprettet for hver række- "
+"Du kan ogsÃ¥ vÃ¦lge at vise dine rÃ¦kke- og modulskabeloner som sektioner inden "
+"for sidebyggerpanelet. En ny sektion vil blive oprettet for hver rÃ¦kke- "
 "eller modulkategori, du har defineret."
 
 #: includes/admin-settings-templates-override.php:21
 msgid "Show Row Templates?"
-msgstr "Vis rækkeskabeloner?"
+msgstr "Vis rÃ¦kkeskabeloner?"
 
 #: includes/admin-settings-templates-override.php:27
 msgid "Show Module Templates?"
@@ -1314,9 +1314,9 @@ msgid ""
 "all of the data associated with it. You can uninstall or deactivate the page "
 "builder from the plugins page instead if you do not wish to delete the data."
 msgstr ""
-"Ved at klikke på knappen nedenfor afinstalleres sidebygger-pluginnet og alt "
+"Ved at klikke pÃ¥ knappen nedenfor afinstalleres sidebygger-pluginnet og alt "
 "associeret data slettet. Du kan afinstallere eller deaktivere sidebyggeren "
-"fra plugin-siden i stedet, hvis du ikke ønsker at slette associeret data. "
+"fra plugin-siden i stedet, hvis du ikke Ã¸nsker at slette associeret data. "
 
 #: includes/admin-settings-uninstall.php:7
 msgid ""
@@ -1325,10 +1325,10 @@ msgid ""
 "you want to reinstall it later. If you do, the builder will rebuild all of "
 "its data using those meta values."
 msgstr ""
-"Sidebyggeren sletter ikke indlægsmeta <code>_fl_builder_data</code>, "
+"Sidebyggeren sletter ikke indlÃ¦gsmeta <code>_fl_builder_data</code>, "
 "<code>_fl_builder_draft</code> og <code>_fl_builder_enabled</code> i "
-"tilfælde af, at du ønsker at geninstallere det senere. Hvis du gør, vil "
-"sidebyggeren gendanne alt dens data ved hjælp af disse metaværdier."
+"tilfÃ¦lde af, at du Ã¸nsker at geninstallere det senere. Hvis du gÃ¸r, vil "
+"sidebyggeren gendanne alt dens data ved hjÃ¦lp af disse metavÃ¦rdier."
 
 #: includes/admin-settings-upgrade.php:5
 msgid ""
@@ -1336,7 +1336,7 @@ msgid ""
 "Upgrade today for access to premium features such as advanced modules, "
 "templates, support and more!"
 msgstr ""
-"Du kører i øjeblikket lite versionen af Beaver Builder pluginnet. Opgrader i "
+"Du kÃ¸rer i Ã¸jeblikket lite versionen af Beaver Builder pluginnet. Opgrader i "
 "dag for adgang til premium features som f.eks. avancerede moduler, "
 "skabeloner, support og mere!"
 
@@ -1346,7 +1346,7 @@ msgstr "Opgrader nu"
 
 #: includes/admin-settings-upgrade.php:9
 msgid "Learn More"
-msgstr "Lær mere"
+msgstr "LÃ¦r mere"
 
 #: includes/admin-templates-edit.php:3
 msgid "Edit Template"
@@ -1509,7 +1509,7 @@ msgstr "Slet"
 
 #: includes/admin-templates.php:40 includes/ui-js-config.php:32
 msgid "Do you really want to delete this template?"
-msgstr "Ønsker du virkelig at slette denne skabelon?"
+msgstr "Ã˜nsker du virkelig at slette denne skabelon?"
 
 #: includes/column-settings.php:4 includes/ui-js-templates.php:31
 #: includes/ui-js-templates.php:55
@@ -1667,10 +1667,10 @@ msgid ""
 "times as needed to fill the background horizontally and vertically. You can "
 "also specify the image to only repeat horizontally or vertically."
 msgstr ""
-"Gentag antyder hvordan billedet vises i baggrunden. Vælges ingen, vil "
-"billedet vises som overført. Flise/tile vil gentage billedet det antal "
-"gange, der er nødvendigt for at fylde baggrunden både vandret og lodret. Du "
-"kan også angive at billedet kun skal gentages vandret eller lodret."
+"Gentag antyder hvordan billedet vises i baggrunden. VÃ¦lges ingen, vil "
+"billedet vises som overfÃ¸rt. Flise/tile vil gentage billedet det antal "
+"gange, der er nÃ¸dvendigt for at fylde baggrunden bÃ¥de vandret og lodret. Du "
+"kan ogsÃ¥ angive at billedet kun skal gentages vandret eller lodret."
 
 #: includes/column-settings.php:142 includes/row-settings.php:182
 msgid "Left Top"
@@ -1686,15 +1686,15 @@ msgstr "Venstre bund"
 
 #: includes/column-settings.php:145 includes/row-settings.php:185
 msgid "Right Top"
-msgstr "Højre top"
+msgstr "HÃ¸jre top"
 
 #: includes/column-settings.php:146 includes/row-settings.php:186
 msgid "Right Center"
-msgstr "Højre midt"
+msgstr "HÃ¸jre midt"
 
 #: includes/column-settings.php:147 includes/row-settings.php:187
 msgid "Right Bottom"
-msgstr "Højre bund"
+msgstr "HÃ¸jre bund"
 
 #: includes/column-settings.php:148 includes/row-settings.php:188
 msgid "Center Top"
@@ -1716,11 +1716,11 @@ msgstr "Midt bund"
 
 #: includes/column-settings.php:152 includes/row-settings.php:192
 msgid "Position will tell the image where it should sit in the background."
-msgstr "Position fortæller, hvor billedet vil blive vist i baggrunden."
+msgstr "Position fortÃ¦ller, hvor billedet vil blive vist i baggrunden."
 
 #: includes/column-settings.php:159 includes/row-settings.php:199
 msgid "Attachment"
-msgstr "Vedhæftelse"
+msgstr "VedhÃ¦ftelse"
 
 #: includes/column-settings.php:162 includes/row-settings.php:202
 #: modules/post-grid/post-grid.php:78
@@ -1740,8 +1740,8 @@ msgid ""
 "the default setting. Fixed will allow the image to scroll within the "
 "background if fill is selected in the scale setting."
 msgstr ""
-"Vedhæftelse angiver, hvordan billedet reagerer, når man scroller på siden. "
-"Når scrolling er valgt, vil billedet scrolle, når siden scrolles. Dette er "
+"VedhÃ¦ftelse angiver, hvordan billedet reagerer, nÃ¥r man scroller pÃ¥ siden. "
+"NÃ¥r scrolling er valgt, vil billedet scrolle, nÃ¥r siden scrolles. Dette er "
 "en standardindstilling. Fastgjort tillader billedet at scrolle inden for "
 "baggrunden hvis fyld ud er valgt i skalerindstillingen."
 
@@ -1767,7 +1767,7 @@ msgid ""
 "Scale applies to how the image should display in the background. You can "
 "select either fill or fit to the background."
 msgstr ""
-"Skaler antyder, hvordan billedet vises i baggrunden. Du kan vælge enten fyld "
+"Skaler antyder, hvordan billedet vises i baggrunden. Du kan vÃ¦lge enten fyld "
 "ud eller tilpas til baggrunden."
 
 #: includes/column-settings.php:187 includes/row-settings.php:366
@@ -1791,8 +1791,8 @@ msgid ""
 "The type of border to use. Double borders must have a width of at least 3px "
 "to render properly."
 msgstr ""
-"Hvilken type border skal bruges. Dobbeltborders skal have en brede på mindst "
-"3px for at blive udført korrekt."
+"Hvilken type border skal bruges. Dobbeltborders skal have en brede pÃ¥ mindst "
+"3px for at blive udfÃ¸rt korrekt."
 
 #: includes/column-settings.php:219 includes/row-settings.php:398
 msgctxt "Border type."
@@ -1837,7 +1837,7 @@ msgstr "Venstre brede"
 
 #: includes/column-settings.php:303 includes/row-settings.php:482
 msgid "Right Width"
-msgstr "Højre brede"
+msgstr "HÃ¸jre brede"
 
 #: includes/column-settings.php:318 includes/module-settings.php:6
 #: includes/row-settings.php:497 modules/content-slider/content-slider.php:274
@@ -1889,7 +1889,7 @@ msgstr "Venstre "
 #: modules/post-slider/post-slider.php:650
 #: modules/social-buttons/social-buttons.php:102
 msgid "Right"
-msgstr "Højre"
+msgstr "HÃ¸jre"
 
 #: includes/column-settings.php:374 includes/global-settings.php:49
 #: includes/row-settings.php:553 modules/button/button.php:242
@@ -1932,26 +1932,26 @@ msgstr "Kun medium enheder"
 #: includes/column-settings.php:437 includes/module-settings.php:72
 #: includes/row-settings.php:616
 msgid "Medium &amp; Small Devices Only"
-msgstr "Medium &amp; kun små enheder"
+msgstr "Medium &amp; kun smÃ¥ enheder"
 
 #: includes/column-settings.php:438 includes/module-settings.php:73
 #: includes/row-settings.php:617
 msgid "Small Devices Only"
-msgstr "Kun små enheder"
+msgstr "Kun smÃ¥ enheder"
 
 #: includes/column-settings.php:440
 msgid "Choose whether to show or hide this column at different device sizes."
 msgstr ""
-"Vælg hvorvidt denne kolonne skal vises eller skjules på forskellige "
-"enhedsstørrelser."
+"VÃ¦lg hvorvidt denne kolonne skal vises eller skjules pÃ¥ forskellige "
+"enhedsstÃ¸rrelser."
 
 #: includes/column-settings.php:447
 msgid "Medium Device Width"
-msgstr "Medium enhedsstørrelse"
+msgstr "Medium enhedsstÃ¸rrelse"
 
 #: includes/column-settings.php:448
 msgid "The width of this column on medium devices such as tablets."
-msgstr "Breden af denne kolonne på medium enheder som f.eks. tablets."
+msgstr "Breden af denne kolonne pÃ¥ medium enheder som f.eks. tablets."
 
 #: includes/column-settings.php:450 includes/column-settings.php:478
 #: modules/callout/callout.php:284
@@ -1981,7 +1981,7 @@ msgstr "Lille enhedsbrede"
 
 #: includes/column-settings.php:476
 msgid "The width of this column on small devices such as phones."
-msgstr "Breden af denne kolonne på små enheder som f.eks. telefoner."
+msgstr "Breden af denne kolonne pÃ¥ smÃ¥ enheder som f.eks. telefoner."
 
 #: includes/column-settings.php:492
 msgid "Custom Small Device Width"
@@ -2028,7 +2028,7 @@ msgstr "Rediger %s"
 
 #: includes/field-icon.php:2 includes/icon-selector.php:2
 msgid "Select Icon"
-msgstr "Vælg ikon"
+msgstr "VÃ¦lg ikon"
 
 #: includes/field-icon.php:5 includes/field-photo.php:13
 msgid "Replace"
@@ -2042,15 +2042,15 @@ msgstr "Fjern"
 
 #: includes/field-link.php:3
 msgid "Select"
-msgstr "Vælg"
+msgstr "VÃ¦lg"
 
 #: includes/field-link.php:5
 msgid "Enter a post title to search."
-msgstr "Indtast en indlægstitel for at søge."
+msgstr "Indtast en indlÃ¦gstitel for at sÃ¸ge."
 
 #: includes/field-link.php:6 includes/field-suggest.php:7
 msgid "Start typing..."
-msgstr "Begynd at skrive…"
+msgstr "Begynd at skriveâ€¦"
 
 #: includes/field-link.php:7 includes/icon-selector.php:28
 #: includes/settings.php:71 includes/template-selector.php:92
@@ -2075,15 +2075,15 @@ msgstr "Rediger galleri"
 
 #: includes/field-multiple-photos.php:24
 msgid "Add Photos"
-msgstr "Tilføj fotos"
+msgstr "TilfÃ¸j fotos"
 
 #: includes/field-photo.php:3 includes/ui-js-config.php:71
 msgid "Select Photo"
-msgstr "Vælg foto"
+msgstr "VÃ¦lg foto"
 
 #: includes/field-video.php:3 includes/ui-js-config.php:73
 msgid "Select Video"
-msgstr "Vælg video"
+msgstr "VÃ¦lg video"
 
 #: includes/field-video.php:17
 msgid "Replace Video"
@@ -2111,7 +2111,7 @@ msgstr "Generelt"
 
 #: includes/global-settings.php:8
 msgid "Note: These settings apply to all posts and pages."
-msgstr "Bemærk: Disse indstillinger gælder for alle indlæg og sider."
+msgstr "BemÃ¦rk: Disse indstillinger gÃ¦lder for alle indlÃ¦g og sider."
 
 #: includes/global-settings.php:11
 msgid "Default Page Heading"
@@ -2129,9 +2129,9 @@ msgid ""
 "You will also be required to enter some basic CSS for this to work if you "
 "choose no."
 msgstr ""
-"Ved at vælge nej skjules standard temaoverskriften for “Side” indlægstypen. "
-"Du vil også blive bedt om at indtaste noget grundlæggende CSS for at dette "
-"virker, hvis du vælger nej."
+"Ved at vÃ¦lge nej skjules standard temaoverskriften for â€œSideâ€ indlÃ¦gstypen. "
+"Du vil ogsÃ¥ blive bedt om at indtaste noget grundlÃ¦ggende CSS for at dette "
+"virker, hvis du vÃ¦lger nej."
 
 #: includes/global-settings.php:30
 msgid "CSS Selector"
@@ -2140,12 +2140,12 @@ msgstr "CSS selector"
 #: includes/global-settings.php:32
 msgid "Enter a CSS selector for the default page heading to hide it."
 msgstr ""
-"Indtast en CSS selecter for at få standard sideoverskriften til at skjule "
+"Indtast en CSS selecter for at fÃ¥ standard sideoverskriften til at skjule "
 "det."
 
 #: includes/global-settings.php:37
 msgid "Rows"
-msgstr "Rækker"
+msgstr "RÃ¦kker"
 
 #: includes/global-settings.php:57
 msgid "Max Width"
@@ -2156,12 +2156,12 @@ msgid ""
 "All rows will default to this width. You can override this and make a row "
 "full width in the settings for each row."
 msgstr ""
-"Alle rækker vil som standard have denne brede. Du kan overskrive dette og "
-"sætte en række til fuld brede i indstillingerne for hver række."
+"Alle rÃ¦kker vil som standard have denne brede. Du kan overskrive dette og "
+"sÃ¦tte en rÃ¦kke til fuld brede i indstillingerne for hver rÃ¦kke."
 
 #: includes/global-settings.php:66
 msgid "Default Row Width"
-msgstr "Standard rækkebrede"
+msgstr "Standard rÃ¦kkebrede"
 
 #: includes/global-settings.php:70 includes/global-settings.php:84
 #: includes/row-settings.php:20 includes/row-settings.php:38
@@ -2171,7 +2171,7 @@ msgstr "Fuld bredde"
 
 #: includes/global-settings.php:80
 msgid "Default Row Content Width"
-msgstr "Standard rækkeindholdsbrede"
+msgstr "Standard rÃ¦kkeindholdsbrede"
 
 #: includes/global-settings.php:107
 msgctxt ""
@@ -2194,8 +2194,8 @@ msgid ""
 "reached. Most users will want to leave this enabled."
 msgstr ""
 "Med automatisk spacing aktiveret, vil sidebyggeren automatisk justere "
-"margins og padding i dit layout, når brudpunktet for små enheder er nået. De "
-"fleste bruger vil ønske at lade dette forblive aktiveret."
+"margins og padding i dit layout, nÃ¥r brudpunktet for smÃ¥ enheder er nÃ¥et. De "
+"fleste bruger vil Ã¸nske at lade dette forblive aktiveret."
 
 #: includes/global-settings.php:131
 msgid "Medium Device Breakpoint"
@@ -2206,19 +2206,19 @@ msgid ""
 "The browser width at which the layout will adjust for medium devices such as "
 "tablets."
 msgstr ""
-"Browserens brede for hvornår layoutet vil justere til medium enheder som f."
+"Browserens brede for hvornÃ¥r layoutet vil justere til medium enheder som f."
 "eks. tablets."
 
 #: includes/global-settings.php:140
 msgid "Small Device Breakpoint"
-msgstr "Brudpunktet for små enheder"
+msgstr "Brudpunktet for smÃ¥ enheder"
 
 #: includes/global-settings.php:145
 msgid ""
 "The browser width at which the layout will adjust for small devices such as "
 "phones."
 msgstr ""
-"Browserens brede for hvornår layoutet vil justere til små enheder som f.eks. "
+"Browserens brede for hvornÃ¥r layoutet vil justere til smÃ¥ enheder som f.eks. "
 "telefoner."
 
 #: includes/icon-selector.php:5
@@ -2228,7 +2228,7 @@ msgstr "Alle biblioteker"
 
 #: includes/loop-settings.php:20
 msgid "Post Type"
-msgstr "Indlægstyper"
+msgstr "IndlÃ¦gstyper"
 
 #: includes/loop-settings.php:26
 msgid "Order By"
@@ -2242,7 +2242,7 @@ msgstr "Dato"
 
 #: includes/loop-settings.php:30
 msgid "Date Last Modified"
-msgstr "Sidst ændrede dato"
+msgstr "Sidst Ã¦ndrede dato"
 
 #: includes/loop-settings.php:31 modules/pricing-table/pricing-table.php:90
 #: modules/pricing-table/pricing-table.php:94
@@ -2264,7 +2264,7 @@ msgstr "Menusortering"
 
 #: includes/loop-settings.php:35
 msgid "Random"
-msgstr "Tilfældig"
+msgstr "TilfÃ¦ldig"
 
 #: includes/loop-settings.php:42
 msgid "Order"
@@ -2286,7 +2286,7 @@ msgstr "Offset"
 #: includes/loop-settings.php:55
 msgid "Skip this many posts that match the specified criteria."
 msgstr ""
-"Spring dette antal indlæg over, som matcher de specificerede kriterier. "
+"Spring dette antal indlÃ¦g over, som matcher de specificerede kriterier. "
 
 #: includes/loop-settings.php:62
 msgid "Filter"
@@ -2302,7 +2302,7 @@ msgstr "Indtast en kommasepareret liste af %s. Kun disse %s vil blive vist."
 msgid ""
 "Enter a comma separated list of %s. Only posts with these %s will be shown."
 msgstr ""
-"Indtast en kommasepareret liste af %s. Kun indlæg med disse %s vil blive "
+"Indtast en kommasepareret liste af %s. Kun indlÃ¦g med disse %s vil blive "
 "vist."
 
 #: includes/loop-settings.php:100
@@ -2314,14 +2314,14 @@ msgid ""
 "Enter a comma separated list of authors usernames. Only posts with these "
 "authors will be shown."
 msgstr ""
-"Indtast en kommasepareret liste af forfatteres brugernavne. Kun indlæg med "
+"Indtast en kommasepareret liste af forfatteres brugernavne. Kun indlÃ¦g med "
 "disse forfattere vil blive vist."
 
 #: includes/module-settings.php:75
 msgid "Choose whether to show or hide this module at different device sizes."
 msgstr ""
-"Vælg hvorvidt disse moduler skal vises eller skjules på forskellige "
-"enhedsstørrelser."
+"VÃ¦lg hvorvidt disse moduler skal vises eller skjules pÃ¥ forskellige "
+"enhedsstÃ¸rrelser."
 
 #: includes/module-settings.php:83
 msgid "Animation"
@@ -2345,7 +2345,7 @@ msgstr "Slide venstre"
 #: includes/module-settings.php:92
 msgctxt "Animation style."
 msgid "Slide Right"
-msgstr "Slide højre"
+msgstr "Slide hÃ¸jre"
 
 #: includes/module-settings.php:93
 msgctxt "Animation style."
@@ -2381,7 +2381,7 @@ msgstr "sekunder"
 
 #: includes/module-settings.php:107
 msgid "The amount of time in seconds before this animation starts."
-msgstr "Mængden af tid før animationen starter."
+msgstr "MÃ¦ngden af tid fÃ¸r animationen starter."
 
 #: includes/module-settings.php:120
 msgid ""
@@ -2427,12 +2427,12 @@ msgstr "Global"
 msgid ""
 "Global templates can be added to multiple pages and edited in one place."
 msgstr ""
-"Globale skabeloner kan tilføjes til flere sider og redigeret på ét sted."
+"Globale skabeloner kan tilfÃ¸jes til flere sider og redigeret pÃ¥ Ã©t sted."
 
 #: includes/row-settings.php:6 includes/ui-js-config.php:67
 #: includes/ui-js-templates.php:12
 msgid "Row Settings"
-msgstr "Rækkeindstillinger"
+msgstr "RÃ¦kkeindstillinger"
 
 #: includes/row-settings.php:16 modules/button/button.php:197
 #: modules/content-slider/content-slider.php:484
@@ -2444,8 +2444,8 @@ msgid ""
 "Full width rows span the width of the page from edge to edge. Fixed rows are "
 "no wider than the Row Max Width set in the Global Settings."
 msgstr ""
-"Fulde rækkebreder spænder over siden fra kant til kant. Fastgjorte rækker er "
-"ikke bredere end den maksimale rækkebrede indstillet i de globale "
+"Fulde rÃ¦kkebreder spÃ¦nder over siden fra kant til kant. Fastgjorte rÃ¦kker er "
+"ikke bredere end den maksimale rÃ¦kkebrede indstillet i de globale "
 "indstillinger"
 
 #: includes/row-settings.php:34
@@ -2457,8 +2457,8 @@ msgid ""
 "Full width content spans the width of the page from edge to edge. Fixed "
 "content is no wider than the Row Max Width set in the Global Settings."
 msgstr ""
-"Fulde indholdsbreder spænder over siden fra kant til kant. Fastgjort indhold "
-"er ikke bredere end den maksimale rækkebrede indstillet i globale "
+"Fulde indholdsbreder spÃ¦nder over siden fra kant til kant. Fastgjort indhold "
+"er ikke bredere end den maksimale rÃ¦kkebrede indstillet i globale "
 "indstillinger."
 
 #: includes/row-settings.php:48 modules/button/button.php:120
@@ -2510,7 +2510,7 @@ msgid ""
 "An HTML5 video to use as the background of this row. Supported types are "
 "MP4, WebM and Ogg."
 msgstr ""
-"En HTML5 video, som bruges som baggrund for denne række. Understøttede typer "
+"En HTML5 video, som bruges som baggrund for denne rÃ¦kke. UnderstÃ¸ttede typer "
 "er MP4, WebM og Ogg."
 
 #: includes/row-settings.php:239
@@ -2519,7 +2519,7 @@ msgstr "Fallback foto"
 
 #: includes/row-settings.php:240
 msgid "A photo that will be displayed if the video fails to load."
-msgstr "Et foto, som vil blive vist, hvis videoen ikke kan indlæses."
+msgstr "Et foto, som vil blive vist, hvis videoen ikke kan indlÃ¦ses."
 
 #: includes/row-settings.php:248
 msgid "Background Slideshow"
@@ -2543,9 +2543,9 @@ msgid ""
 "site by inserting the RSS feed URL from SmugMug. The RSS feed URL can be "
 "accessed by using the get a link function in your SmugMug gallery."
 msgstr ""
-"Hent billeder fra WordPress mediebiblioteket eller et galleri på dit SmugMug "
-"websted ved at indsætte RSS feed URL’en fra SmugMug. Adgang til RSS feed "
-"URL’en kan fås ved hjælp af modtag et link funktionen i dit SmugMug galleri."
+"Hent billeder fra WordPress mediebiblioteket eller et galleri pÃ¥ dit SmugMug "
+"websted ved at indsÃ¦tte RSS feed URLâ€™en fra SmugMug. Adgang til RSS feed "
+"URLâ€™en kan fÃ¥s ved hjÃ¦lp af modtag et link funktionen i dit SmugMug galleri."
 
 #: includes/row-settings.php:273 modules/gallery/gallery.php:259
 #: modules/slideshow/slideshow.php:289
@@ -2603,7 +2603,7 @@ msgstr "Bars"
 
 #: includes/row-settings.php:307 modules/slideshow/slideshow.php:407
 msgid "Random Bars"
-msgstr "Tilfældige bars"
+msgstr "TilfÃ¦ldige bars"
 
 #: includes/row-settings.php:308 modules/slideshow/slideshow.php:408
 msgid "Boxes"
@@ -2611,7 +2611,7 @@ msgstr "Bokse"
 
 #: includes/row-settings.php:309 modules/slideshow/slideshow.php:409
 msgid "Random Boxes"
-msgstr "Tilfældige bokse"
+msgstr "TilfÃ¦ldige bokse"
 
 #: includes/row-settings.php:310 modules/slideshow/slideshow.php:410
 msgid "Boxes Grow"
@@ -2626,7 +2626,7 @@ msgstr "Overgangshastighed"
 
 #: includes/row-settings.php:328 modules/slideshow/slideshow.php:422
 msgid "Randomize Photos"
-msgstr "Gør fotos tilfældige"
+msgstr "GÃ¸r fotos tilfÃ¦ldige"
 
 #: includes/row-settings.php:341
 msgid "Background Parallax"
@@ -2648,15 +2648,15 @@ msgstr "Langsom"
 #: includes/row-settings.php:619
 msgid "Choose whether to show or hide this row at different device sizes."
 msgstr ""
-"Vælg hvorvidt denne række skal vises eller skjules på forskellige "
-"enhedsstørrelser."
+"VÃ¦lg hvorvidt denne rÃ¦kke skal vises eller skjules pÃ¥ forskellige "
+"enhedsstÃ¸rrelser."
 
 #: includes/row-settings.php:632
 msgid ""
 "A unique ID that will be applied to this row's HTML. Must start with a "
 "letter and only contain dashes, underscores, letters or numbers. No spaces."
 msgstr ""
-"Et unikt ID, som vil anvendes til denne rækkes HTML. Skal starte med et "
+"Et unikt ID, som vil anvendes til denne rÃ¦kkes HTML. Skal starte med et "
 "bogstav og kan kun indeholde bindestreger, understregninger, bogstaver eller "
 "tal. Ingen mellemrum."
 
@@ -2666,7 +2666,7 @@ msgid ""
 "and only contain dashes, underscores, letters or numbers. Separate multiple "
 "classes with spaces."
 msgstr ""
-"En klasse, som vil anvendes til denne rækkes HTML. Skal starte med et "
+"En klasse, som vil anvendes til denne rÃ¦kkes HTML. Skal starte med et "
 "bogstav og kan kun indeholde bindestreger, understregninger, bogstaver eller "
 "tal. Adskil flere klasser med mellemrum."
 
@@ -2680,7 +2680,7 @@ msgstr "Gem"
 
 #: includes/settings.php:69
 msgid "Save As..."
-msgstr "Gem som…"
+msgstr "Gem somâ€¦"
 
 #: includes/template-selector.php:4
 msgid "Layout Templates"
@@ -2695,8 +2695,8 @@ msgid ""
 "You haven't saved any templates yet! To do so, create a layout and save it "
 "as a template under <strong>Tools &rarr; Save Template</strong>."
 msgstr ""
-"Du har ikke gemt nogle skabeloner endnu! For at gøre dette, skal du oprette "
-"et nyt layout og gemme det som en skabelon under <strong>Værktøjer &rarr; "
+"Du har ikke gemt nogle skabeloner endnu! For at gÃ¸re dette, skal du oprette "
+"et nyt layout og gemme det som en skabelon under <strong>VÃ¦rktÃ¸jer &rarr; "
 "Gem Skabeloner</strong>."
 
 #: includes/template-selector.php:58
@@ -2713,24 +2713,24 @@ msgid ""
 "The filename of the image such as \"thumb.jpg\" that resides in the \"img/"
 "templates/\" directory."
 msgstr ""
-"Billedets filnavn som f.eks. “thumb.jpg” som kan findes i mappen “billede/"
-"skabeloner/“"
+"Billedets filnavn som f.eks. â€œthumb.jpgâ€ som kan findes i mappen â€œbillede/"
+"skabeloner/â€œ"
 
 #: includes/ui-js-config.php:21
 msgid "What would you like to do?"
-msgstr "Hvad ønsker du at gøre"
+msgstr "Hvad Ã¸nsker du at gÃ¸re"
 
 #: includes/ui-js-config.php:23
 msgid "Change Template"
-msgstr "Ændre skabelon"
+msgstr "Ã†ndre skabelon"
 
 #: includes/ui-js-config.php:24
 msgid ""
 "Warning! Changing the template will replace your existing layout. Do you "
 "really want to do this?"
 msgstr ""
-"Advarsel! Ved at ændre skabeloner erstatter du det eksisterende layout. "
-"Ønsker du stadig at gøre dette?"
+"Advarsel! Ved at Ã¦ndre skabeloner erstatter du det eksisterende layout. "
+"Ã˜nsker du stadig at gÃ¸re dette?"
 
 #: includes/ui-js-config.php:25 includes/ui-js-templates.php:29
 msgid "Column"
@@ -2740,7 +2740,7 @@ msgstr "Kolonne"
 msgid ""
 "Please select either a background layout or content layout before submitting."
 msgstr ""
-"Venligst vælg enten et baggrundslayout eller et indholdslayout før "
+"Venligst vÃ¦lg enten et baggrundslayout eller et indholdslayout fÃ¸r "
 "indsendelse."
 
 #: includes/ui-js-config.php:27
@@ -2752,19 +2752,19 @@ msgid ""
 "Are you sure you want to remove this account? Other modules that are "
 "connected to it will be affected."
 msgstr ""
-"Er du sikker på, at du ønsker at fjerne denne konto. Andre moduler, som er "
-"forbundet til kontoen, vil blive påvirket."
+"Er du sikker pÃ¥, at du Ã¸nsker at fjerne denne konto. Andre moduler, som er "
+"forbundet til kontoen, vil blive pÃ¥virket."
 
 #: includes/ui-js-config.php:29
 msgid "Do you really want to delete this item?"
-msgstr "Ønsker du virkelig at slette dette element?"
+msgstr "Ã˜nsker du virkelig at slette dette element?"
 
 #: includes/ui-js-config.php:30
 msgid ""
 "Do you really want to delete this module? All content data will be "
 "permanently deleted."
 msgstr ""
-"Ønsker du virkelig at slette dette modul? Alt dataindhold vil blive slettet "
+"Ã˜nsker du virkelig at slette dette modul? Alt dataindhold vil blive slettet "
 "permanent."
 
 #: includes/ui-js-config.php:31
@@ -2772,7 +2772,7 @@ msgid ""
 "Do you really want to delete this row? All content data will be permanently "
 "deleted."
 msgstr ""
-"Ønsker du virkelig at slette denne række? Alt dataindhold vil blive slettet "
+"Ã˜nsker du virkelig at slette denne rÃ¦kke? Alt dataindhold vil blive slettet "
 "permanent."
 
 #: includes/ui-js-config.php:33
@@ -2780,20 +2780,20 @@ msgid ""
 "WARNING! You are about to delete a global template that may be linked to "
 "other pages. Do you really want to delete this template and unlink it?"
 msgstr ""
-"ADVARSEL! Du er ved at slette en global skabelon, som kan være forbundet til "
-"andre sider. Ønsker du virkelig at slette denne skabelon og fjerne linket?"
+"ADVARSEL! Du er ved at slette en global skabelon, som kan vÃ¦re forbundet til "
+"andre sider. Ã˜nsker du virkelig at slette denne skabelon og fjerne linket?"
 
 #: includes/ui-js-config.php:34
 msgid "Discard Changes"
-msgstr "Kassér ændringer"
+msgstr "KassÃ©r Ã¦ndringer"
 
 #: includes/ui-js-config.php:35
 msgid ""
 "Do you really want to discard these changes? All of your changes that are "
 "not published will be lost."
 msgstr ""
-"Ønsker du virkelig at kassére disse ændringer? Alle dine ændringer, som ikke "
-"er offentliggjorte, vil gå tabt."
+"Ã˜nsker du virkelig at kassÃ©re disse Ã¦ndringer? Alle dine Ã¦ndringer, som ikke "
+"er offentliggjorte, vil gÃ¥ tabt."
 
 #: includes/ui-js-config.php:37
 msgid "Save Draft"
@@ -2818,7 +2818,7 @@ msgstr "Rediger globale indstillinger"
 
 #: includes/ui-js-config.php:42
 msgid "Drop a row layout or module to get started!"
-msgstr "Træk en række eller et modul ned for at starte!"
+msgstr "TrÃ¦k en rÃ¦kke eller et modul ned for at starte!"
 
 #: includes/ui-js-config.php:43
 msgid ""
@@ -2827,27 +2827,27 @@ msgid ""
 "us by disabling all plugins and testing Beaver Builder while reactivating "
 "each to determine if the issue is related to a third party plugin."
 msgstr ""
-"Beaver Builder opdagede følgende JavaScript error. Hvis Beaver Builder ikke "
-"fungerer som forventet, er denne fejl formentlig årsagen. Venligst hjælp os "
+"Beaver Builder opdagede fÃ¸lgende JavaScript error. Hvis Beaver Builder ikke "
+"fungerer som forventet, er denne fejl formentlig Ã¥rsagen. Venligst hjÃ¦lp os "
 "ved at deaktivere alle plugins og test Beaver Builder samtidig med at du "
-"genaktiverer hvert plugin for at afgøre, om problemet er relateret til et "
+"genaktiverer hvert plugin for at afgÃ¸re, om problemet er relateret til et "
 "tredjeparts plugin."
 
 #: includes/ui-js-config.php:44
 msgid "Full Size"
-msgstr "Fuld størrelse"
+msgstr "Fuld stÃ¸rrelse"
 
 #: includes/ui-js-config.php:45
 msgid "Get Help"
-msgstr "Få hjælp"
+msgstr "FÃ¥ hjÃ¦lp"
 
 #: includes/ui-js-config.php:46
 msgid "\"{message}\" on line {line} of {file}."
-msgstr "\"{message}”på linje {line} af {file}."
+msgstr "\"{message}â€pÃ¥ linje {line} af {file}."
 
 #: includes/ui-js-config.php:47
 msgid "Insert"
-msgstr "Indsæt"
+msgstr "IndsÃ¦t"
 
 #: includes/ui-js-config.php:48
 msgid "Large"
@@ -2855,7 +2855,7 @@ msgstr "Stor"
 
 #: includes/ui-js-config.php:49
 msgid "Manage Templates"
-msgstr "Håndter skabeloner"
+msgstr "HÃ¥ndter skabeloner"
 
 #: includes/ui-js-config.php:50
 msgid "Medium"
@@ -2880,7 +2880,7 @@ msgstr "Ny kolonne"
 
 #: includes/ui-js-config.php:55
 msgid "New Row"
-msgstr "Ny række"
+msgstr "Ny rÃ¦kke"
 
 #: includes/ui-js-config.php:56
 msgid "No results found."
@@ -2888,7 +2888,7 @@ msgstr "Ingen resultater fundet."
 
 #: includes/ui-js-config.php:57 includes/ui-panel-node-templates.php:11
 msgid "No saved rows found."
-msgstr "Ingen gemte rækker fundet."
+msgstr "Ingen gemte rÃ¦kker fundet."
 
 #: includes/ui-js-config.php:58 includes/ui-panel-node-templates.php:42
 msgid "No saved modules found."
@@ -2916,15 +2916,15 @@ msgstr "Vent venligst..."
 
 #: includes/ui-js-config.php:64
 msgid "Publish Changes"
-msgstr "Offentligør ændringer"
+msgstr "OffentligÃ¸r Ã¦ndringer"
 
 #: includes/ui-js-config.php:66 includes/ui-js-templates.php:5
 msgid "Row"
-msgstr "Række"
+msgstr "RÃ¦kke"
 
 #: includes/ui-js-config.php:68
 msgid "Row Template Saved!"
-msgstr "Rækkeskabelon gemt!"
+msgstr "RÃ¦kkeskabelon gemt!"
 
 #: includes/ui-js-config.php:69
 msgid "Save Core Template"
@@ -2936,19 +2936,19 @@ msgstr "Gem skabelon"
 
 #: includes/ui-js-config.php:72
 msgid "Select Photos"
-msgstr "Vælg fotos"
+msgstr "VÃ¦lg fotos"
 
 #: includes/ui-js-config.php:74
 msgid "Please select an account before saving."
-msgstr "Venligst vælg en konto før du gemmer."
+msgstr "Venligst vÃ¦lg en konto fÃ¸r du gemmer."
 
 #: includes/ui-js-config.php:75
 msgid "Please connect an account before saving."
-msgstr "Venligst forbind til en konto før du gemmer."
+msgstr "Venligst forbind til en konto fÃ¸r du gemmer."
 
 #: includes/ui-js-config.php:76
 msgid "Please select a list before saving."
-msgstr "Venligst vælg en liste før du gemmer."
+msgstr "Venligst vÃ¦lg en liste fÃ¸r du gemmer."
 
 #: includes/ui-js-config.php:77
 msgid "Take a Tour"
@@ -2956,7 +2956,7 @@ msgstr "Tag en rundtur"
 
 #: includes/ui-js-config.php:78
 msgid "Append New Layout"
-msgstr "Tilføj nyt layout"
+msgstr "TilfÃ¸j nyt layout"
 
 #: includes/ui-js-config.php:79
 msgid "Replace Existing Layout"
@@ -2972,7 +2972,7 @@ msgstr "Thumbnail"
 
 #: includes/ui-js-config.php:82
 msgid "Next"
-msgstr "Næste"
+msgstr "NÃ¦ste"
 
 #: includes/ui-js-config.php:83
 msgid "Get Started"
@@ -2980,35 +2980,35 @@ msgstr "Begynd"
 
 #: includes/ui-js-config.php:84
 msgid "Choose a Template"
-msgstr "Vælg en skabelon"
+msgstr "VÃ¦lg en skabelon"
 
 #: includes/ui-js-config.php:85
 msgid ""
 "Get started by choosing a layout template to customize, or build a page from "
 "scratch by selecting the blank layout template."
 msgstr ""
-"Begynd ved at vælge en layoutskabelon du ønsker at ændre eller skab en side "
-"fra bunden ved at vælge en blank layoutskabelon."
+"Begynd ved at vÃ¦lge en layoutskabelon du Ã¸nsker at Ã¦ndre eller skab en side "
+"fra bunden ved at vÃ¦lge en blank layoutskabelon."
 
 #: includes/ui-js-config.php:86
 msgid "Add Rows"
-msgstr "Tilføj rækker"
+msgstr "TilfÃ¸j rÃ¦kker"
 
 #: includes/ui-js-config.php:87
 msgid ""
 "Add multi-column rows, adjust spacing, add backgrounds and more by dragging "
 "and dropping row layouts onto the page."
 msgstr ""
-"Tilføj multi-kolonne rækker, tilpas spacing, tilføj baggrunde og mere ved at "
-"trække og slippe rækkelayouts på siden. "
+"TilfÃ¸j multi-kolonne rÃ¦kker, tilpas spacing, tilfÃ¸j baggrunde og mere ved at "
+"trÃ¦kke og slippe rÃ¦kkelayouts pÃ¥ siden. "
 
 #: includes/ui-js-config.php:89
 msgid ""
 "Add new content by dragging and dropping modules or widgets into your row "
 "layouts or to create a new row layout."
 msgstr ""
-"Tilføj nyt indhold ved at trække og slippe moduler eller widgets ind i dine "
-"rækkelayouts eller opret et nyt rækkelayout."
+"TilfÃ¸j nyt indhold ved at trÃ¦kke og slippe moduler eller widgets ind i dine "
+"rÃ¦kkelayouts eller opret et nyt rÃ¦kkelayout."
 
 #: includes/ui-js-config.php:90
 msgid "Edit Content"
@@ -3018,7 +3018,7 @@ msgstr "Rediger indhold"
 msgid ""
 "Move your mouse over rows, columns or modules to edit and interact with them."
 msgstr ""
-"Bevæg din mus over rækker, kolonner eller moduler for at redigere eller "
+"BevÃ¦g din mus over rÃ¦kker, kolonner eller moduler for at redigere eller "
 "interagere med dem."
 
 #: includes/ui-js-config.php:92
@@ -3026,24 +3026,24 @@ msgid ""
 "Use the action buttons to perform actions such as moving, editing, "
 "duplicating or deleting rows, columns and modules."
 msgstr ""
-"Brug handlingsknapperne for at udføre handlinger som f.eks at flytte, "
-"redigere, duplikere eller slette rækker, kolonner og moduler."
+"Brug handlingsknapperne for at udfÃ¸re handlinger som f.eks at flytte, "
+"redigere, duplikere eller slette rÃ¦kker, kolonner og moduler."
 
 #: includes/ui-js-config.php:93
 msgid "Add More Content"
-msgstr "Tilføj mere indhold"
+msgstr "TilfÃ¸j mere indhold"
 
 #: includes/ui-js-config.php:94
 msgid ""
 "Use the Add Content button to open the content panel and add new row "
 "layouts, modules or widgets."
 msgstr ""
-"Brug Tilføj Indhold-knappen for at åbne indholdspanelet og tilføj nye "
-"rækkelayouts, moduler eller widgets."
+"Brug TilfÃ¸j Indhold-knappen for at Ã¥bne indholdspanelet og tilfÃ¸j nye "
+"rÃ¦kkelayouts, moduler eller widgets."
 
 #: includes/ui-js-config.php:95
 msgid "Change Templates"
-msgstr "Ændre skabeloner"
+msgstr "Ã†ndre skabeloner"
 
 #: includes/ui-js-config.php:96
 msgid ""
@@ -3051,33 +3051,33 @@ msgid ""
 "layout. Appending will insert a new template at the end of your existing "
 "page content."
 msgstr ""
-"Brug Skabelon-knappen for at vælge en ny skabelon eller tilføj en til dit "
-"layout. Ved at tilføje vil en ny skabelon blive indsat i slutningen af dit "
-"eksisterende indhold på siden."
+"Brug Skabelon-knappen for at vÃ¦lge en ny skabelon eller tilfÃ¸j en til dit "
+"layout. Ved at tilfÃ¸je vil en ny skabelon blive indsat i slutningen af dit "
+"eksisterende indhold pÃ¥ siden."
 
 #: includes/ui-js-config.php:97
 msgid "Helpful Tools"
-msgstr "Brugbare værktøjer"
+msgstr "Brugbare vÃ¦rktÃ¸jer"
 
 #: includes/ui-js-config.php:98
 msgid ""
 "The Tools button lets you duplicate a page, save a template or edit the "
 "global settings."
 msgstr ""
-"Værktøj-knappen lader dig duplikere en side, gemme en skabelon eller "
+"VÃ¦rktÃ¸j-knappen lader dig duplikere en side, gemme en skabelon eller "
 "redigere de globale indstillinger."
 
 #: includes/ui-js-config.php:99
 msgid "Publish Your Changes"
-msgstr "Offentliggør dine ændringer"
+msgstr "OffentliggÃ¸r dine Ã¦ndringer"
 
 #: includes/ui-js-config.php:100
 msgid ""
 "Once you're finished, click the Done button to publish your changes, save a "
 "draft or revert back to the last published state."
 msgstr ""
-"Klik på Færdig-knappen, når du er færdig for at offentliggøre dine "
-"ændringer, gemme et udkast eller gå tilbage til det sidste offentliggjorte "
+"Klik pÃ¥ FÃ¦rdig-knappen, nÃ¥r du er fÃ¦rdig for at offentliggÃ¸re dine "
+"Ã¦ndringer, gemme et udkast eller gÃ¥ tilbage til det sidste offentliggjorte "
 "tilstand."
 
 #: includes/ui-js-config.php:101
@@ -3090,17 +3090,17 @@ msgid ""
 "you need help, click the help icon in the upper right corner to access the "
 "help menu. Happy building!"
 msgstr ""
-"Nu da du kender det grundlæggende kan du begynde at bygge! Hvis du får brug "
-"for hjælp, kan du trykke på ikonet hjælp i øverste, højre hjørne for at gå "
-"til menuen hjælp. Glædelig byggeri!"
+"Nu da du kender det grundlÃ¦ggende kan du begynde at bygge! Hvis du fÃ¥r brug "
+"for hjÃ¦lp, kan du trykke pÃ¥ ikonet hjÃ¦lp i Ã¸verste, hÃ¸jre hjÃ¸rne for at gÃ¥ "
+"til menuen hjÃ¦lp. GlÃ¦delig byggeri!"
 
 #: includes/ui-js-config.php:103
 msgid ""
 "The settings you are currently editing will not be saved if you navigate "
 "away from this page."
 msgstr ""
-"Indstillingerne, du redigere i øjeblikket, vil ikke blive gemt, hvis du "
-"navigere væk fra denne side."
+"Indstillingerne, du redigere i Ã¸jeblikket, vil ikke blive gemt, hvis du "
+"navigere vÃ¦k fra denne side."
 
 #: includes/ui-js-config.php:104
 msgid "View the Knowledge Base"
@@ -3108,7 +3108,7 @@ msgstr "Vis vidensbasen"
 
 #: includes/ui-js-config.php:105
 msgid "Visit the Forums"
-msgstr "Besøg forummerne"
+msgstr "BesÃ¸g forummerne"
 
 #: includes/ui-js-config.php:106
 msgid "Watch the Video"
@@ -3121,7 +3121,7 @@ msgstr "Global"
 
 #: includes/ui-js-templates.php:7 includes/ui-js-templates.php:47
 msgid "Locked"
-msgstr "Låst"
+msgstr "LÃ¥st"
 
 #: includes/ui-js-templates.php:52
 msgid "Settings"
@@ -3132,8 +3132,8 @@ msgid ""
 "Welcome! It looks like this might be your first time using the builder. "
 "Would you like to take a tour?"
 msgstr ""
-"Velkommen! De ser ud til, at det er første gang, du bruger sidebyggeren. "
-"Ønsker du at tage en rundtur?"
+"Velkommen! De ser ud til, at det er fÃ¸rste gang, du bruger sidebyggeren. "
+"Ã˜nsker du at tage en rundtur?"
 
 #: includes/ui-js-templates.php:88
 msgid "No Thanks"
@@ -3149,7 +3149,7 @@ msgstr "Tutorialvideo"
 
 #: includes/ui-panel-node-templates.php:6
 msgid "Saved Rows"
-msgstr "Gemte rækker"
+msgstr "Gemte rÃ¦kker"
 
 #: includes/ui-panel-node-templates.php:37
 msgid "Saved Modules"
@@ -3157,7 +3157,7 @@ msgstr "Gemte moduler"
 
 #: includes/ui-panel.php:11
 msgid "Row Layouts"
-msgstr "Rækkelayouts"
+msgstr "RÃ¦kkelayouts"
 
 #: includes/ui-panel.php:15
 msgid "1 Column"
@@ -3189,15 +3189,15 @@ msgstr "Venstre sidebar"
 
 #: includes/ui-panel.php:22
 msgid "Right Sidebar"
-msgstr "Højre sidebar"
+msgstr "HÃ¸jre sidebar"
 
 #: includes/ui-panel.php:23
 msgid "Left &amp; Right Sidebar"
-msgstr "Venstre &amp; højre sidebar"
+msgstr "Venstre &amp; hÃ¸jre sidebar"
 
 #: includes/updater/classes/class-fl-updater.php:132
 msgid "<strong>UPDATE UNAVAILABLE!</strong>"
-msgstr "<strong>OPDATERING IKKE TILGÆNGELIG</strong>"
+msgstr "<strong>OPDATERING IKKE TILGÃ†NGELIG</strong>"
 
 #: includes/updater/classes/class-fl-updater.php:134
 msgid "Please subscribe to enable automatic updates for this plugin."
@@ -3214,7 +3214,7 @@ msgid ""
 "UPDATES UNAVAILABLE! Please subscribe or enter your license key below to "
 "enable automatic updates."
 msgstr ""
-"OPDATERING IKKE TILGÆNGELIG! Venligst abonner eller indtast din licensnøgle "
+"OPDATERING IKKE TILGÃ†NGELIG! Venligst abonner eller indtast din licensnÃ¸gle "
 "nedenfor for at aktivere automatiske opdateringer."
 
 #: includes/updater/includes/form.php:11
@@ -3237,7 +3237,7 @@ msgstr "E-mailadresse gemt!"
 #, php-format
 msgid "Enter your <a%s>license key</a> to enable remote updates and support."
 msgstr ""
-"Indtast din <a%s>licensnøgle</a> for at aktivere fjernopdateringer og "
+"Indtast din <a%s>licensnÃ¸gle</a> for at aktivere fjernopdateringer og "
 "support."
 
 #: includes/updater/includes/form.php:39
@@ -3249,7 +3249,7 @@ msgid ""
 "Save the current layout as a template that can be reused under "
 "<strong>Templates &rarr; Your Templates</strong>."
 msgstr ""
-"Gem det nuværende layout som en skabelon, som kan blive genbrugt under "
+"Gem det nuvÃ¦rende layout som en skabelon, som kan blive genbrugt under "
 "<strong>Skabeloner &rarr; Dine Skabeloner</strong>."
 
 #: modules/accordion/accordion.php:14 modules/menu/menu.php:95
@@ -3274,7 +3274,7 @@ msgstr "Borderfarve"
 
 #: modules/accordion/accordion.php:62
 msgid "Label Size"
-msgstr "Labelstørrelse"
+msgstr "LabelstÃ¸rrelse"
 
 #: modules/accordion/accordion.php:65
 msgctxt "Label size."
@@ -3304,12 +3304,12 @@ msgid ""
 "Choosing yes will keep only one item open at a time. Choosing no will allow "
 "multiple items to be open at the same time."
 msgstr ""
-"Ved at vælge ja, vil kun et element være åbent ad gangen. Ved at vælge nej, "
-"tillades flere elementer at være åbne på samme tid. "
+"Ved at vÃ¦lge ja, vil kun et element vÃ¦re Ã¥bent ad gangen. Ved at vÃ¦lge nej, "
+"tillades flere elementer at vÃ¦re Ã¥bne pÃ¥ samme tid. "
 
 #: modules/accordion/accordion.php:107 modules/tabs/tabs.php:74
 msgid "Add Item"
-msgstr "Tilføj element"
+msgstr "TilfÃ¸j element"
 
 #: modules/accordion/accordion.php:117 modules/tabs/tabs.php:84
 msgid "Label"
@@ -3358,7 +3358,7 @@ msgstr "Ikonposition"
 #: modules/content-slider/content-slider.php:629 modules/cta/cta.php:239
 #: modules/subscribe-form/subscribe-form.php:181
 msgid "Before Text"
-msgstr "Før tekst"
+msgstr "FÃ¸r tekst"
 
 #: modules/button/button.php:84 modules/callout/callout.php:509
 #: modules/content-slider/content-slider.php:630 modules/cta/cta.php:240
@@ -3386,7 +3386,7 @@ msgstr "http://www.eksempel.dk"
 #: modules/heading/heading.php:54 modules/icon/icon.php:50
 #: modules/photo/photo.php:494
 msgid "Link Target"
-msgstr "Linkmål"
+msgstr "LinkmÃ¥l"
 
 #: modules/button/button.php:105 modules/callout/callout.php:461
 #: modules/content-slider/content-slider.php:586 modules/cta/cta.php:260
@@ -3441,7 +3441,7 @@ msgstr "Gennemsigtig"
 #: modules/pricing-table/pricing-table.php:67
 #: modules/subscribe-form/subscribe-form.php:242
 msgid "Border Size"
-msgstr "Borderstørrelse"
+msgstr "BorderstÃ¸rrelse"
 
 #: modules/button/button.php:183 modules/callout/callout.php:578
 #: modules/content-slider/content-slider.php:691 modules/cta/cta.php:204
@@ -3477,12 +3477,12 @@ msgstr "Tilpasning"
 #: modules/heading/heading.php:114 modules/heading/heading.php:171
 #: modules/subscribe-form/subscribe-form.php:265
 msgid "Font Size"
-msgstr "Skrifttypestørrelse"
+msgstr "SkrifttypestÃ¸rrelse"
 
 #: modules/button/button.php:250 modules/callout/callout.php:617
 #: modules/cta/cta.php:363 modules/subscribe-form/subscribe-form.php:281
 msgid "Round Corners"
-msgstr "Runde hjørner"
+msgstr "Runde hjÃ¸rner"
 
 #: modules/callout/callout.php:14
 msgid "Callout"
@@ -3510,7 +3510,7 @@ msgstr "Overordnet tilpasning"
 
 #: modules/callout/callout.php:256
 msgid "The alignment that will apply to all elements within the callout."
-msgstr "Tilpasningen som gælder for alle elementer inden for calloutet."
+msgstr "Tilpasningen som gÃ¦lder for alle elementer inden for calloutet."
 
 #: modules/callout/callout.php:264 modules/cta/cta.php:148
 msgid "Heading Structure"
@@ -3529,11 +3529,11 @@ msgstr "Overskriftsetikette"
 #: modules/post-slider/post-slider.php:613
 #: modules/testimonials/testimonials.php:69
 msgid "Heading Size"
-msgstr "Overskriftsstørrelse"
+msgstr "OverskriftsstÃ¸rrelse"
 
 #: modules/callout/callout.php:295 modules/cta/cta.php:179
 msgid "Heading Custom Size"
-msgstr "Brugerdefineret overskriftsstørrelse"
+msgstr "Brugerdefineret overskriftsstÃ¸rrelse"
 
 #: modules/callout/callout.php:313
 msgid "Image Type"
@@ -3547,7 +3547,7 @@ msgstr "Ingen"
 #: modules/callout/callout.php:341 modules/photo/photo.php:417
 #: modules/post-slider/post-slider.php:482 modules/slideshow/slideshow.php:320
 msgid "Crop"
-msgstr "Beskær"
+msgstr "BeskÃ¦r"
 
 #: modules/callout/callout.php:344 modules/photo/photo.php:420
 msgctxt "Photo Crop."
@@ -3567,7 +3567,7 @@ msgstr "Panorama"
 #: modules/callout/callout.php:347 modules/photo/photo.php:423
 #: modules/post-slider/post-slider.php:487
 msgid "Portrait"
-msgstr "Portræt"
+msgstr "PortrÃ¦t"
 
 #: modules/callout/callout.php:348 modules/photo/photo.php:424
 #: modules/post-slider/post-slider.php:488
@@ -3593,7 +3593,7 @@ msgstr "Til venstre for tekst og overskrift"
 
 #: modules/callout/callout.php:360 modules/callout/callout.php:382
 msgid "Right of Text and Heading"
-msgstr "Til højre for tekst og overskrift"
+msgstr "Til hÃ¸jre for tekst og overskrift"
 
 #: modules/callout/callout.php:379
 msgid "Left of Heading"
@@ -3601,7 +3601,7 @@ msgstr "Til venstre for overskrift"
 
 #: modules/callout/callout.php:380
 msgid "Right of Heading"
-msgstr "Til højre for overskrift"
+msgstr "Til hÃ¸jre for overskrift"
 
 #: modules/callout/callout.php:388
 msgid "Icon Colors"
@@ -3620,7 +3620,7 @@ msgstr "Ikonopbygning"
 #: modules/icon/icon.php:122 modules/post-carousel/post-carousel.php:269
 #: modules/post-grid/post-grid.php:139 modules/post-slider/post-slider.php:477
 msgid "Size"
-msgstr "Størrelse"
+msgstr "StÃ¸rrelse"
 
 #: modules/callout/callout.php:443
 #: modules/content-slider/content-slider.php:571
@@ -3632,8 +3632,8 @@ msgid ""
 "The link applies to the entire module. If choosing a call to action type "
 "below, this link will also be used for the text or button."
 msgstr ""
-"Linket gælder for hele modulet. Ved at vælge en klik for handling-type "
-"nedenfor vil dette link også blive brugt for teksten eller knappen."
+"Linket gÃ¦lder for hele modulet. Ved at vÃ¦lge en klik for handling-type "
+"nedenfor vil dette link ogsÃ¥ blive brugt for teksten eller knappen."
 
 #: modules/callout/callout.php:471
 #: modules/content-slider/content-slider.php:593 modules/cta/cta.php:14
@@ -3649,7 +3649,7 @@ msgstr "Ingen"
 #: modules/callout/callout.php:496 modules/post-carousel/post-carousel.php:382
 #: modules/post-grid/post-grid.php:230 modules/post-slider/post-slider.php:571
 msgid "Read More"
-msgstr "Læs mere"
+msgstr "LÃ¦s mere"
 
 #: modules/callout/callout.php:500
 #: modules/content-slider/content-slider.php:621
@@ -3838,7 +3838,7 @@ msgstr "Beskeden er sendt!"
 
 #: modules/contact-form/includes/frontend.php:45
 msgid "Message failed. Please try again."
-msgstr "Beskeden blev ikke sendt. Venligst prøv igen."
+msgstr "Beskeden blev ikke sendt. Venligst prÃ¸v igen."
 
 #: modules/content-slider/content-slider.php:14
 msgid "Content Slider"
@@ -3852,15 +3852,15 @@ msgstr "Viser flere slides med en valgfri overskrift og klik for handling"
 #: modules/post-slider/post-slider.php:345 modules/separator/separator.php:58
 #: modules/slideshow/slideshow.php:302
 msgid "Height"
-msgstr "Højde"
+msgstr "HÃ¸jde"
 
 #: modules/content-slider/content-slider.php:203
 msgid ""
 "This setting is the minimum height of the content slider. Content will "
 "expand the height automatically."
 msgstr ""
-"Denne indstilling er minimumhøjden for indholdsslideren. Indholdet vil "
-"automatisk udvide højden."
+"Denne indstilling er minimumhÃ¸jden for indholdsslideren. Indholdet vil "
+"automatisk udvide hÃ¸jden."
 
 #: modules/content-slider/content-slider.php:207
 #: modules/post-carousel/post-carousel.php:136
@@ -3900,7 +3900,7 @@ msgstr "Maksimum indholdsbrede"
 #: modules/content-slider/content-slider.php:283
 msgid "The max width that the content area will be within your slides."
 msgstr ""
-"Den maksimale brede som området for indhold vil være inden for dine slides."
+"Den maksimale brede som omrÃ¥det for indhold vil vÃ¦re inden for dine slides."
 
 #: modules/content-slider/content-slider.php:290
 msgid "Slides"
@@ -3949,8 +3949,8 @@ msgid ""
 "selection above. The location of the content layout can be selected in the "
 "style tab."
 msgstr ""
-"Dette tillader dig at tilføje indhold over eller ud over den valgte baggrund "
-"ovenover. Placeringen af indholdslayoutet kan vælges i stil fanen."
+"Dette tillader dig at tilfÃ¸je indhold over eller ud over den valgte baggrund "
+"ovenover. Placeringen af indholdslayoutet kan vÃ¦lges i stil fanen."
 
 #: modules/content-slider/content-slider.php:384
 msgid "Text &amp; Photo"
@@ -3978,7 +3978,7 @@ msgid ""
 "The position will move the content layout selections left, right or center "
 "over the background of the slide."
 msgstr ""
-"Positionen vil flytte de valgte indholdslayouts til venstre, højre eller i "
+"Positionen vil flytte de valgte indholdslayouts til venstre, hÃ¸jre eller i "
 "midten over baggrunden af slidet."
 
 #: modules/content-slider/content-slider.php:492
@@ -3995,7 +3995,7 @@ msgstr "Venstre margin"
 
 #: modules/content-slider/content-slider.php:516
 msgid "Right Margin"
-msgstr "Højre margin"
+msgstr "HÃ¸jre margin"
 
 #: modules/content-slider/content-slider.php:525
 msgid "Text Colors"
@@ -4017,7 +4017,7 @@ msgstr "Tekst baggrundsfarve"
 #: modules/post-grid/post-grid.php:314 modules/post-slider/post-slider.php:722
 msgid ""
 "The color applies to the overlay behind text over the background selections."
-msgstr "Farver gælder for overlayet bag teksten over den valgte baggrund."
+msgstr "Farver gÃ¦lder for overlayet bag teksten over den valgte baggrund."
 
 #: modules/content-slider/content-slider.php:550
 #: modules/post-carousel/post-carousel.php:423
@@ -4028,7 +4028,7 @@ msgstr "Tekst baggrundsgennemsigtighed"
 #: modules/content-slider/content-slider.php:558
 #: modules/post-slider/post-slider.php:745
 msgid "Text Background Height"
-msgstr "Tekst baggrundshøjde"
+msgstr "Tekst baggrundshÃ¸jde"
 
 #: modules/content-slider/content-slider.php:560
 #: modules/post-slider/post-slider.php:747
@@ -4050,8 +4050,8 @@ msgid ""
 "The link applies to the entire slide. If choosing a call to action type "
 "below, this link will also be used for the text or button."
 msgstr ""
-"Linket gælder for hele slidet. Ved at vælge en klik for handling-type "
-"nedenfor vil dette link også blive brugt for teksten eller knappen."
+"Linket gÃ¦lder for hele slidet. Ved at vÃ¦lge en klik for handling-type "
+"nedenfor vil dette link ogsÃ¥ blive brugt for teksten eller knappen."
 
 #: modules/content-slider/content-slider.php:721
 msgid "Border Radius"
@@ -4071,16 +4071,16 @@ msgid ""
 "You can choose a different photo that the slide will change to on mobile "
 "devices or no photo if desired."
 msgstr ""
-"Du kan vælge et andet foto, som slidet vil skifte til på mobileenheder eller "
-"intet foto, hvis dette ønskes."
+"Du kan vÃ¦lge et andet foto, som slidet vil skifte til pÃ¥ mobileenheder eller "
+"intet foto, hvis dette Ã¸nskes."
 
 #: modules/content-slider/content-slider.php:743
 msgid "Use Main Photo"
-msgstr "Bruge primære foto"
+msgstr "Bruge primÃ¦re foto"
 
 #: modules/content-slider/content-slider.php:744
 msgid "Choose Another Photo"
-msgstr "Vælg andet foto"
+msgstr "VÃ¦lg andet foto"
 
 #: modules/content-slider/content-slider.php:745
 msgid "No Photo"
@@ -4096,7 +4096,7 @@ msgstr "Vis en overskrift, underrubrik og en knap."
 
 #: modules/cta/cta.php:76
 msgid "Ready to find out more?"
-msgstr "Klar til at lær mere?"
+msgstr "Klar til at lÃ¦r mere?"
 
 #: modules/cta/cta.php:91
 msgid "Drop us a line today for a free quote!"
@@ -4148,7 +4148,7 @@ msgstr "Thumbs"
 
 #: modules/gallery/gallery.php:267
 msgid "Photo Size"
-msgstr "Fotostørrelse"
+msgstr "FotostÃ¸rrelse"
 
 #: modules/gallery/gallery.php:270
 msgctxt "Photo size."
@@ -4192,8 +4192,8 @@ msgid ""
 "SmugMug if you have captions set in your gallery."
 msgstr ""
 "Billedteksten hentes fra hvilken som helst tekst du skriver i "
-"billedtekstområdet i medieadministratoren for hvert billede. Billedtekst "
-"hentes også direkte fra SmugMug, hvis du har billedtekster i dit galleri."
+"billedtekstomrÃ¥det i medieadministratoren for hvert billede. Billedtekst "
+"hentes ogsÃ¥ direkte fra SmugMug, hvis du har billedtekster i dit galleri."
 
 #: modules/gallery/gallery.php:296 modules/slideshow/slideshow.php:343
 msgid "Click Action"
@@ -4222,7 +4222,7 @@ msgstr "HTML-etikette"
 
 #: modules/heading/heading.php:128 modules/heading/heading.php:188
 msgid "Custom Font Size"
-msgstr "Brugerdefineret skrifttypestørrelse"
+msgstr "Brugerdefineret skrifttypestÃ¸rrelse"
 
 #: modules/heading/heading.php:137
 msgid "Mobile Structure"
@@ -4238,7 +4238,7 @@ msgstr "HTML"
 
 #: modules/html/html.php:15
 msgid "Display raw HTML code."
-msgstr "Vis rå HTML-kode"
+msgstr "Vis rÃ¥ HTML-kode"
 
 #: modules/icon-group/icon-group.php:14
 msgid "Icon Group"
@@ -4250,7 +4250,7 @@ msgstr "Vis en gruppe af forbundne Font Awesome ikoner."
 
 #: modules/icon-group/icon-group.php:125
 msgid "Add Icon"
-msgstr "Tilføj ikon"
+msgstr "TilfÃ¸j ikon"
 
 #: modules/icon/icon.php:15
 msgid "Display an icon and optional title."
@@ -4279,14 +4279,14 @@ msgstr "Menu"
 
 #: modules/menu/menu.php:15
 msgid "Renders a WordPress menu."
-msgstr "Udføre en WordPress menu."
+msgstr "UdfÃ¸re en WordPress menu."
 
 #: modules/menu/menu.php:25
 msgid ""
 "Select a WordPress menu that you created in the admin under Appearance > "
 "Menus."
 msgstr ""
-"Vælg en WordPress-menu, som du har oprettet i adminen under Udseende > "
+"VÃ¦lg en WordPress-menu, som du har oprettet i adminen under Udseende > "
 "Menuer."
 
 #: modules/menu/menu.php:42
@@ -4351,7 +4351,7 @@ msgstr "Undermenu dropskygge"
 
 #: modules/menu/menu.php:206
 msgid "Link Size"
-msgstr "Linkstørrelse"
+msgstr "LinkstÃ¸rrelse"
 
 #: modules/menu/menu.php:220
 msgid "Link Format"
@@ -4363,7 +4363,7 @@ msgstr "Store bogstaver"
 
 #: modules/menu/menu.php:225
 msgid "Lowercase"
-msgstr "Små bogstaver"
+msgstr "SmÃ¥ bogstaver"
 
 #: modules/menu/menu.php:226
 msgid "Capitalize"
@@ -4431,7 +4431,7 @@ msgstr "Separatorgennemsigtighed"
 
 #: modules/photo/photo.php:26
 msgid "Upload a photo or display one from the media library."
-msgstr "Overfør et foto eller vis et fra mediebiblioteket."
+msgstr "OverfÃ¸r et foto eller vis et fra mediebiblioteket."
 
 #: modules/photo/photo.php:391
 msgid "Photo Source"
@@ -4475,8 +4475,8 @@ msgid ""
 "Link type applies to how the image should be linked on click. You can choose "
 "a specific URL, the individual photo or a separate page with the photo."
 msgstr ""
-"Linktype gælder for hvordan linket til billedet reagerer ved klik. Du kan "
-"vælge en bestemt URL, det individuelle foto eller en separat side med "
+"Linktype gÃ¦lder for hvordan linket til billedet reagerer ved klik. Du kan "
+"vÃ¦lge en bestemt URL, det individuelle foto eller en separat side med "
 "billedet."
 
 #: modules/photo/photo.php:487 modules/slideshow/slideshow.php:364
@@ -4495,11 +4495,11 @@ msgstr "Af %s"
 
 #: modules/post-carousel/post-carousel.php:14
 msgid "Posts Carousel"
-msgstr "Indlægskarussel"
+msgstr "IndlÃ¦gskarussel"
 
 #: modules/post-carousel/post-carousel.php:15
 msgid "Display a carousel of your WordPress posts."
-msgstr "Vis en karrusel af dine WordPress indlæg."
+msgstr "Vis en karrusel af dine WordPress indlÃ¦g."
 
 #: modules/post-carousel/post-carousel.php:110
 #: modules/post-slider/post-slider.php:338
@@ -4519,7 +4519,7 @@ msgstr "Loop"
 #: modules/post-carousel/post-carousel.php:168
 #: modules/post-slider/post-slider.php:395
 msgid "Number of Posts"
-msgstr "Antal af indlæg"
+msgstr "Antal af indlÃ¦g"
 
 #: modules/post-carousel/post-carousel.php:175
 #: modules/post-slider/post-slider.php:402
@@ -4529,24 +4529,24 @@ msgstr "Sliderstyringer"
 #: modules/post-carousel/post-carousel.php:209
 #: modules/post-grid/post-grid.php:14
 msgid "Posts"
-msgstr "Indlæg"
+msgstr "IndlÃ¦g"
 
 #: modules/post-carousel/post-carousel.php:213
 msgid "Post Max Width"
-msgstr "Indlæg maksimum brede"
+msgstr "IndlÃ¦g maksimum brede"
 
 #: modules/post-carousel/post-carousel.php:221
 #: modules/post-grid/post-grid.php:103
 msgid "Post Spacing"
-msgstr "Indlægsspacing"
+msgstr "IndlÃ¦gsspacing"
 
 #: modules/post-carousel/post-carousel.php:229
 msgid "Equalize Column Heights"
-msgstr "Ligestil kolonnehøjder"
+msgstr "Ligestil kolonnehÃ¸jder"
 
 #: modules/post-carousel/post-carousel.php:238
 msgid "Post Hover Transition"
-msgstr "Indlæg hoverovergang"
+msgstr "IndlÃ¦g hoverovergang"
 
 #: modules/post-carousel/post-carousel.php:242
 #: modules/post-grid/post-grid.php:248
@@ -4571,22 +4571,22 @@ msgstr "Nedskaler"
 #: modules/post-carousel/post-carousel.php:251
 #: modules/post-grid/post-grid.php:112 modules/post-slider/post-slider.php:456
 msgid "Featured Image"
-msgstr "Fremhævede billede"
+msgstr "FremhÃ¦vede billede"
 
 #: modules/post-carousel/post-carousel.php:279
 #: modules/post-grid/post-grid.php:261
 msgid "Use Icon for Posts"
-msgstr "Brug ikon for indlæg"
+msgstr "Brug ikon for indlÃ¦g"
 
 #: modules/post-carousel/post-carousel.php:293
 #: modules/post-grid/post-grid.php:275
 msgid "Post Icon"
-msgstr "Indlægsikon"
+msgstr "IndlÃ¦gsikon"
 
 #: modules/post-carousel/post-carousel.php:297
 #: modules/post-grid/post-grid.php:279
 msgid "Post Icon Position"
-msgstr "Indlægsikonposition"
+msgstr "IndlÃ¦gsikonposition"
 
 #: modules/post-carousel/post-carousel.php:300
 #: modules/post-grid/post-grid.php:133 modules/post-grid/post-grid.php:282
@@ -4601,12 +4601,12 @@ msgstr "Under tekst"
 #: modules/post-carousel/post-carousel.php:306
 #: modules/post-grid/post-grid.php:288
 msgid "Post Icon Size"
-msgstr "Indlægsikonstørrelse"
+msgstr "IndlÃ¦gsikonstÃ¸rrelse"
 
 #: modules/post-carousel/post-carousel.php:315
 #: modules/post-grid/post-grid.php:145 modules/post-slider/post-slider.php:495
 msgid "Post Info"
-msgstr "Indlægsinfo"
+msgstr "IndlÃ¦gsinfo"
 
 #: modules/post-carousel/post-carousel.php:342
 #: modules/post-grid/post-grid.php:172 modules/post-slider/post-slider.php:522
@@ -4626,15 +4626,15 @@ msgstr "Mere link tekst"
 #: modules/post-carousel/post-carousel.php:418
 #: modules/post-grid/post-grid.php:307
 msgid "Post Icon Color"
-msgstr "Indlægsikonfarve"
+msgstr "IndlÃ¦gsikonfarve"
 
 #: modules/post-grid/includes/frontend.php:41
 msgid "No posts found."
-msgstr "Ingen indlæg fundet."
+msgstr "Ingen indlÃ¦g fundet."
 
 #: modules/post-grid/post-grid.php:15
 msgid "Display a grid of your WordPress posts."
-msgstr "Vis et gitter af dine WordPress indlæg."
+msgstr "Vis et gitter af dine WordPress indlÃ¦g."
 
 #: modules/post-grid/post-grid.php:51
 msgid "Layout Style"
@@ -4659,11 +4659,11 @@ msgstr "Ingen"
 
 #: modules/post-grid/post-grid.php:84
 msgid "Posts Per Page"
-msgstr "Indlæg pr. side"
+msgstr "IndlÃ¦g pr. side"
 
 #: modules/post-grid/post-grid.php:95
 msgid "Post Width"
-msgstr "Indlægsbrede"
+msgstr "IndlÃ¦gsbrede"
 
 #: modules/post-grid/post-grid.php:134
 msgid "Beside Text"
@@ -4691,30 +4691,30 @@ msgstr "Hoverovergang"
 
 #: modules/post-slider/post-slider.php:14
 msgid "Posts Slider"
-msgstr "Indlægsslider"
+msgstr "IndlÃ¦gsslider"
 
 #: modules/post-slider/post-slider.php:15
 msgid "Display a slider of your WordPress posts."
-msgstr "VIs en slider af dine WordPress indlæg."
+msgstr "VIs en slider af dine WordPress indlÃ¦g."
 
 #: modules/post-slider/post-slider.php:350
 msgid ""
 "This setting is the minimum height of the post slider. Content will expand "
 "the height automatically."
 msgstr ""
-"Denne indstilling er minimumhøjden for indlægsslideren. Indholdet vil "
-"automatisk udvide højden."
+"Denne indstilling er minimumhÃ¸jden for indlÃ¦gsslideren. Indholdet vil "
+"automatisk udvide hÃ¸jden."
 
 #: modules/post-slider/post-slider.php:440
 msgid "Show Featured Image?"
-msgstr "Vis fremhævede billede?"
+msgstr "Vis fremhÃ¦vede billede?"
 
 #: modules/post-slider/post-slider.php:628
 msgid ""
 "The position will move the content layout selections left, right or bottom "
 "over the background of the slide."
 msgstr ""
-"Positionen vil flytte de valgte indholdslayouts til venstre, højre eller i "
+"Positionen vil flytte de valgte indholdslayouts til venstre, hÃ¸jre eller i "
 "bunden over baggrunden af slidet."
 
 #: modules/post-slider/post-slider.php:647
@@ -4722,7 +4722,7 @@ msgid ""
 "The position will move the content layout selections left or right or center "
 "of the thumbnail of the slide."
 msgstr ""
-"Positionen vil flytte de valgte indholdslayouts til venstre, højre eller i "
+"Positionen vil flytte de valgte indholdslayouts til venstre, hÃ¸jre eller i "
 "midten over thumbnailen af slidet."
 
 #: modules/post-slider/post-slider.php:663
@@ -4768,14 +4768,14 @@ msgstr "Smal"
 
 #: modules/pricing-table/pricing-table.php:59
 msgid "Features Min Height"
-msgstr "Features minimum højde"
+msgstr "Features minimum hÃ¸jde"
 
 #: modules/pricing-table/pricing-table.php:63
 msgid ""
 "Use this to normalize the height of your boxes when they have different "
 "numbers of features."
 msgstr ""
-"Brug dette til at normalisere højden af dine bokse, når du har forskellige "
+"Brug dette til at normalisere hÃ¸jden af dine bokse, nÃ¥r du har forskellige "
 "antal af features."
 
 #: modules/pricing-table/pricing-table.php:70
@@ -4790,11 +4790,11 @@ msgstr "Smal"
 
 #: modules/pricing-table/pricing-table.php:84
 msgid "Add Pricing Box"
-msgstr "Tilføj prisboks"
+msgstr "TilfÃ¸j prisboks"
 
 #: modules/pricing-table/pricing-table.php:98
 msgid "Title Size"
-msgstr "Titelstørrelse"
+msgstr "TitelstÃ¸rrelse"
 
 #: modules/pricing-table/pricing-table.php:107
 msgid "Price Box"
@@ -4811,11 +4811,11 @@ msgstr "Varighed"
 
 #: modules/pricing-table/pricing-table.php:116
 msgid "per Year"
-msgstr "Pr. år"
+msgstr "Pr. Ã¥r"
 
 #: modules/pricing-table/pricing-table.php:120
 msgid "Price Size"
-msgstr "Prisstørrelse"
+msgstr "PrisstÃ¸rrelse"
 
 #: modules/pricing-table/pricing-table.php:133
 #: modules/subscribe-form/subscribe-form.php:168
@@ -4868,8 +4868,8 @@ msgid ""
 "The type of border to use. Double borders must have a height of at least 3px "
 "to render properly."
 msgstr ""
-"Hvilken type border skal bruges. Dobbeltborders skal have en bredde på "
-"mindst 3px for at blive udført korrekt."
+"Hvilken type border skal bruges. Dobbeltborders skal have en bredde pÃ¥ "
+"mindst 3px for at blive udfÃ¸rt korrekt."
 
 #: modules/sidebar/includes/settings-general.php:5
 #: modules/sidebar/sidebar.php:14
@@ -4880,7 +4880,7 @@ msgstr "Sidebar"
 msgid ""
 "Display a WordPress sidebar that has been registered by the current theme."
 msgstr ""
-"Vis en WordPress sidebar, som er blevet registreret af det nuværende tema."
+"Vis en WordPress sidebar, som er blevet registreret af det nuvÃ¦rende tema."
 
 #: modules/slideshow/slideshow.php:14
 msgid "Slideshow"
@@ -4902,7 +4902,7 @@ msgstr "Lys"
 #: modules/slideshow/slideshow.php:314
 msgctxt "Color."
 msgid "Dark"
-msgstr "Mørk"
+msgstr "MÃ¸rk"
 
 #: modules/slideshow/slideshow.php:316
 msgid ""
@@ -4910,7 +4910,7 @@ msgid ""
 "buttons in a darker color scheme and vice versa for dark."
 msgstr ""
 "Hvis dit overordnede tema/dine billeder er lyse, vil lys vise knapper i et "
-"mørkere farveskema og omvendt for mørk"
+"mÃ¸rkere farveskema og omvendt for mÃ¸rk"
 
 #: modules/slideshow/slideshow.php:326
 msgid ""
@@ -4919,14 +4919,14 @@ msgid ""
 "images to all sides of the content area while cropping the left and right to "
 "fit the height you specify."
 msgstr ""
-"Beskær sat til nej tilpasser slideshowbillederne til en højde specificeret "
-"af dig og breden ændres i forhold med højden. Beskær sat til ja vil tilpasse "
-"slideshowbillederne til alle sider af området for indhold, samtidig med at "
-"beskærer venstre og højre side til at passe til højden specificeret af dig."
+"BeskÃ¦r sat til nej tilpasser slideshowbillederne til en hÃ¸jde specificeret "
+"af dig og breden Ã¦ndres i forhold med hÃ¸jden. BeskÃ¦r sat til ja vil tilpasse "
+"slideshowbillederne til alle sider af omrÃ¥det for indhold, samtidig med at "
+"beskÃ¦rer venstre og hÃ¸jre side til at passe til hÃ¸jden specificeret af dig."
 
 #: modules/slideshow/slideshow.php:330
 msgid "Disable Right-Click"
-msgstr "Deaktiver højre-klik"
+msgstr "Deaktiver hÃ¸jre-klik"
 
 #: modules/slideshow/slideshow.php:350
 msgctxt "Click action type."
@@ -4956,8 +4956,8 @@ msgid ""
 "your slideshow. These are larger arrows that overlay your slideshow images "
 "and are separate from the control bar navigational arrows."
 msgstr ""
-"Navigationspile tillader gæsten til frit at bevæge sig gennem billeder i dit "
-"slideshow. Disse er større pile, der ligger som et overlay over dine "
+"Navigationspile tillader gÃ¦sten til frit at bevÃ¦ge sig gennem billeder i dit "
+"slideshow. Disse er stÃ¸rre pile, der ligger som et overlay over dine "
 "slideshowbilleder og er separeret kontrolbarens navigationspile."
 
 #: modules/slideshow/slideshow.php:455
@@ -4995,7 +4995,7 @@ msgstr "Afspil knap"
 
 #: modules/slideshow/slideshow.php:511
 msgid "Fullscreen Button"
-msgstr "Fuldskærm knap"
+msgstr "FuldskÃ¦rm knap"
 
 #: modules/slideshow/slideshow.php:520
 msgid "Photo Count"
@@ -5026,7 +5026,7 @@ msgid ""
 "Control bar overlay specifies if the control bar buttons you choose overlay "
 "your slideshow images or site below the slideshow completely."
 msgstr ""
-"Kontralbar overlay specificerer, om de kontrolbarknapper du vælger, ligger "
+"Kontralbar overlay specificerer, om de kontrolbarknapper du vÃ¦lger, ligger "
 "som et overlay over dine slideshowbilleder eller som en komplet websted "
 "nedenunder."
 
@@ -5040,7 +5040,7 @@ msgid ""
 "specify below. They will reappear upon mouse over."
 msgstr ""
 "Overlay skjul vil skjule kontrolbaren efter det antal sekunder du "
-"specificerer nedenfor. De vil dukke op igen, når musen holdes over."
+"specificerer nedenfor. De vil dukke op igen, nÃ¥r musen holdes over."
 
 #: modules/slideshow/slideshow.php:586
 msgid "Overlay Hide Delay"
@@ -5048,7 +5048,7 @@ msgstr "Overlay skjulforsinkelse"
 
 #: modules/slideshow/slideshow.php:598
 msgid "Thumbs Size"
-msgstr "Thumbsstørrelse"
+msgstr "ThumbsstÃ¸rrelse"
 
 #: modules/slideshow/slideshow.php:607
 msgid "Social"
@@ -5084,7 +5084,7 @@ msgstr "Destinations URL"
 
 #: modules/social-buttons/social-buttons.php:75
 msgid "Current Page"
-msgstr "Nuværende side"
+msgstr "NuvÃ¦rende side"
 
 #: modules/social-buttons/social-buttons.php:82
 msgid ""
@@ -5092,9 +5092,9 @@ msgid ""
 "to interface with. For example, if you show Facebook, the user will \"Like\" "
 "whatever you put in this field."
 msgstr ""
-"Destinations URL-feltet hænger sammen med siden du ønsker at dine sociale "
+"Destinations URL-feltet hÃ¦nger sammen med siden du Ã¸nsker at dine sociale "
 "ikoner skal kommunikere med. For eksempel, hvis du viser Facebook, vil "
-"brugeren “Synes godt om” hvad end du indsætter i dette felt."
+"brugeren â€œSynes godt omâ€ hvad end du indsÃ¦tter i dette felt."
 
 #: modules/social-buttons/social-buttons.php:89
 msgid "Custom URL"
@@ -5123,7 +5123,7 @@ msgstr "Venligst indtast en gyldig e-mailadresse."
 
 #: modules/subscribe-form/includes/frontend.php:41
 msgid "Something went wrong. Please check your entries and try again."
-msgstr "Noget gik galt. Venligst kontroller dine indtastninger og prøv igen."
+msgstr "Noget gik galt. Venligst kontroller dine indtastninger og prÃ¸v igen."
 
 #: modules/subscribe-form/subscribe-form.php:18
 msgid "Subscribe Form"
@@ -5131,7 +5131,7 @@ msgstr "Abonneringsform"
 
 #: modules/subscribe-form/subscribe-form.php:19
 msgid "Adds a simple subscribe form to your layout."
-msgstr "Tilføjer en simpel abonneringsform til dit layout."
+msgstr "TilfÃ¸jer en simpel abonneringsform til dit layout."
 
 #: modules/subscribe-form/subscribe-form.php:118
 msgid "Success"
@@ -5153,7 +5153,7 @@ msgstr "Omdiriger"
 msgid ""
 "Thanks for subscribing! Please check your email for further instructions."
 msgstr ""
-"Tak for at abonnere! Venligst undersøg din e-mail for videre instruktioner."
+"Tak for at abonnere! Venligst undersÃ¸g din e-mail for videre instruktioner."
 
 #: modules/subscribe-form/subscribe-form.php:151
 msgid "Success URL"
@@ -5179,7 +5179,7 @@ msgstr "Udtalelser"
 
 #: modules/testimonials/testimonials.php:15
 msgid "An animated tesimonials area."
-msgstr "Et animeret udtalelsesområde."
+msgstr "Et animeret udtalelsesomrÃ¥de."
 
 #: modules/testimonials/testimonials.php:41
 msgid "Compact"
@@ -5187,7 +5187,7 @@ msgstr "Kompakt"
 
 #: modules/testimonials/testimonials.php:51
 msgid "Wide is for 1 column rows, compact is for multi-column rows."
-msgstr "Bred er for 1 kolonnerække, kompakt er for multi-kolonnerækker"
+msgstr "Bred er for 1 kolonnerÃ¦kke, kompakt er for multi-kolonnerÃ¦kker"
 
 #: modules/testimonials/testimonials.php:78
 msgid "Slider Settings"
@@ -5207,11 +5207,11 @@ msgstr "Udtalelse"
 
 #: modules/testimonials/testimonials.php:197
 msgid "Add Testimonial"
-msgstr "Tilføj udtalelse"
+msgstr "TilfÃ¸j udtalelse"
 
 #: modules/video/video.php:20
 msgid "Render a WordPress or embedable video."
-msgstr "Udfør en WordPress eller integrerbar video"
+msgstr "UdfÃ¸r en WordPress eller integrerbar video"
 
 #: modules/video/video.php:83
 msgid "Video Type"
@@ -5231,7 +5231,7 @@ msgstr "Poster"
 #, php-format
 msgctxt "%s stands for widget slug."
 msgid "%s no longer exists."
-msgstr "%s eksisterer ikke længere."
+msgstr "%s eksisterer ikke lÃ¦ngere."
 
 #: modules/widget/widget.php:14
 msgid "Widget"
@@ -5260,7 +5260,7 @@ msgstr "Flere produkter"
 
 #: modules/woocommerce/woocommerce.php:63
 msgid "\"Add to Cart\" Button"
-msgstr "“Tilføj til Kurv” knap"
+msgstr "â€œTilfÃ¸j til Kurvâ€ knap"
 
 #: modules/woocommerce/woocommerce.php:64
 msgid "Categories"
@@ -5272,11 +5272,11 @@ msgstr "Kurv"
 
 #: modules/woocommerce/woocommerce.php:66
 msgid "Checkout"
-msgstr "Gå til kassen"
+msgstr "GÃ¥ til kassen"
 
 #: modules/woocommerce/woocommerce.php:67
 msgid "Order Tracking"
-msgstr "Følg din bestilling"
+msgstr "FÃ¸lg din bestilling"
 
 #: modules/woocommerce/woocommerce.php:68
 msgid "My Account"
@@ -5292,14 +5292,14 @@ msgid ""
 "a unique ID. You can find this unique product ID by visiting the Products "
 "area and rolling over the product. The unique ID will be the first attribute."
 msgstr ""
-"Som du tilføjer produkter til området for WooCommerce Produkter, vil hvert "
+"Som du tilfÃ¸jer produkter til omrÃ¥det for WooCommerce Produkter, vil hvert "
 "produkt blive tildelt et unik ID. Du kan finde dette unikke produkt ID ved "
-"at besøge området for produkter og holde over produktet. Det unikke ID vil "
-"være den første information."
+"at besÃ¸ge omrÃ¥det for produkter og holde over produktet. Det unikke ID vil "
+"vÃ¦re den fÃ¸rste information."
 
 #: modules/woocommerce/woocommerce.php:94
 msgid "Parent Category ID"
-msgstr "Forælderkategori ID"
+msgstr "ForÃ¦lderkategori ID"
 
 #: modules/woocommerce/woocommerce.php:97
 msgid ""
@@ -5308,10 +5308,10 @@ msgid ""
 "the categories area under Products and looking in the URL that is displayed "
 "in your browser. The ID will be the only number value in the URL."
 msgstr ""
-"Som du tilføjer produktkategorier til området for WooCommerce Produkter, vil "
+"Som du tilfÃ¸jer produktkategorier til omrÃ¥det for WooCommerce Produkter, vil "
 "hver kategori blive tildelt et unikt ID. Dette ID kan findes ved at hover "
-"over kategorien i området for kategorier under produkter og kigge på URL’en "
-"der vises i din browser. ID’et vil være det eneste sæt tal i URL’en."
+"over kategorien i omrÃ¥det for kategorier under produkter og kigge pÃ¥ URLâ€™en "
+"der vises i din browser. IDâ€™et vil vÃ¦re det eneste sÃ¦t tal i URLâ€™en."
 
 #: modules/woocommerce/woocommerce.php:101
 #: modules/woocommerce/woocommerce.php:172
@@ -5324,7 +5324,7 @@ msgstr "Produltkilde"
 
 #: modules/woocommerce/woocommerce.php:120
 msgid "Products IDs"
-msgstr "Produkt ID’er"
+msgstr "Produkt IDâ€™er"
 
 #: modules/woocommerce/woocommerce.php:121
 msgid "Product Category"
@@ -5336,7 +5336,7 @@ msgstr "Seneste produkter"
 
 #: modules/woocommerce/woocommerce.php:123
 msgid "Featured Products"
-msgstr "Fremhævede produkter"
+msgstr "FremhÃ¦vede produkter"
 
 #: modules/woocommerce/woocommerce.php:124
 msgid "Sale Products"
@@ -5344,15 +5344,15 @@ msgstr "Tilbudsprodukter"
 
 #: modules/woocommerce/woocommerce.php:125
 msgid "Best Selling Products"
-msgstr "Bedst sælgende produkter"
+msgstr "Bedst sÃ¦lgende produkter"
 
 #: modules/woocommerce/woocommerce.php:126
 msgid "Top Rated Products"
-msgstr "Bedst bedømte produkter"
+msgstr "Bedst bedÃ¸mte produkter"
 
 #: modules/woocommerce/woocommerce.php:154
 msgid "Product IDs"
-msgstr "Produkt ID’er"
+msgstr "Produkt IDâ€™er"
 
 #: modules/woocommerce/woocommerce.php:156
 msgid ""
@@ -5361,10 +5361,10 @@ msgid ""
 "area and rolling over the product. The unique ID will be the first attribute "
 "and you can add several here separated by a comma."
 msgstr ""
-"Som du tilføjer produkter til området for WooCommerce Produkter, vil hvert "
+"Som du tilfÃ¸jer produkter til omrÃ¥det for WooCommerce Produkter, vil hvert "
 "produkt blive tildelt et unik ID. Du kan finde dette unikke produkt ID ved "
-"at besøge området for produkter og holde over produktet. Det unikke ID vil "
-"være den første information og du kan tilføje adskille her separeret af et "
+"at besÃ¸ge omrÃ¥det for produkter og holde over produktet. Det unikke ID vil "
+"vÃ¦re den fÃ¸rste information og du kan tilfÃ¸je adskille her separeret af et "
 "komma."
 
 #: modules/woocommerce/woocommerce.php:160
@@ -5378,11 +5378,11 @@ msgid ""
 "found in the Categories area under WooCommerce Products. Several can be "
 "added here separated by a comma."
 msgstr ""
-"Som du tilføjer produktkategorier til området for WooCommerce Produkter, vil "
+"Som du tilfÃ¸jer produktkategorier til omrÃ¥det for WooCommerce Produkter, vil "
 "hver kategori blive tildelt et unikt ID. Dette ID kan findes ved at hover "
-"over kategorien i området for kategorier under produkter og kigge på URL’en "
-"der vises i din browser. ID’et vil være det eneste sæt tal i URL’en. "
-"Adskillige kan tilføjes her separeret af et komma."
+"over kategorien i omrÃ¥det for kategorier under produkter og kigge pÃ¥ URLâ€™en "
+"der vises i din browser. IDâ€™et vil vÃ¦re det eneste sÃ¦t tal i URLâ€™en. "
+"Adskillige kan tilfÃ¸jes her separeret af et komma."
 
 #: modules/woocommerce/woocommerce.php:166
 msgid "Number of Products"

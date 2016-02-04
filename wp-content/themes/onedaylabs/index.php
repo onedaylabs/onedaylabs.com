@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-			
+		<div class="main-body">
+    	<div class="container">		
 			<div id="content" class="clearfix row">
 			
 				<div id="main" class="col-sm-8 clearfix" role="main">
@@ -10,9 +11,13 @@
 						
 						<header>
 							
-							<div class="page-header"><h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1></div>
+							<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'wpbs-featured' ); ?></a>
 							
-							<p class="meta"><?php _e("Posted", "wpbootstrap"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php echo get_the_date('F jS, Y', '','', FALSE); ?></time> <?php _e("by", "wpbootstrap"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "wpbootstrap"); ?> <?php the_category(', '); ?>.</p>
+							<div class="page-header">
+                            
+                            <h3 class="meta"> <time datetime="<?php echo the_time('D-Y-m-j'); ?>" pubdate><?php echo get_the_date('D, F jS, Y', '','', FALSE); ?></time> </h3>
+                            <h1 class="single-title" itemprop="headline"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+                            </div>
 						
 						</header> <!-- end article header -->
 					
@@ -63,5 +68,6 @@
 				<?php get_sidebar(); // sidebar 1 ?>
     
 			</div> <!-- end #content -->
-
+</div>
+</div>
 <?php get_footer(); ?>

@@ -12,7 +12,7 @@ final class FLBuilderAutoSuggest {
 	 * the data will be echoed as a JSON response.
 	 *
 	 * @since 1.2.3
-	 * @return void
+	 * @return array
 	 */	 
 	static public function init()
 	{
@@ -38,8 +38,7 @@ final class FLBuilderAutoSuggest {
 			}
 		
 			if(isset($data)) {
-				echo json_encode($data);
-				die();
+				return $data;
 			}
 		}
 	}
@@ -146,7 +145,7 @@ final class FLBuilderAutoSuggest {
 		
 		if(!empty($ids)) {
 		
-			$posts = $wpdb->get_results("SELECT ID, post_title FROM {$wpdb->posts} WHERE ID IN ({$ids})");
+			$posts = $wpdb->get_results("SELECT ID, post_title FROM {$wpdb->posts} WHERE ID IN ({$ids}) ORDER BY FIELD(ID, {$ids})");
 			
 			foreach($posts as $post) {
 				$data[] = array('name' => esc_attr( $post->post_title ), 'value' => $post->ID);

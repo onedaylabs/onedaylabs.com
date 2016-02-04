@@ -11,10 +11,11 @@ class FLIconGroupModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Icon Group', 'fl-builder'),
-			'description'   => __('Display a group of linked Font Awesome icons.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Icon Group', 'fl-builder'),
+			'description'   	=> __('Display a group of linked Font Awesome icons.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 	}
 }

@@ -22,9 +22,10 @@ class FLPhotoModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Photo', 'fl-builder'),
-			'description'   => __('Upload a photo or display one from the media library.', 'fl-builder'),
-			'category'      => __('Basic Modules', 'fl-builder')
+			'name'          	=> __('Photo', 'fl-builder'),
+			'description'   	=> __('Upload a photo or display one from the media library.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 
@@ -178,6 +179,37 @@ class FLPhotoModule extends FLBuilderModule {
 	}
 
 	/**
+	 * @method get_classes
+	 */
+	public function get_classes()
+	{
+		$classes = array( 'fl-photo-img' );
+		
+		if ( ! empty( $this->settings->photo ) ) {
+			
+			$data = self::get_data();
+			
+			if ( is_object( $data ) ) {
+				
+				$classes[] = 'wp-image-' . $data->id;
+
+				if ( isset( $data->sizes ) ) {
+
+					foreach ( $data->sizes as $key => $size ) {
+						
+						if ( $size->url == $this->settings->photo_src ) {
+							$classes[] = 'size-' . $key;
+							break;
+						}
+					}
+				}
+			}
+		}
+		
+		return implode( ' ', $classes );
+	}
+
+	/**
 	 * @method get_src
 	 */
 	public function get_src()
@@ -213,46 +245,6 @@ class FLPhotoModule extends FLBuilderModule {
 		}
 
 		return $src;
-	}
-
-	/**
-	 * @method get_srcset
-	 */
-	public function get_srcset()
-	{
-		$attrs 	= '';
-		$srcset = array();
-		
-		// Cropped photos only have one URL, so we can't use srcset.
-		// Photo source URL only has one URL, so we can't use srcset.
-		// If don't have photo data, we can't use srcset.
-		if ( empty( $this->settings->crop ) && $this->settings->photo_source == 'library' && ! empty( $this->settings->photo ) ) {
-			
-			// Get the photo data.
-			$data = self::get_data();
-			
-			// Proceed if we have photo data and sizes.
-			if ( is_object( $data ) && isset( $data->sizes ) ) {
-				
-				// Loop through the sizes and build the $srcset array.
-				foreach ( $data->sizes as $key => $size ) {
-					
-					if ( 'thumbnail' == $key ) {
-						continue;
-					}
-					
-					$srcset[] = $size->url . ' ' . $size->width . 'w';
-				}
-				
-				// Build the srcset string if we don't have an empty $srcset array.
-				if ( count( $srcset ) > 0 ) {
-					$attrs = 'srcset="' . implode( ',', $srcset ) . '"';
-					$attrs .= ' sizes="(max-width: ' . $data->width . 'px) 100vw, ' . $data->width . 'px"';
-				}
-			}
-		}
-		
-		return $attrs;
 	}
 
 	/**
@@ -503,7 +495,7 @@ FLBuilder::register_module('FLPhotoModule', array(
 				)
 			),
 			'link'          => array(
-				'title'         => 'Link',
+				'title'         => __('Link', 'fl-builder'),
 				'fields'        => array(
 					'link_type'     => array(
 						'type'          => 'select',

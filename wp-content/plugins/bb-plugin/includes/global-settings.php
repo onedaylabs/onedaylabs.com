@@ -1,11 +1,11 @@
 <?php
 
 FLBuilder::register_settings_form('global', array(
-	'title' => sprintf( _x( '%s Settings', '%s stands for custom branded "Page Builder" name.', 'fl-builder' ), FLBuilderModel::get_branding() ),
+	'title' => __( 'Global Settings', 'fl-builder' ),
 	'tabs' => array(
 		'general'  => array(
 			'title'         => __('General', 'fl-builder'),
-			'description'   => __('Note: These settings apply to all posts and pages.', 'fl-builder'),
+			'description'   => __('<strong>Note</strong>: These settings apply to all posts and pages.', 'fl-builder'),
 			'sections'      => array(
 				'page_heading'  => array(
 					'title'         => __('Default Page Heading', 'fl-builder'),
@@ -143,6 +143,44 @@ FLBuilder::register_settings_form('global', array(
 							'size'              => '5',
 							'description'       => 'px',
 							'help'              => __('The browser width at which the layout will adjust for small devices such as phones.', 'fl-builder')
+						)
+					)
+				)
+			)
+		),
+		'css'  => array(
+			'title'         => __('CSS', 'fl-builder'),
+			'sections'      => array(
+				'css'  			=> array(
+					'title'         => '',
+					'fields'        => array(
+						'css' 			=> array(
+							'type'          => 'code',
+							'label'         => '',
+							'editor'        => 'css',
+							'rows'          => '19',
+							'preview'           => array(
+								'type'              => 'none'
+							)
+						)
+					)
+				)
+			)
+		),
+		'js'  	=> array(
+			'title'         => __('JavaScript', 'fl-builder'),
+			'sections'      => array(
+				'js'  			=> array(
+					'title'         => '',
+					'fields'        => array(
+						'js' 			=> array(
+							'type'          => 'code',
+							'label'         => '',
+							'editor'        => 'javascript',
+							'rows'          => '19',
+							'preview'           => array(
+								'type'              => 'none'
+							)
 						)
 					)
 				)

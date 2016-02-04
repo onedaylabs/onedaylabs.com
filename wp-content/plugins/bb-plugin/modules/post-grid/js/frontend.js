@@ -1,5 +1,3 @@
-var FLBuilderPostGrid;
-
 (function($) {
 
 	FLBuilderPostGrid = function(settings)
@@ -49,8 +47,6 @@ var FLBuilderPostGrid;
 		{
 			var wrap = $(this.wrapperClass);
 			
-			this._gridLayoutMatchHeight();
-				
 			wrap.masonry({
 				columnWidth         : this.nodeClass + ' .fl-post-grid-sizer',
 				gutter              : parseInt(this.settings.postSpacing),
@@ -72,8 +68,8 @@ var FLBuilderPostGrid;
 			if ( 0 === this.matchHeight ) {
 				return;
 			}
-            
-            $(this.postClass).each(function(){
+			
+            $(this.postClass).css('height', '').each(function(){
                 
                 if($(this).height() > highestBox) {
                 	highestBox = $(this).height();

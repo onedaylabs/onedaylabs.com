@@ -6,7 +6,7 @@
 .fl-node-<?php echo $col->node; ?> {
 	color: #<?php echo $col->settings->text_color; ?>;
 }
-.fl-builder-content .fl-node-<?php echo $col->node; ?> *:not(input) {
+.fl-builder-content .fl-node-<?php echo $col->node; ?> *:not(input):not(textarea):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
 	color: inherit;
 }
 <?php endif; ?>
@@ -104,6 +104,7 @@
 	<?php if($col->settings->medium_size == 'custom') : ?>
 	@media(max-width: <?php echo $global_settings->medium_breakpoint; ?>px) {
 		.fl-builder-content .fl-node-<?php echo $col->node; ?> {
+			max-width: none;
 			width: <?php echo $col->settings->custom_medium_size; ?>% !important;
 		}
 	}
@@ -114,6 +115,7 @@
 		.fl-builder-content .fl-node-<?php echo $col->node; ?> {
 			clear: none;
 			float: left;
+			max-width: none;
 			width: <?php echo $col->settings->custom_responsive_size; ?>% !important;
 		}
 	}

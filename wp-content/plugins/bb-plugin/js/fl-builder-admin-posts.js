@@ -45,8 +45,7 @@
 				$(this).addClass('fl-active');
 				
 				FLBuilderAdminPosts.ajax({
-					action: 'fl_builder_save',
-					method: 'disable',
+					action: 'fl_builder_disable',
 				}, FLBuilderAdminPosts._enableEditorComplete);
 			}
 		},
@@ -112,7 +111,7 @@
 			var redirect = $('.fl-launch-builder').attr('href'),
 				title    = $('#title');
 			
-			if(typeof title !== 'undefined' && title.val() == '') {
+			if(typeof title !== 'undefined' && title.val() === '') {
 				title.val('Post #' + $('#post_ID').val());
 			}
 			
@@ -140,8 +139,7 @@
 				$('.fl-builder-loading').show();
 				
 				FLBuilderAdminPosts.ajax({
-					action: 'fl_builder_save',
-					method: 'duplicate_wpml_layout',
+					action: 'fl_builder_duplicate_wpml_layout',
 					original_post_id: originalPostId
 				}, FLBuilderAdminPosts._wpmlCopyComplete);
 			}
@@ -157,7 +155,7 @@
 		 */   
 		_wpmlCopyComplete: function(response)
 		{
-			var response = JSON.parse(response);
+			response = JSON.parse(response);
 			
 			$('.fl-builder-loading').hide();
 			
@@ -176,12 +174,15 @@
 		 */   
 		ajax: function(data, callback)
 		{
+			// Add the post ID to the data.
 			data.post_id = $('#post_ID').val();
 			
+			// Show the loader.
 			$('.fl-builder-loading').show();
 			
+			// Send the request.
 			$.post(ajaxurl, data, function(response) {
-
+				
 				FLBuilderAdminPosts._ajaxComplete();
 			
 				if(typeof callback !== 'undefined') {

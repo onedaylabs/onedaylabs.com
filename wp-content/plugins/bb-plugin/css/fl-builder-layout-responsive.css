@@ -2,12 +2,17 @@
 ------------------------------------------------------ */
 
 .fl-visible-desktop,
+.fl-visible-desktop.fl-col,
 .fl-visible-desktop-medium,
-.fl-visible-medium {
+.fl-visible-desktop-medium.fl-col,
+.fl-visible-medium,
+.fl-visible-medium.fl-col {
 	display: none;
 }
 .fl-visible-medium-mobile,
-.fl-visible-mobile {
+.fl-visible-medium-mobile.fl-col,
+.fl-visible-mobile,
+.fl-visible-mobile.fl-col {
 	display: block;
 }
 

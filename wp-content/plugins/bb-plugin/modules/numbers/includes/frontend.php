@@ -19,18 +19,48 @@
 		<?php $module->render_circle_bar(); ?>
 	</div>
 <?php elseif( $settings->layout == 'bars' ) : ?>
-	<div class="fl-number-text">
+	<div class="fl-number-text fl-number-position-<?php echo esc_attr( $settings->number_position );?>">
 		<?php if( !empty( $settings->before_number_text ) ) : ?>
 			<span class="fl-number-before-text">
 				<?php echo esc_html( $settings->before_number_text ) ?>
 			</span>
 		<?php endif; ?>
 	
-		<div class="fl-number-bars-container">
-			<div class="fl-number-bar">
-				<?php $module->render_number(); ?>
+		<?php
+		$position = $settings->number_position ? $settings->number_position : 'default';	
+		?>
+	
+		<?php if( $position == 'above' ): ?>
+
+			<?php $module->render_number(); ?>
+			<div class="fl-number-bars-container">
+				<div class="fl-number-bar"></div>
 			</div>
-		</div>
+		<?php 
+
+		elseif ( $position == 'below' ): ?>
+
+			<div class="fl-number-bars-container">
+				<div class="fl-number-bar"></div>
+			</div>
+			<?php 
+			$module->render_number(); 
+
+		else: ?>
+
+			<div class="fl-number-bars-container">
+				<div class="fl-number-bar">
+					<?php $module->render_number(); ?>
+				</div>
+			</div>
+
+		<?php endif; ?>
+
+		<?php if( !empty( $settings->after_number_text ) ) : ?>
+			<span class="fl-number-after-text">
+				<?php echo esc_html( $settings->after_number_text ) ?>
+			</span>
+		<?php endif; ?>
 
 	</div>
 <?php else : ?>

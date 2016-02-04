@@ -17,8 +17,8 @@
 			else if ( 'select' == $preview_field['type'] ) {
 				echo $preview_field['options'][ $value->$field['preview_text'] ];
 			}
-			else if ( ! empty( $value->$field['preview_text'] ) ) {
-				echo FLBuilderUtils::snippetwop( strip_tags( str_replace( '&#39;', "'", $value->$field['preview_text'] ) ), 35 );
+			else if ( ! empty( $value->{$field['preview_text']} ) ) {
+				echo FLBuilderUtils::snippetwop( strip_tags( str_replace( '&#39;', "'", $value->{$field['preview_text']} ) ), 35 );
 			}
 		}
 	}

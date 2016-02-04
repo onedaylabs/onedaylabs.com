@@ -15,10 +15,11 @@ class FLSubscribeFormModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct( array(
-			'name'          => __( 'Subscribe Form', 'fl-builder' ),
-			'description'   => __( 'Adds a simple subscribe form to your layout.', 'fl-builder' ),
-			'category'      => __( 'Advanced Modules', 'fl-builder' ),
-			'editor_export' => false
+			'name'          	=> __( 'Subscribe Form', 'fl-builder' ),
+			'description'   	=> __( 'Adds a simple subscribe form to your layout.', 'fl-builder' ),
+			'category'      	=> __( 'Advanced Modules', 'fl-builder' ),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 		
 		add_action( 'wp_ajax_fl_builder_subscribe_form_submit', array( $this, 'submit' ) );

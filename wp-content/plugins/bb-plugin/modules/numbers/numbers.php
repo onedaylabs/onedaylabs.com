@@ -21,12 +21,13 @@ class FLNumbersModule extends FLBuilderModule {
 
 	public function render_number(){
 
+		$number = $this->settings->number ? $this->settings->number : 0;
 		$layout = $this->settings->layout ? $this->settings->layout : 'default';
 		$type   = $this->settings->number_type ? $this->settings->number_type : 'percent';
 		$prefix = $type == 'percent' ? '' : $this->settings->number_prefix;
 		$suffix = $type == 'percent' ? '%' : $this->settings->number_suffix;
 
-		$html = '<div class="fl-number-string">' . $prefix . '<span class="fl-number-int">0</span>' . $suffix . '</div>';
+		$html = '<div class="fl-number-string">' . $prefix . '<span class="fl-number-int">'. number_format( $number ) .'</span>' . $suffix . '</div>';
 
 		echo $html;
 	}
@@ -71,14 +72,11 @@ FLBuilder::register_module('FLNumbersModule', array(
 					    ),
 					    'toggle'		=> array(
 					    	'circle'		=> array(
-					    		'sections'		=> array( 'circle_bar_style' ),
-					    		'fields'		=> array( 'after_number_text' ),
-					    	),
-					    	'default'		=> array(
-					    		'fields'		=> array( 'after_number_text' ),
+					    		'sections'		=> array( 'circle_bar_style' )
 					    	),
 					    	'bars'			=> array(
 					    		'sections'		=> array( 'bar_style' ),
+					    		'fields'		=> array( 'number_position' ),
 					    	),
 					    ),
 					),
@@ -108,6 +106,17 @@ FLBuilder::register_module('FLNumbersModule', array(
 						'label'         => __('Total', 'fl-builder'),
 						'size'          => '5',
 						'help'			=> __( 'The total number of units for this counter. For example, if the Number is set to 250 and the Total is set to 500, the counter will animate to 50%.', 'fl-builder' ),
+					),
+					'number_position'	=> array(
+						'type'          => 'select',
+						'label'         => __('Number Position', 'fl-builder'),
+						'size'          => '5',
+						'help'			=> __( 'Where to display the number in relation to the bar.', 'fl-builder' ),
+						 'options'       => array(
+					    	'default'	=> __( 'Inside Bar', 'fl-builder' ),
+					    	'above'		=> __( 'Above Bar', 'fl-builder' ),
+					    	'below'		=> __( 'Below Bar', 'fl-builder' ),
+					    ),
 					),
 					'before_number_text' => array(
 						'type'          => 'text',

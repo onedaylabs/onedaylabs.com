@@ -106,6 +106,15 @@ class FLBuilderModule {
 	public $editor_export = true;
 	
 	/** 
+	 * Whether partial refresh should be enabled
+	 * for this module or not.
+	 *
+	 * @since 1.7
+	 * @var boolean $partial_refresh
+	 */
+	public $partial_refresh = false;
+	
+	/** 
 	 * The module settings object.
 	 *
 	 * @since 1.0
@@ -145,6 +154,7 @@ class FLBuilderModule {
 		$this->slug             = basename($class_path, '.php');
 		$this->enabled          = isset($params['enabled']) ? $params['enabled'] : true;
 		$this->editor_export    = isset($params['editor_export']) ? $params['editor_export'] : true;
+		$this->partial_refresh  = isset($params['partial_refresh']) ? $params['partial_refresh'] : false;
 		
 		// We need to normalize the paths here since path comparisons 
 		// break on Windows because they use backslashes.

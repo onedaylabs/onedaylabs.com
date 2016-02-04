@@ -11,10 +11,11 @@ class FLSocialButtonModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Social Buttons', 'fl-builder'),
-			'description'   => __('Displays social buttons.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Social Buttons', 'fl-builder'),
+			'description'   	=> __('Displays social buttons.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 	}
 

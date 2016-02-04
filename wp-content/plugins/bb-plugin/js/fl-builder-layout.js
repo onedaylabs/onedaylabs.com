@@ -26,20 +26,24 @@
 			// Init CSS classes.
 			FLBuilderLayout._initClasses();
 			
-			// Init anchor links.
-			FLBuilderLayout._initAnchorLinks();
-			
-			// Init the browser hash.
-			FLBuilderLayout._initHash();
-			
 			// Init backgrounds.
 			FLBuilderLayout._initBackgrounds();
 			
-			// Init module animations.
-			FLBuilderLayout._initModuleAnimations();
+			// Only init if the builder isn't active. 
+			if ( 0 === $('.fl-builder-edit').length ) {
+				
+				// Init anchor links.
+				FLBuilderLayout._initAnchorLinks();
+				
+				// Init the browser hash.
+				FLBuilderLayout._initHash();
 			
-			// Init forms.
-			FLBuilderLayout._initForms();
+				// Init module animations.
+				FLBuilderLayout._initModuleAnimations();
+				
+				// Init forms.
+				FLBuilderLayout._initForms();
+			}
 		},
 		
 		/**
@@ -77,7 +81,7 @@
 		/**
 		 * Checks to see if the current device is mobile.
 		 *
-		 * @since 1.6.5
+		 * @since 1.7
 		 * @access private
 		 * @method _isMobile
 		 * @return {Boolean}
@@ -161,12 +165,17 @@
 			var row     = $(this),
 				content = row.find('.fl-row-content-wrap'),
 				src     = row.data('parallax-image'),
-				img     = new Image();    
-				
-			if(typeof src != 'undefined') {
+				loaded  = row.data('parallax-loaded'),
+				img     = new Image();
+			
+			if(loaded) {
+				return;
+			}
+			else if(typeof src != 'undefined') {
 			 
 				$(img).on('load', function() {
 					content.css('background-image', 'url(' + src + ')');
+					row.data('parallax-loaded', true);
 				});
 				
 				img.src = src;
@@ -235,13 +244,18 @@
 				webm  		= wrap.data( 'webm' ),
 				webmType  	= wrap.data( 'webm-type' ),
 				fallback  	= wrap.data( 'fallback' ),
+				loaded  	= wrap.data( 'loaded' ),
 				fallbackTag = '',
 				videoTag	= null,
 				mp4Tag    	= null,
 				webmTag    	= null; 
 			
+			// Return if the video has been loaded for this row.
+			if ( loaded ) {
+				return;
+			}
 			// Append the video tag for non-mobile.
-			if ( ! FLBuilderLayout._isMobile() ) {
+			else if ( ! FLBuilderLayout._isMobile() ) {
 				
 				videoTag  = $( '<video autoplay loop muted preload></video>' );
 				
@@ -276,12 +290,15 @@
 				wrap.append( videoTag );
 			}
 			// Append the fallback tag for mobile.
-			else if ( '' != fallback ) {
+			else if ( '' !== fallback ) {
 				fallbackTag = $( '<div></div>' );
 				fallbackTag.addClass( 'fl-bg-video-fallback' );
 				fallbackTag.css( 'background-image', 'url(' + fallback + ')' );
 				wrap.append( fallbackTag );
 			}
+			
+			// Mark this video as loaded.
+			wrap.data('loaded', true);
 		},
 		
 		/**
@@ -301,7 +318,7 @@
 				fallback  	= wrap.data( 'fallback' ),
 				fallbackTag = '';
 				
-			if ( '' != fallback ) {
+			if ( '' !== fallback ) {
 				fallbackTag = $( '<div></div>' );
 				fallbackTag.addClass( 'fl-bg-video-fallback' );
 				fallbackTag.css( 'background-image', 'url(' + fallback + ')' );
@@ -355,7 +372,7 @@
 				newLeft     = 0,
 				newTop      = 0;
 				
-			if(vidHeight == '' || vidWidth == '') {
+			if(vidHeight === '' || vidWidth === '') {
 				
 				vid.css({
 					'left'      : '0px',
@@ -392,7 +409,7 @@
 		 */ 
 		_initModuleAnimations: function()
 		{
-			if($('.fl-builder-edit').length === 0 && typeof jQuery.fn.waypoint !== 'undefined' && !FLBuilderLayout._isMobile()) {
+			if(typeof jQuery.fn.waypoint !== 'undefined' && !FLBuilderLayout._isMobile()) {
 				$('.fl-animation').waypoint({
 					offset: '80%',
 					handler: FLBuilderLayout._doModuleAnimation
@@ -439,7 +456,7 @@
 				tabIndex		= null,
 				label			= null;
 			
-			if ( '' != hash ) {
+			if ( '' !== hash ) {
 				
 				element = $( '#' + hash );
 					
@@ -463,6 +480,7 @@
 								responsiveLabel.trigger( 'click' );	
 							}
 							else {
+								FLBuilderLayout._scrollToElement( label );
 								label.trigger( 'click' );
 							}
 							
@@ -528,11 +546,29 @@
 		 * @access private
 		 * @method _scrollToElementOnLinkClick
 		 * @param {Object} e An event object.
+		 * @param {Function} callback A function to call when the scroll is complete.
 		 */ 
 		_scrollToElementOnLinkClick: function( e, callback )
 		{
+			var element = $( '#' + $( this ).attr( 'href' ).split( '#' ).pop() );
+				
+			FLBuilderLayout._scrollToElement( element, callback );
+				
+			e.preventDefault();
+		},
+		
+		/**
+		 * Scrolls to an element.
+		 *
+		 * @since 1.6.4.5
+		 * @access private
+		 * @method _scrollToElement
+		 * @param {Object} element The element to scroll to.
+		 * @param {Function} callback A function to call when the scroll is complete.
+		 */ 
+		_scrollToElement: function( element, callback )
+		{
 			var config  = FLBuilderLayoutConfig.anchorLinkAnimations,
-				element = $( '#' + $( this ).attr( 'href' ).split( '#' ).pop() ),
 				dest    = 0,
 				win     = $( window ),
 				doc     = $( document );
@@ -547,8 +583,6 @@
 				}
 	
 				$( 'html, body' ).animate( { scrollTop: dest }, config.duration, config.easing, callback );
-				
-				e.preventDefault();
 			}
 		},
 		
@@ -611,6 +645,7 @@
 					FLBuilderLayout._scrollToElementOnLinkClick.call( this, e, callback );
 				}
 				else {
+					FLBuilderLayout._scrollToElement( label );
 					label.trigger( 'click' );
 				}
 				
@@ -663,7 +698,7 @@
 				val         = field.val(),
 				placeholder = field.attr( 'placeholder' );
 			
-			if ( 'undefined' != placeholder && '' == val ) {
+			if ( 'undefined' != placeholder && '' === val ) {
 				field.val( placeholder );
 				field.on( 'focus', FLBuilderLayout._hideFormFieldPlaceholderFallback );
 				field.on( 'blur', FLBuilderLayout._showFormFieldPlaceholderFallback );
@@ -701,7 +736,7 @@
 				val         = field.val(),
 				placeholder = field.attr( 'placeholder' );
 			
-			if ( '' == val ) {
+			if ( '' === val ) {
 				field.val( placeholder );
 			}
 		},

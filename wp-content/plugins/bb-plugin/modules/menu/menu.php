@@ -11,9 +11,11 @@ class FLMenuModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Menu', 'fl-builder'),
-			'description'   => __('Renders a WordPress menu.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Menu', 'fl-builder'),
+			'description'   	=> __('Renders a WordPress menu.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true,
+			'editor_export' 	=> false
 		));
 	}
 

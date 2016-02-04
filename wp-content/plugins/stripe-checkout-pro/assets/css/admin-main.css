@@ -1,0 +1,136 @@
+/* Default admin CSS file */
+
+/* Layout the page similar to the built-in post edit screen. */
+#sc-settings {
+	margin-right: 310px;
+}
+
+#sc-settings-content {
+	width: 100%;
+	float: left;
+}
+
+#sc-settings-sidebar {
+	float: right;
+	margin-right: -310px;
+	width: 290px;
+}
+
+#sc-settings-sidebar .centered {
+	text-align: center;
+}
+
+#sc-settings-sidebar .button-large {
+	font-size: 17px;
+	line-height: 30px;
+	height: 32px;
+}
+
+#sc-settings-sidebar .last-blurb {
+	font-size: 17px;
+}
+
+/* Alternative postbox class with no background or border. */
+#sc-settings-sidebar .postbox-nobg {
+	position: relative;
+	min-width: 255px;
+}
+
+/* postbox overrides */
+#sc-settings-sidebar .sidebar-container .postbox .inside {
+	margin-bottom: 0;
+}
+
+/* Toggle switch wrap */
+.sc_settings-toggle-switch-wrap {
+	width: 300px;
+	margin-left: -88px;
+}
+
+/* Used to hide settings on page load */
+.sc-admin-hidden {
+	display: none;
+}
+
+/* Content block for admin tabs */
+#sc-settings-content .tab-content {
+	display: block;
+	padding-top: 15px;
+}
+
+/* Labels for admin settings */
+#sc-settings-content .tab-content label {
+	font-weight: bold;
+	display: block;
+	margin-top: 15px;
+}
+
+#sc-settings-content .tab-content input[type="radio"] + label {
+	display: inline;
+	margin-top: 0px;
+	font-weight: normal;
+}
+
+/* System Status CSS */
+#sc-system-status-report textarea {
+	font-family: monospace;
+	min-height: 200px;
+	padding: 5px 20px;
+	white-space: pre;
+	width: 100%;
+}
+
+.sc-system-status-report-panel {
+	margin: 20px 0;
+}
+
+.sc-system-status-report-panel thead th {
+	font-weight: bold;
+}
+
+.sc-system-status-report-panel tbody td,
+.sc-system-status-report-panel thead th {
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.sc-system-status-report-panel tbody .tooltip {
+	text-align: center;
+	width: 20px;
+}
+
+.sc-system-status-report-panel tbody .label {
+	width: 30%;
+}
+
+.sc-system-status-report-panel tbody tr:nth-child(odd) td {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
+.sc-system-status-report-panel dl {
+	margin: 0;
+	padding: 0;
+}
+
+.sc-system-status-report-panel dt {
+	float: left;
+	font-style: italic;
+	margin: 0 4px 0 0;
+}
+
+.sc-system-status-report-panel dd {
+	margin: 0;
+}
+
+.sc-system-status-report-panel mark {
+	background-color: transparent;
+	font-weight: bold;
+}
+
+.sc-system-status-report-panel mark.ok {
+	color: green;
+}
+
+.sc-system-status-report-panel mark.error {
+	color: red;
+}

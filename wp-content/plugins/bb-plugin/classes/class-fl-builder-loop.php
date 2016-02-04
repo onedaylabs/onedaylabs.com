@@ -201,7 +201,7 @@ final class FLBuilderLoop {
 	/**
 	 * Displays the date for the current post in the loop.
 	 *
-	 * @since 1.6.5
+	 * @since 1.7
 	 * @param string $format The date format to use.
 	 * @return void
 	 */

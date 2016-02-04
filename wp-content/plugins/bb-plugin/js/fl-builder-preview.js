@@ -12,7 +12,12 @@
 		this.type = o.type;
 		
 		// Save the current state.
-		this._saveState();
+		if(o.state != 'undefined' && o.state) {
+			this.state = o.state;
+		}
+		else {
+			this._saveState();
+		}
 		
 		// Render an initial preview?
 		if(o.layout != 'undefined' && o.layout) {
@@ -85,6 +90,15 @@
 		state               : null,
 		
 		/**
+		 * Node settings saved when the preview was initalized.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @property {Object} _savedSettings
+		 */  
+		_savedSettings       : null,
+		
+		/**
 		 * An instance of FLStyleSheet for the current preview.
 		 *
 		 * @since 1.3.3
@@ -131,11 +145,14 @@
 		{
 			// Node Id
 			this.nodeId = $('.fl-builder-settings').data('node');
+			
+			// Save settings
+			this._saveSettings();
 	
 			// Elements and Class Names
 			this._initElementsAndClasses();
 			
-			// Default field previews.
+			// Default field previews
 			this._initDefaultFieldPreviews();
 	
 			// Init
@@ -153,6 +170,37 @@
 				this._initModule();
 				break;
 			}
+		},
+
+		/**
+		 * Saves the current settings to be checked to see if
+		 * anything has changed when a preview is canceled.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _saveSettings
+		 */
+		_saveSettings: function()
+		{
+			var form = $('.fl-builder-settings-lightbox .fl-builder-settings');
+			
+			this._savedSettings = FLBuilder._getSettings( form );
+		},
+
+		/**
+		 * Checks to see if the settings have changed.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _settingsHaveChanged
+		 * @return bool
+		 */
+		_settingsHaveChanged: function()
+		{
+			var form 	 = $('.fl-builder-settings-lightbox .fl-builder-settings'),
+				settings = FLBuilder._getSettings( form );
+			
+			return JSON.stringify( this._savedSettings ) != JSON.stringify( settings );
 		},
 	
 		/**
@@ -235,7 +283,7 @@
 		 */
 		_cancelDelay: function()
 		{
-			if(this._timeout != null) {
+			if(this._timeout !== null) {
 				clearTimeout(this._timeout);
 			}
 		},
@@ -312,7 +360,7 @@
 
 			// Make a new preview request.
 			this._xhr = FLBuilder.ajax({
-				action          : 'fl_builder_render_layout',
+				action          : 'render_layout',
 				node_id         : nodeId,
 				node_preview    : settings
 			}, $.proxy(this._renderPreview, this));
@@ -415,7 +463,9 @@
 			}
 			
 			// Render the layout.
-			FLBuilder._renderLayout(this.state);
+			if ( this._settingsHaveChanged() ) {
+				FLBuilder._renderLayout(this.state);
+			}
 		},
 	
 		/**
@@ -481,14 +531,14 @@
 				hoverColor   = this.elements.hoverColor.val(),
 				headingColor = this.elements.headingColor.val();
 			
-			linkColor 	 = linkColor == '' ? textColor : linkColor;
-			hoverColor 	 = hoverColor == '' ? textColor : hoverColor;
-			headingColor = headingColor == '' ? textColor : headingColor;
+			linkColor 	 = linkColor === '' ? textColor : linkColor;
+			hoverColor 	 = hoverColor === '' ? textColor : hoverColor;
+			headingColor = headingColor === '' ? textColor : headingColor;
 			
 			this.delay(100, $.proxy(function(){
 			
 				// Update Text color.
-				if(textColor == '') {
+				if(textColor === '') {
 					this.updateCSSRule(this.classes.node, 'color', 'inherit');
 				}
 				else {
@@ -496,7 +546,7 @@
 				}
 				
 				// Update Link Color
-				if ( linkColor == '' ) {
+				if ( linkColor === '' ) {
 					this.updateCSSRule(this.classes.node + ' a', 'color', 'inherit');
 				}
 				else {
@@ -504,7 +554,7 @@
 				}
 				
 				// Hover Color
-				if(hoverColor == '') {
+				if(hoverColor === '') {
 					this.updateCSSRule(this.classes.node + ' a:hover', 'color', 'inherit');
 				}
 				else {
@@ -512,7 +562,7 @@
 				}
 				
 				// Heading Color
-				if(headingColor == '') {
+				if(headingColor === '') {
 					this.updateCSSRule(this.classes.node + ' h1', 'color', 'inherit');
 					this.updateCSSRule(this.classes.node + ' h2', 'color', 'inherit');
 					this.updateCSSRule(this.classes.node + ' h3', 'color', 'inherit');
@@ -639,21 +689,27 @@
 			
 			// Photo
 			else if(val == 'photo') {
+				this.elements.bgColor.trigger('change');
 				this.elements.bgImageSrc.trigger('change');
 			}
 			
 			// Video
-			else if(val == 'video' && this.elements.bgVideo.val() != '') {
-				this.preview();
+			else if(val == 'video') {
+				this.elements.bgColor.trigger('change');
+				if (this.elements.bgVideo.val() != '') {
+					this.preview();
+				}
 			}
 			
 			// Slideshow
 			else if(val == 'slideshow') {
+				this.elements.bgColor.trigger('change');
 				this._bgSlideshowChange();
 			}
 			
 			// Parallax
 			else if(val == 'parallax') {
+				this.elements.bgColor.trigger('change');
 				this.elements.bgParallaxImageSrc.trigger('change');
 			}
 		},
@@ -671,13 +727,13 @@
 		{
 			var rgb, alpha, value;
 			
-			if(this.elements.bgColor.val() == '' || isNaN(this.elements.bgOpacity.val())) {
+			if(this.elements.bgColor.val() === '' || isNaN(this.elements.bgOpacity.val())) {
 				this.updateCSSRule(this.classes.content, 'background-color', 'transparent');  
 			}
 			else {
 			
-				rgb    = this.hexToRgb( this.elements.bgColor.val() ),
-				alpha  = this.parseFloat(this.elements.bgOpacity.val())/100,
+				rgb    = this.hexToRgb( this.elements.bgColor.val() );
+				alpha  = this.parseFloat(this.elements.bgOpacity.val())/100;
 				value  = 'rgba(' + rgb.join() + ', ' + alpha + ')';
 					
 				this.delay(100, $.proxy(function(){
@@ -741,10 +797,10 @@
 				speed       = eles.bgSlideshowSpeed.val(),
 				transSpeed  = eles.bgSlideshowTransSpeed.val();
 			
-			if(source == 'wordpress' && photos == '') {
+			if(source == 'wordpress' && photos === '') {
 				return;
 			}
-			else if(source == 'smugmug' && feed == '') {
+			else if(source == 'smugmug' && feed === '') {
 				return;
 			}
 			else if(isNaN(parseInt(speed))) {
@@ -793,15 +849,15 @@
 		{
 			var rgb, alpha, value;
 			
-			if(this.elements.bgOverlayColor.val() == '' || isNaN(this.elements.bgOverlayOpacity.val())) {
+			if(this.elements.bgOverlayColor.val() === '' || isNaN(this.elements.bgOverlayOpacity.val())) {
 				this.elements.node.removeClass('fl-row-bg-overlay');
 				this.elements.node.removeClass('fl-col-bg-overlay');
 				this.updateCSSRule(this.classes.content + ':after', 'background-color', 'transparent');  
 			}
 			else {
 			
-				rgb    = this.hexToRgb(this.elements.bgOverlayColor.val()),
-				alpha  = this.parseFloat(this.elements.bgOverlayOpacity.val())/100,
+				rgb    = this.hexToRgb(this.elements.bgOverlayColor.val());
+				alpha  = this.parseFloat(this.elements.bgOverlayOpacity.val())/100;
 				value  = 'rgba(' + rgb.join() + ', ' + alpha + ')';
 					
 				this.delay(100, $.proxy(function(){
@@ -880,7 +936,7 @@
 			var val = this.elements.borderType.val();
 				
 			this.updateCSSRule(this.classes.content, {
-				'border-style'  : val == '' ? 'none' : val
+				'border-style'  : val === '' ? 'none' : val
 			});
 			
 			this.elements.borderColor.trigger('change');
@@ -900,13 +956,13 @@
 		{
 			var rgb, alpha, value;
 			
-			if(this.elements.borderColor.val() == '' || isNaN(this.elements.borderOpacity.val())) {
+			if(this.elements.borderColor.val() === '' || isNaN(this.elements.borderOpacity.val())) {
 				this.updateCSSRule(this.classes.content, 'border-color', 'transparent');  
 			}
 			else {
 			
-				rgb    = this.hexToRgb(this.elements.borderColor.val()),
-				alpha  = parseInt(this.elements.borderOpacity.val())/100,
+				rgb    = this.hexToRgb(this.elements.borderColor.val());
+				alpha  = parseInt(this.elements.borderOpacity.val())/100;
 				value  = 'rgba(' + rgb.join() + ', ' + alpha + ')';
 					
 				this.delay(100, $.proxy(function(){
@@ -945,16 +1001,16 @@
 				left    = this.elements.borderLeftWidth.val(),
 				right   = this.elements.borderRightWidth.val();
 			
-			if(top == '') {
+			if(top === '') {
 				top = this.elements.borderTopWidth.attr('placeholder');
 			}
-			if(bottom == '') {
+			if(bottom === '') {
 				bottom = this.elements.borderBottomWidth.attr('placeholder');
 			}
-			if(left == '') {
+			if(left === '') {
 				left = this.elements.borderLeftWidth.attr('placeholder');
 			}
-			if(right == '') {
+			if(right === '') {
 				right = this.elements.borderRightWidth.attr('placeholder');
 			}
 			
@@ -1010,6 +1066,7 @@
 			
 			// Events
 			this.elements.className.on('keyup', $.proxy(this._classNameChange, this));
+			this._lastClassName = this.elements.className.val();
 		},
 		
 		/**
@@ -1024,7 +1081,7 @@
 		{
 			var className = this.elements.className.val();
 			
-			if(this._lastClassName != null) {
+			if(this._lastClassName !== null) {
 				this.elements.node.removeClass(this._lastClassName);
 			}
 			
@@ -1075,16 +1132,16 @@
 				left    = this.elements.marginLeft.val(),
 				right   = this.elements.marginRight.val();
 			
-			if(top == '') {
+			if(top === '') {
 				top = this.elements.marginTop.attr('placeholder');
 			}
-			if(bottom == '') {
+			if(bottom === '') {
 				bottom = this.elements.marginBottom.attr('placeholder');
 			}
-			if(left == '') {
+			if(left === '') {
 				left = this.elements.marginLeft.attr('placeholder');
 			}
-			if(right == '') {
+			if(right === '') {
 				right = this.elements.marginRight.attr('placeholder');
 			}
 			
@@ -1161,16 +1218,16 @@
 				left    = this.elements.paddingLeft.val(),
 				right   = this.elements.paddingRight.val();
 			
-			if(top == '') {
+			if(top === '') {
 				top = this.elements.paddingTop.attr('placeholder');
 			}
-			if(bottom == '') {
+			if(bottom === '') {
 				bottom = this.elements.paddingBottom.attr('placeholder');
 			}
-			if(left == '') {
+			if(left === '') {
 				left = this.elements.paddingLeft.attr('placeholder');
 			}
-			if(right == '') {
+			if(right === '') {
 				right = this.elements.paddingRight.attr('placeholder');
 			}
 			
@@ -1554,6 +1611,10 @@
 					field.find('input').on('change', callback);
 				break;
 				
+				case 'multiple-audios':
+					field.find('input').on('change', callback);
+				break;
+
 				case 'icon':
 					field.find('input').on('change', callback);
 				break;
@@ -1718,7 +1779,7 @@
 				preview   = field.data('preview');
 
 			// store field id
-			preview['id'] = field.attr( 'id' );
+			preview.id = field.attr( 'id' );
 
 			var callback  = $.proxy(this._previewFont, this, preview);
 			
@@ -1923,7 +1984,7 @@
 		{
 			var selector = this._getPreviewSelector( this.classes.node, preview.selector ),
 				val      = $(e.target).val(),
-				color    = val == '' ? 'inherit' : '#' + val;
+				color    = val === '' ? 'inherit' : '#' + val;
 			
 			this.updateCSSRule(selector, preview.property, color);
 		},

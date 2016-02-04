@@ -11,10 +11,11 @@ class FLContactFormModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'           => __('Contact Form', 'fl-builder'),
-			'description'    => __('A very simple contact form.', 'fl-builder'),
-			'category'       => __('Advanced Modules', 'fl-builder'),
-			'editor_export'  => false
+			'name'           	=> __('Contact Form', 'fl-builder'),
+			'description'    	=> __('A very simple contact form.', 'fl-builder'),
+			'category'       	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export'  	=> false,
+			'partial_refresh'	=> true
 		));
 
 		add_action('wp_ajax_fl_builder_email', array($this, 'send_mail'));
@@ -49,7 +50,7 @@ class FLContactFormModule extends FLBuilderModule {
 		$template .= __('Message', 'fl-builder') . ": \r\n" . $_POST['message'];
 
 		// Double check the mailto email is proper and send
-		if ($mailto && filter_var($mailto, FILTER_VALIDATE_EMAIL)) {
+		if ($mailto) {
 			wp_mail($mailto, $subject, $template);
 			die('1');
 		} else {

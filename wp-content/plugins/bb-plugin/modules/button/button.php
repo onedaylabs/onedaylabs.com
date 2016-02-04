@@ -11,9 +11,10 @@ class FLButtonModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Button', 'fl-builder'),
-			'description'   => __('A simple call to action button.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Button', 'fl-builder'),
+			'description'   	=> __('A simple call to action button.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 

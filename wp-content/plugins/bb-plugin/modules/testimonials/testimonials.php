@@ -11,9 +11,10 @@ class FLTestimonialsModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Testimonials', 'fl-builder'),
-			'description'   => __('An animated tesimonials area.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Testimonials', 'fl-builder'),
+			'description'   	=> __('An animated tesimonials area.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 
 		$this->add_css('jquery-bxslider');

@@ -8,7 +8,8 @@
 <html <?php language_attributes(); ?> class="no-js">
 <!--<![endif]-->
 
-<head>
+<head <?php do_action( 'add_head_attributes' ); ?>>
+<meta name="google-site-verification" content="SB7-mBnFTujq_8tTGc6ZykJ28TasxQHryhrqsRW3ck4" />
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>

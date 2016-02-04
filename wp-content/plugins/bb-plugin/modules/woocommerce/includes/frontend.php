@@ -23,6 +23,13 @@ else if($settings->layout == 'product') {
 	remove_filter('post_class', array($module, 'single_product_post_class'));
 }
 
+// Single Product Page
+else if($settings->layout == 'product_page') {
+	add_filter('post_class', array($module, 'single_product_post_class'));
+	echo '[product_page id="'. $settings->product_id .'"]';
+	remove_filter('post_class', array($module, 'single_product_post_class'));
+}
+
 // Add to Cart Button
 else if($settings->layout == 'add-cart') {
 	echo '[add_to_cart id="'. $settings->product_id .'" style=""]';

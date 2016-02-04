@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Simple Pay Pro for Stripe - Subscriptions Add-on\n"
+"POT-Creation-Date: 2015-07-25 12:36-0700\n"
+"PO-Revision-Date: 2015-07-25 12:36-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: stripe-subscriptions\n"
+
+#: stripe-subscriptions/classes/class-shortcode-tracker.php:158
+msgid "There are no errors to display."
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:110
+msgid "Congratulations. Your payment went through!"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:114
+msgid "Here's what you purchased:"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:119
+msgid "From: "
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:123
+msgid "Total Paid: "
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:128
+msgid "You will be charged "
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:137
+#: stripe-subscriptions/classes/class-stripe-subscriptions-shortcodes.php:156
+msgid "every"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:142
+#, php-format
+msgid "Your transaction ID is: %s"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:160
+msgid ""
+"An error has occurred. If the problem persists, please contact a site "
+"administrator."
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:214
+msgid "Subscription:"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:356
+#: stripe-subscriptions/classes/class-stripe-subscriptions-functions.php:376
+msgid ""
+"Subscriptions must specify a plan ID or include a user-entered amount field. "
+"You cannot include both or omit both."
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-shortcodes.php:67
+msgid "You have entered an invalid type."
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions-shortcodes.php:202
+msgid ""
+"An error has occurred. If the problem persists, please contact the site "
+"administrator."
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions.php:194
+msgid "WP Simple Pay Pro for Stripe - Subscriptions Add-on"
+msgstr ""
+
+#: stripe-subscriptions/classes/class-stripe-subscriptions.php:198
+msgid "WP Simple Pay Pro for Stripe"
+msgstr ""
+
+#: stripe-subscriptions/views/admin-notice-stripe-pro.php:27
+#, php-format
+msgid ""
+"Your version of %1$s is out of date. Please update it to avoid any "
+"incompatibilities with the Subscriptions add-on."
+msgstr ""
+
+#: stripe-subscriptions/views/admin-sc-pro-deactivated-notice.php:26
+#, php-format
+msgid ""
+"%1$s requires %2$s to run properly. Please install %2$s to fully use this "
+"plugin."
+msgstr ""

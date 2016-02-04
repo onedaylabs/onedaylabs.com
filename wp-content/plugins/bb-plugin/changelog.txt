@@ -1,3 +1,157 @@
+<h4>1.7.3 - 02/01/2016</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Developers can now hook into AJAX requests using the fl_ajax_* hooks.</li>
+	<li>Added the fl_builder_render_js filter for filtering JavaScript cached by the builder.</li>
+	<li>Added the fl_builder_render_shortcodes filter for disabling shortcode parsing by the builder.</li>
+	<li>Added the fl_builder_get_upload_dir and fl_builder_get_cache_dir filters for filtering those paths.</li>
+	<li>Added the fl_builder_before_save_layout and fl_builder_after_save_layout actions for hooking into when layout data is saved .</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug with vertically centered content in full height rows on iOS devices.</li>
+	<li>Fixed a bug with the read more link not showing in the Posts Slider module when the content is hidden.</li>
+	<li>Fixed a bug with backslashes being stripped out of the layout settings.</li>
+	<li>Fixed a bug with the Pricing Table module buttons caused in 1.7.</li>
+	<li>Fixed a bug with the link field's auto suggest.</li>
+</ul>
+
+<h4>1.7.2 - 01/26/2016</h4>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed an AJAX bug caused in the last update that broke all auto suggest fields.</li>
+	<li>Fixed post status issues when publishing a pending post via the builder. Also fixes published posts becoming pending when the Revisionary plugin is being used.</li>
+</ul>
+
+<h4>1.7.1 - 01/24/2016</h4>
+<p><strong>Security</strong></p>
+<ul>
+	<li>Fixed a security issue that could allow a logged in user that doesn't have permission to edit a page to make calls to the builder's editing functions by spoofing an AJAX request. While this issue mainly affects sites that allow anyone to register, it is still recommended that everyone update immediately.</li>
+	<li>Now using nonces in AJAX requests for additional security.</li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>The Number Counter module now uses thousands separators.</li>
+	<li>Updated multiple translations.</li>
+	<li>The parent node id is now passed when nested forms are rendered so the parent settings can be accessed by the nested form's controls.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed multiple translation issues.</li>
+	<li>Fixed a bug causing an error on the post list admin screen.</li>
+	<li>Fixed a bug with the read more link not showing in the Posts module when the content is hidden.</li>
+	<li>Fixed a bug with the default value in font fields.</li>
+	<li>Fixed a bug with button style settings showing when no background color is selected.</li>
+	<li>Fixed a bug with nested form preview text on PHP 7.</li>
+</ul>
+
+<h4>1.7 - 01/18/2016</h4>
+<p>This update adds a number of new features. Be sure to check out <a href="https://www.wpbeaverbuilder.com/beaver-builder-1-7-now-with-partial-refresh-per-page-code-settings-and-our-first-shortcode/">the blog post</a> for detailed info on what was added.</p>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Added partial refresh for all rows, columns, and modules. Developers will need to read the custom module docs for info on making their modules compatible with partial refresh.</li>
+	<li>Added the Layout Settings panel with per-page CSS and JavaScript settings.</li>
+	<li>Added CSS and JavaScript settings to the Global Settings panel.</li>
+	<li>Added the Audio module.</li>
+	<li>Added the Countdown module.</li>
+	<li>Added new style settings to the Pricing Table module for achieving a variety of different looks.</li>
+	<li>Added the fl_builder_insert_layout shortcode for inserting builder saved templates, rows, modules anywhere in your posts.</li>
+	<li>Added the FLBuilder::render_query method for rendering layouts anywhere within a theme's PHP files.</li>
+	<li>Refactored frontend AJAX actions and rendering to support partial refresh. Developers tapping into those actions may need to update their code.</li>
+	<li>Optimized loading of the builder UI by concatenating and minifying all core CSS and JavaScript files.</li>
+	<li>Builder caching is now disabled when WP_DEBUG is set to true.</li>
+	<li>The editing capability setting now supports multiple comma seperated values.</li>
+	<li>Updated Google fonts.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug with the Subscribe Form module.</li>
+	<li>Fixed CSS specificity issues with the new builder shortcode.</li>
+	<li>Fixed a CSS bug with custom column widths on small devices.</li>
+</ul>
+
+<h4>1.7-beta.2 - 1/10/2016</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Builder caching is now disabled when WP_DEBUG is set to true.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug with the Subscribe Form module.</li>
+	<li>Fixed CSS specificity issues with the new builder shortcode.</li>
+</ul>
+
+<h4>1.7-beta.1 - 12/16/2015</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Added partial refresh for all rows, columns, and modules. Developers will need to read the custom module docs for info on making their modules compatible with partial refresh.</li>
+	<li>Added the Layout Settings panel with per-page CSS and JavaScript settings.</li>
+	<li>Added CSS and JavaScript settings to the Global Settings panel.</li>
+	<li>Added the Audio module.</li>
+	<li>Added the Countdown module.</li>
+	<li>Added new style settings to the Pricing Table module for achieving a variety of different looks.</li>
+	<li>Added the fl_builder_insert_layout shortcode for inserting builder saved templates, rows, modules anywhere in your posts.</li>
+	<li>Added the FLBuilder::render_query method for rendering layouts anywhere within a theme's PHP files.</li>
+	<li>Refactored frontend AJAX actions and rendering to support partial refresh. Developers tapping into those actions may need to update their code.</li>
+	<li>Optimized loading of the builder UI by concatenating and minifying all core CSS and JavaScript files.</li>
+</ul>
+
+<h4>1.6.4.7 - 1/10/2016</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Minor enhancements to the Number Counter module. Added new number position setting (above, inside, below) for number bars. Thanks Kathy Darling for the contribution!</li>
+	<li>Row background color settings are now always available for adding a fallback for other background types such as videos and slideshows. Thanks Justin Proffitt for the contribution!</li>
+	<li>Added limit property to suggest fields for limiting the number of selections that can be made.</li>
+	<li>Added the fl_builder_register_settings_form filter to the register_module method.</li>
+	<li>Added core WordPress image classes to the Photo module. This allows WordPress to handle srcsets instead of us, fixing a number of issues and adding support for the WP Retina plugin.</li>
+	<li>Added Czech translation.</li>
+	<li>Added Farsi translation.</li>
+	<li>Added Thai translation.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug with scripts in shortcodes and widgets being rendered more than once when a CDN is used. Primarily fixes issues with the Gravity Forms widget, but should help others as well.</li>
+	<li>Fixed a bug with users that can only submit for review being able to publish posts from within the builder.</li>
+	<li>Fixed a bug breaking responsive display settings for equal height columns.</li>
+	<li>Fixed a bug caused by the WP 4.4.1 update that makes it so all templates show in the template selector, saved rows, and saved modules sections.</li>
+	<li>Fixed a bug with values selected in auto suggest fields not retaining their order.</li>
+	<li>Fixed a bug with multiple email addresses in the Contact Form module.</li>
+	<li>Fixed a bug with videos in the Content Slider module continuing to play when the slider advances to the next slide.</li>
+	<li>Fixed a bug with edge cases where git configurations convert line endings and break the serialized data in the templates.dat file.</li>
+</ul>
+
+<h4>1.6.4.6 - 12/22/2015</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>Added Hungarian translation.</li>
+	<li>The Contact Form module now supports a comma separated list of email addresses.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug causing the row and column link color setting to not work.</li>
+	<li>Fixed a bug with srcsets in the Photo module and custom image sizes.</li>
+	<li>Fixed a bug making it impossible to edit modules that don't have a height.</li>
+	<li>Fixed a bug with IE11 and row alignment.</li>
+</ul>
+
+<h4>1.6.4.5 - 12/15/2015</h4>
+<p><strong>Enhancements</strong></p>
+<ul>
+	<li>WordPress 4.4's responsive image code is now applied to all images that contain an attachment ID.</li>
+	<li>Added support for the Autoptimize caching plugin.</li>
+</ul>
+<p><strong>Bug Fixes</strong></p>
+<ul>
+	<li>Fixed a bug in the Photo module with srcsets and custom image sizes.</li>
+	<li>Fixed a bug with using shortcodes in link fields.</li>
+	<li>Fixed a bug with smooth scrolling and the Tabs module.</li>
+	<li>Fixed a bug with equal heights in the Posts module.</li>
+	<li>Fixed a bug with icon positioning in the Callout module.</li>
+	<li>Fixed a bug with Menu module text being searched in searches.</li>
+	<li>Fixed a bug with full height rows and content alignment in IE11.</li>
+	<li>Fixed a bug causing the text in textareas to be white.</li>
+</ul>
+
 <h4>1.6.4.4 - 12/08/2015</h4>
 <p><strong>Enhancements</strong></p>
 <ul>

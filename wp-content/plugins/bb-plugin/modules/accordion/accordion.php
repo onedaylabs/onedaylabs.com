@@ -11,9 +11,10 @@ class FLAccordionModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Accordion', 'fl-builder'),
-			'description'   => __('Display a collapsible accordion of items.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Accordion', 'fl-builder'),
+			'description'   	=> __('Display a collapsible accordion of items.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 
 		$this->add_css('font-awesome');

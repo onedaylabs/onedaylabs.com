@@ -1,5 +1,3 @@
-var FLBuilderPostSlider;
-
 (function($) {
 	
 	/**

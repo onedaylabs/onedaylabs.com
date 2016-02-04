@@ -11,9 +11,10 @@ class FLMapModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Map', 'fl-builder'),
-			'description'   => __('Display a Google map.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Map', 'fl-builder'),
+			'description'   	=> __('Display a Google map.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 }

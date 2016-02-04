@@ -11,9 +11,10 @@ class FLHeadingModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Heading', 'fl-builder'),
-			'description'   => __('Display a title/page heading.', 'fl-builder'),
-			'category'      => __('Basic Modules', 'fl-builder')
+			'name'          	=> __('Heading', 'fl-builder'),
+			'description'   	=> __('Display a title/page heading.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 }

@@ -222,9 +222,10 @@
 		 */
 		draggable: function(toggle)
 		{
-			var toggle      = typeof toggle === 'undefined' ? false : toggle,
-				mask        = this._node.find('.fl-lightbox-mask'),
-				lightbox    = this._node.find('.fl-lightbox');
+			var mask     = this._node.find('.fl-lightbox-mask'),
+				lightbox = this._node.find('.fl-lightbox');
+				
+			toggle = typeof toggle === 'undefined' ? false : toggle;
 			
 			if(this._draggable) {
 				lightbox.draggable('destroy');
@@ -265,7 +266,7 @@
 			this._node.remove();
 			
 			FLLightbox._instances[this._id] = 'undefined';
-			try{ delete FLLightbox._instances[this._id] } catch(e){}
+			try{ delete FLLightbox._instances[this._id]; } catch(e){}
 		},
 		
 		/**

@@ -2,7 +2,7 @@
 .fl-node-<?php echo $row->node; ?> {
 	color: #<?php echo $row->settings->text_color; ?>;
 }
-.fl-builder-content .fl-node-<?php echo $row->node; ?> *:not(input) {
+.fl-builder-content .fl-node-<?php echo $row->node; ?> *:not(input):not(textarea):not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
 	color: inherit;
 }
 <?php endif; ?>
@@ -59,7 +59,7 @@
 }
 <?php endif; ?>
 
-<?php if($row->settings->bg_type == 'color' && !empty($row->settings->bg_color)) : // Background Color ?>
+<?php if(in_array( $row->settings->bg_type, array('color', 'photo', 'parallax', 'slideshow', 'video') ) && !empty($row->settings->bg_color)) : // Background Color ?>
 .fl-node-<?php echo $row->node; ?> .fl-row-content-wrap {
 	background-color: #<?php echo $row->settings->bg_color; ?>;
 	background-color: rgba(<?php echo implode(',', FLBuilderColor::hex_to_rgb($row->settings->bg_color)) ?>, <?php echo $row->settings->bg_opacity/100; ?>);

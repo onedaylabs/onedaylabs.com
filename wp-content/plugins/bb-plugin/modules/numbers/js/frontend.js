@@ -3,7 +3,7 @@ var FLBuilderNumber;
 (function($) {
 	
 	/**
-	 * Class for Post Carousel Module
+	 * Class for Number Counter Module
 	 *
 	 * @since 1.6.1
 	 */
@@ -24,6 +24,22 @@ var FLBuilderNumber;
 		// initialize the menu 
 		this._initNumber();
 		
+	};
+	
+	FLBuilderNumber.addCommas = function( n ){
+
+		var rgx = /(\d+)(\d{3})/;
+
+		n += '';
+		x  = n.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		
+		return x1 + x2;
 	};
 
 	FLBuilderNumber.prototype = {
@@ -91,7 +107,7 @@ var FLBuilderNumber;
 		        duration: this.speed,
 		        easing: 'swing',
 		        step: function ( now ) {
-		            $string.text( Math.ceil( now ) );
+		            $string.text( FLBuilderNumber.addCommas( Math.ceil( now ) ) );
 		        }
 		    });
 

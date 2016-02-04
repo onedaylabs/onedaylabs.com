@@ -16,9 +16,10 @@ class FLVideoModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Video', 'fl-builder'),
-			'description'   => __('Render a WordPress or embedable video.', 'fl-builder'),
-			'category'      => __('Basic Modules', 'fl-builder')
+			'name'          	=> __('Video', 'fl-builder'),
+			'description'   	=> __('Render a WordPress or embedable video.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 
 		$this->add_js('jquery-fitvids');

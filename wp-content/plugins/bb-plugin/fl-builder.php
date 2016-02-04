@@ -3,7 +3,7 @@
  * Plugin Name: Beaver Builder Plugin (Agency Version)
  * Plugin URI: https://www.wpbeaverbuilder.com/?utm_source=external&utm_medium=builder&utm_campaign=plugins-page
  * Description: A drag and drop frontend WordPress page builder plugin that works with almost any theme!
- * Version: 1.6.4.4
+ * Version: 1.7.3
  * Author: The Beaver Builder Team
  * Author URI: https://www.wpbeaverbuilder.com/?utm_source=external&utm_medium=builder&utm_campaign=plugins-page
  * Copyright: (c) 2014 Beaver Builder
@@ -11,7 +11,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: fl-builder
  */
-define('FL_BUILDER_VERSION', '1.6.4.4');
+define('FL_BUILDER_VERSION', '1.7.3');
 define('FL_BUILDER_FILE', __FILE__);
 define('FL_BUILDER_DIR', plugin_dir_path(FL_BUILDER_FILE));
 define('FL_BUILDER_URL', plugins_url('/', FL_BUILDER_FILE));
@@ -26,6 +26,8 @@ define('FL_BUILDER_DEMO_CACHE_URL', 'http://demos.wpbeaverbuilder.com/wp-content
 require_once 'classes/class-fl-builder.php';
 require_once 'classes/class-fl-builder-admin.php';
 require_once 'classes/class-fl-builder-admin-posts.php';
+require_once 'classes/class-fl-builder-ajax.php';
+require_once 'classes/class-fl-builder-ajax-layout.php';
 require_once 'classes/class-fl-builder-auto-suggest.php';
 require_once 'classes/class-fl-builder-color.php';
 require_once 'classes/class-fl-builder-fonts.php';
@@ -35,7 +37,9 @@ require_once 'classes/class-fl-builder-model.php';
 require_once 'classes/class-fl-builder-module.php';
 require_once 'classes/class-fl-builder-photo.php';
 require_once 'classes/class-fl-builder-services.php';
+require_once 'classes/class-fl-builder-shortcodes.php';
 require_once 'classes/class-fl-builder-update.php';
+require_once 'classes/class-fl-builder-timezones.php';
 require_once 'classes/class-fl-builder-utils.php';
 
 /* Includes */
@@ -55,10 +59,13 @@ add_action('init',                                             'FLBuilderUpdate:
 add_action('init',                                             'FLBuilderModel::load_settings', 1);
 add_action('init',                                             'FLBuilderModel::load_modules', 2);
 
+/* Admin AJAX */
+add_action('wp_ajax_fl_builder_disable',                       'FLBuilderModel::disable');
+add_action('wp_ajax_fl_builder_duplicate_wpml_layout',         'FLBuilderModel::duplicate_wpml_layout');
+
 /* Admin Actions */
 add_action('init',                                             'FLBuilderAdmin::init');
 add_action('current_screen',                                   'FLBuilderAdminPosts::init');
-add_action('wp_ajax_fl_builder_save',                          'FLBuilderModel::update');
 add_action('before_delete_post',                               'FLBuilderModel::delete_post');
 add_action('save_post',                                        'FLBuilderModel::save_revision');
 add_action('save_post',                    					   'FLBuilderModel::set_node_template_default_type', 10, 3);
@@ -74,41 +81,21 @@ add_filter('all_plugins',                                      'FLBuilderAdmin::
 add_filter('wp_prepare_themes_for_js',                         'FLBuilderAdmin::white_label_themes_page');
 add_filter('gettext', 										   'FLBuilderAdmin::white_label_theme_gettext');
 
-/* AJAX Actions */
-add_action('fl_ajax_fl_builder_save',                          'FLBuilderModel::update');
-add_action('fl_ajax_fl_builder_autosuggest',                   'FLBuilderAutoSuggest::init');
-add_action('fl_ajax_fl_builder_render_service_settings',       'FLBuilderServices::render_settings');
-add_action('fl_ajax_fl_builder_connect_service',               'FLBuilderServices::connect_service');
-add_action('fl_ajax_fl_builder_render_service_fields',         'FLBuilderServices::render_fields');
-add_action('fl_ajax_fl_builder_delete_service_account',        'FLBuilderServices::delete_account');
-add_action('fl_ajax_fl_builder_render_layout',                 'FLBuilder::render_layout');
-add_action('fl_ajax_fl_builder_render_settings_form',          'FLBuilder::render_settings_form');
-add_action('fl_ajax_fl_builder_render_global_settings',        'FLBuilder::render_global_settings');
-add_action('fl_ajax_fl_builder_render_template_selector',      'FLBuilder::render_template_selector');
-add_action('fl_ajax_fl_builder_render_user_template_settings', 'FLBuilder::render_user_template_settings');
-add_action('fl_ajax_fl_builder_render_node_template_settings', 'FLBuilder::render_node_template_settings');
-add_action('fl_ajax_fl_builder_render_node_template',          'FLBuilder::render_node_template');
-add_action('fl_ajax_fl_builder_render_icon_selector',          'FLBuilder::render_icon_selector');
-add_action('fl_ajax_fl_builder_render_new_row',                'FLBuilder::render_new_row');
-add_action('fl_ajax_fl_builder_render_row_settings',           'FLBuilder::render_row_settings');
-add_action('fl_ajax_fl_builder_render_new_column_group',       'FLBuilder::render_new_column_group');
-add_action('fl_ajax_fl_builder_render_column_settings',        'FLBuilder::render_column_settings');
-add_action('fl_ajax_fl_builder_render_new_module_settings',    'FLBuilder::render_new_module_settings');
-add_action('fl_ajax_fl_builder_render_module_settings',        'FLBuilder::render_module_settings');
-add_action('fl_ajax_fl_builder_render_module_template_settings', 'FLBuilder::render_module_template_settings');
+/* Frontend AJAX */
+add_action('wp', 											   'FLBuilderAJAX::init');
 
-/* Actions */
+/* Frontend Actions */
 add_action('init',                                             'FLBuilder::register_templates_post_type');
 add_action('send_headers',                                     'FLBuilder::no_cache_headers');
-add_action('wp',                                               'FLBuilder::ajax');
 add_action('wp',                                               'FLBuilder::init');
 add_action('wp_enqueue_scripts',                               'FLBuilder::layout_styles_scripts');
 add_action('wp_enqueue_scripts',                               'FLBuilder::styles_scripts');
+add_action('wp_head',                                  		   'FLBuilder::render_custom_css_for_editing', 999);
 add_action('admin_bar_menu',                                   'FLBuilder::admin_bar_menu', 999);
 add_action('wp_footer',                                        'FLBuilder::include_jquery');
 add_action('wp_footer',                                        'FLBuilder::render_ui');
 
-/* Filters */
+/* Frontend Filters */
 add_filter('found_posts',                                      'FLBuilderLoop::found_posts', 1, 2);
 add_filter('template_include',                                 'FLBuilder::render_template', 999);
 add_filter('body_class',                                       'FLBuilder::body_class');

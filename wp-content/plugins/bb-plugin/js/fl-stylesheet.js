@@ -48,7 +48,7 @@
 		{
 			this._createSheet();
 			
-			var rules   = this._sheet.cssRules ? this._sheet.cssRules : this._sheet.rules;
+			var rules   = this._sheet.cssRules ? this._sheet.cssRules : this._sheet.rules,
 				rule    = null,
 				i       = 0;
 			

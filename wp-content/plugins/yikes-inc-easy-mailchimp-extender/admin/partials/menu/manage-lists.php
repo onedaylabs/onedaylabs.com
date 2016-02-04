@@ -16,7 +16,7 @@
 	<!-- Freddie Logo -->
 	<img src="<?php echo YIKES_MC_URL . 'includes/images/MailChimp_Assets/Freddie_60px.png'; ?>" alt="<?php __( 'Freddie - MailChimp Mascot' , 'yikes-inc-easy-mailchimp-extender' ); ?>" class="yikes-mc-freddie-logo" />
 		
-	<h2>YIKES Easy Forms for MailChimp | <?php _e( 'Manage Mailing Lists' , 'yikes-inc-easy-mailchimp-extender' ); ?></h2>				
+	<h1>YIKES Easy Forms for MailChimp | <?php _e( 'Manage Mailing Lists' , 'yikes-inc-easy-mailchimp-extender' ); ?></h1>				
 			
 	<!-- Settings Page Description -->
 	<p class="yikes-easy-mc-about-text about-text"><?php _e( 'Make edits to your MailChimp lists on the following page. Select a list to make edits to it.' , 'yikes-inc-easy-mailchimp-extender' ); ?></p>
@@ -67,9 +67,19 @@
 												foreach( $list_data['data'] as $list ) { 
 										?>
 											<tr class="<?php if( $i % 2 == 0 ) { echo 'alternate'; } ?>">
-												<td class="column-columnname"><?php echo stripslashes( $list['name'] ); ?>
+												<td class="column-columnname">
+													<a href="<?php echo esc_url_raw( add_query_arg( array( 'list-id' => $list['id'] ) , admin_url( 'admin.php?page=yikes-mailchimp-view-list' ) ) ); ?>" class="row-title">
+														<?php echo stripslashes( $list['name'] ); ?>
+													</a>
 													<div class="row-actions">
 														<span><a href="<?php echo esc_url_raw( add_query_arg( array( 'list-id' => $list['id'] ) , admin_url( 'admin.php?page=yikes-mailchimp-view-list' ) ) ); ?>"><?php _e( "View" , 'yikes-inc-easy-mailchimp-extender' ); ?></a></span>
+														<?php 
+															/*
+															*	Custom action to allow users to add additional action links
+															*	to each list. We use this in our add-ons.
+															*/
+															do_action( 'yikes-mailchimp-manage-lists-actions', $list ); 
+														?>
 													</div>
 												</td>
 												<td class="column-columnname num"><?php echo $list['stats']['member_count']; ?></td>

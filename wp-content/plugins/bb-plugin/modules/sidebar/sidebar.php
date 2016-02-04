@@ -11,10 +11,11 @@ class FLSidebarModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Sidebar', 'fl-builder'),
-			'description'   => __('Display a WordPress sidebar that has been registered by the current theme.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Sidebar', 'fl-builder'),
+			'description'   	=> __('Display a WordPress sidebar that has been registered by the current theme.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 	}
 }

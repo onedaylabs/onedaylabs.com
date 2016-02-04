@@ -11,10 +11,11 @@ class FLIconModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Icon', 'fl-builder'),
-			'description'   => __('Display an icon and optional title.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Icon', 'fl-builder'),
+			'description'   	=> __('Display an icon and optional title.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 	}
 }
@@ -36,7 +37,7 @@ FLBuilder::register_module('FLIconModule', array(
 				)
 			),
 			'link'          => array(
-				'title'         => 'Link',
+				'title'         => __('Link', 'fl-builder'),
 				'fields'        => array(
 					'link'          => array(
 						'type'          => 'link',

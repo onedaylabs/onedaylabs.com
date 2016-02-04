@@ -11,10 +11,11 @@ class FLSeparatorModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Separator', 'fl-builder'),
-			'description'   => __('A divider line to separate content.', 'fl-builder'),
-			'category'      => __('Basic Modules', 'fl-builder'),
-			'editor_export' => false
+			'name'          	=> __('Separator', 'fl-builder'),
+			'description'   	=> __('A divider line to separate content.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'editor_export' 	=> false,
+			'partial_refresh'	=> true
 		));
 	}
 }

@@ -1,5 +1,5 @@
 <div class="fl-link-field">
-	<input type="text" name="<?php echo $name; ?>" value="<?php echo esc_url($value); ?>" class="text fl-link-field-input" placeholder="http://www.example.com" />
+	<input type="text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" class="text fl-link-field-input" placeholder="<?php _ex( 'http://www.example.com', 'Link placeholder', 'fl-builder' ); ?>" />
 	<span class="fl-link-field-select fl-builder-button fl-builder-button-small" href="javascript:void(0);" onclick="return false;"><?php _e('Select', 'fl-builder'); ?></span>
 	<div class="fl-link-field-search">
 		<span class="fl-link-field-search-title"><?php _e('Enter a post title to search.', 'fl-builder'); ?></span>

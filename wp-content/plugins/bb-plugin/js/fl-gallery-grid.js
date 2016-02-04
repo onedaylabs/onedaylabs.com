@@ -55,7 +55,7 @@
 		 * @since 1.2.3
 		 * @property {Number} itemHeight
 		 */
-		itemHeight      : .75,
+		itemHeight      : 0.75,
 		
 		/**
 		 * Callback that fires when the window is resized
@@ -76,7 +76,7 @@
 				
 			// Browser bug fix. One column images are streched otherwise.
 			if ( 1 === numCols ) {
-				itemWidth -= .5;
+				itemWidth -= 0.5;
 			}
 			
 			// Set the item width and height.

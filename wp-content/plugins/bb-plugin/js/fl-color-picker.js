@@ -170,7 +170,7 @@ var FLBuilderColorPicker;
 		});
 		
 		return '-webkit-gradient(linear,' + origin + stops.join(',') + ')';
-	};
+	}
 
 	/**
 	 * @since 1.6.4
@@ -334,9 +334,9 @@ var FLBuilderColorPicker;
 				placeholder			: 'Paste color here...',
 				removePresetConfirm	: 'Are you sure?',
 				noneColorSelected	: 'None color selected.',
-				alreadySaved		: ' is already a saved preset.',
+				alreadySaved		: '%s is already a saved preset.',
 				noPresets			: 'Add a color preset first.',
-				presetAdded			: ' added to presets!',
+				presetAdded			: '%s added to presets!',
 
 			}
 		};
@@ -345,7 +345,7 @@ var FLBuilderColorPicker;
 		this.options = $.extend( {}, defaults, settings );
 
 		// Bail for IE <= 7
-		if ( nonGradientIE == false || nonGradientIE == true && IEVersion > 7 ) {
+		if ( nonGradientIE === false || nonGradientIE === true && IEVersion > 7 ) {
 
 			// initialize the color picker single instance
 			this._init();
@@ -652,7 +652,7 @@ var FLBuilderColorPicker;
 		 */
 		_addPresetFeedback: function(){
 
-			this._ui.append( '<div class="fl-color-picker-added"><div class="fl-color-picker-added-text"><div class="fl-color-picker-icon-check"></div> "' + this._color.toString() + this.options.labels.presetAdded + '"</div></div>' );
+			this._ui.append( '<div class="fl-color-picker-added"><div class="fl-color-picker-added-text"><div class="fl-color-picker-icon-check"></div> "' + this.options.labels.presetAdded.replace( '%s', this._color.toString() ) + '"</div></div>' );
 			this._ui
 				.find( '.fl-color-picker-added' )
 					.hide()
@@ -781,7 +781,7 @@ var FLBuilderColorPicker;
 		 */
 		_removePreset: function( preset ){
 			if( confirm( this.options.labels.removePresetConfirm ) ){
-				var color = preset.toString()
+				var color = preset.toString(),
 					index = FLBuilderColorPresets.indexOf( color );
 
 				if( index > -1 ){
@@ -819,11 +819,11 @@ var FLBuilderColorPicker;
 			var color = preset.toString().replace( /^#/, '' );
 
 			// check if color is empty
-			if( color == '' ){
+			if( color === '' ){
 				alert( this.options.labels.noneColorSelected );
 			// check if the color is already added
 			} else if( FLBuilderColorPresets.indexOf( color ) > -1 ){
-				alert( '#' + color + this.options.labels.alreadySaved );
+				alert( this.options.labels.alreadySaved.replace( '%s', '#' + color ) );
 			// add color to presets, fires visual feedback and triggers an event
 			} else {
 
@@ -867,7 +867,7 @@ var FLBuilderColorPicker;
 				}
 				// if the picker is closed, changes position first, then shows it
 				setTimeout(	function(){
-					self._ui.addClass( 'fl-color-picker-active' )
+					self._ui.addClass( 'fl-color-picker-active' );
 					self._setColor( self._currentElement.val() );
 				}, 200 );
 			}
@@ -1774,7 +1774,7 @@ var FLBuilderColorPicker;
 		},
 
 		getReadableContrastingColor: function( bgColor, minContrast ) {
-			if ( ! bgColor instanceof Color ) {
+			if ( ! ( bgColor instanceof Color ) ) {
 				return this;
 			}
 

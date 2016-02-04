@@ -11,9 +11,10 @@ class FLCtaModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Call to Action', 'fl-builder'),
-			'description'   => __('Display a heading, subheading and a button.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Call to Action', 'fl-builder'),
+			'description'   	=> __('Display a heading, subheading and a button.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 

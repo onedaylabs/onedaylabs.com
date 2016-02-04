@@ -11,9 +11,10 @@ class FLHtmlModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('HTML', 'fl-builder'),
-			'description'   => __('Display raw HTML code.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('HTML', 'fl-builder'),
+			'description'   	=> __('Display raw HTML code.', 'fl-builder'),
+			'category'      	=> __('Basic Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 	}
 }
@@ -32,7 +33,7 @@ FLBuilder::register_module('FLHtmlModule', array(
 						'type'          => 'code',
 						'editor'        => 'html',
 						'label'         => '',
-						'rows'          => '18',
+						'rows'          => '19',
 						'preview'           => array(
 							'type'              => 'text',
 							'selector'          => '.fl-html'

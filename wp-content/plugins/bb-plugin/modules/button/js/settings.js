@@ -29,6 +29,26 @@
 				required: true,
 				number: true
 			}
+		},
+		
+		init: function()
+		{
+			$( 'input[name=bg_color]' ).on( 'change', this._bgColorChange );
+			
+			this._bgColorChange();
+		},
+		
+		_bgColorChange: function()
+		{
+			var bgColor = $( 'input[name=bg_color]' ),
+				style   = $( '#fl-builder-settings-section-style' );
+			
+			if ( '' == bgColor.val() ) {
+				style.hide();
+			}
+			else {
+				style.show();
+			}
 		}
 	});
 

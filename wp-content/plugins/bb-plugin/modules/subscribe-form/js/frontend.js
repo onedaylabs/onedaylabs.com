@@ -1,44 +1,42 @@
-( function ( $ ) {
+( function( $ ) {
+
+	FLBuilderSubscribeForm = function( settings )
+	{
+		this.settings	= settings;
+		this.nodeClass	= '.fl-node-' + settings.id;
+		this.form 		= $( this.nodeClass + ' .fl-subscribe-form' );
+		this.button		= this.form.find( 'a.fl-button' );
+		this._init();
+	};
+
+	FLBuilderSubscribeForm.prototype = {
 	
-	var FLSubscribeForm = {
+		settings	: {},
+		nodeClass	: '',
+		form		: null,
+		button		: null,
 		
-		init: function()
+		_init: function()
 		{
-			$( '.fl-subscribe-form' ).each( FLSubscribeForm._initForm );
+			this.button.on( 'click', $.proxy( this._submitForm, this ) );
 		},
 		
-		_initForm: function()
+		_submitForm: function( e )
 		{
-			var form    = $( this ),
-				button  = form.find( 'a.fl-button' );
-				
-			button.on( 'click', FLSubscribeForm._submitButtonClicked );
-		},
-		
-		_submitButtonClicked: function( e )
-		{
-			var form = $( this ).closest( '.fl-subscribe-form' );
-			
-			e.preventDefault();
-			
-			FLSubscribeForm._submitForm( form );
-		},
-		
-		_submitForm: function( form )
-		{
-			var postId      	= form.closest( '.fl-builder-content' ).data( 'post-id' ),
-				templateId		= form.data( 'template-id' ),
-				templateNodeId	= form.data( 'template-node-id' ),
-				nodeId      	= form.closest( '.fl-module' ).data( 'node' ),
-				button      	= form.find( '.fl-form-button' ),
-				buttonText  	= button.find( '.fl-button-text' ).text(),
-				waitText    	= button.data( 'wait-text' ),
-				name        	= form.find( 'input[name=fl-subscribe-form-name]' ),
-				email       	= form.find( 'input[name=fl-subscribe-form-email]' ),
+			var postId      	= this.form.closest( '.fl-builder-content' ).data( 'post-id' ),
+				templateId		= this.form.data( 'template-id' ),
+				templateNodeId	= this.form.data( 'template-node-id' ),
+				nodeId      	= this.form.closest( '.fl-module' ).data( 'node' ),
+				buttonText  	= this.button.find( '.fl-button-text' ).text(),
+				waitText    	= this.button.closest( '.fl-form-button' ).data( 'wait-text' ),
+				name        	= this.form.find( 'input[name=fl-subscribe-form-name]' ),
+				email       	= this.form.find( 'input[name=fl-subscribe-form-email]' ),
 				re          	= /\S+@\S+\.\S+/,
 				valid       	= true;
+				
+			e.preventDefault();
 
-			if ( button.hasClass( 'fl-form-button-disabled' ) ) {
+			if ( this.button.hasClass( 'fl-form-button-disabled' ) ) {
 				return; // Already submitting
 			}
 			if ( name.length > 0 && name.val() == '' ) {
@@ -54,10 +52,10 @@
 			
 			if ( valid ) {
 				
-				form.find( '> .fl-form-error-message' ).hide();
-				button.find( '.fl-button-text' ).text( waitText );
-				button.data( 'original-text', buttonText );
-				button.addClass( 'fl-form-button-disabled' );
+				this.form.find( '> .fl-form-error-message' ).hide();
+				this.button.find( '.fl-button-text' ).text( waitText );
+				this.button.data( 'original-text', buttonText );
+				this.button.addClass( 'fl-form-button-disabled' );
 				
 				$.post( FLBuilderLayoutConfig.paths.wpAjaxUrl, {
 					action  			: 'fl_builder_subscribe_form_submit',
@@ -67,38 +65,33 @@
 					template_id 		: templateId,
 					template_node_id 	: templateNodeId,
 					node_id 			: nodeId
-				}, function( response ) {
-					FLSubscribeForm._submitFormComplete( form, response );
-				});
+				}, $.proxy( this._submitFormComplete, this ) );
 			}
 		},
 		
-		_submitFormComplete: function( form, response )
+		_submitFormComplete: function( response )
 		{
 			var data        = JSON.parse( response ),
-				button      = form.find( '.fl-form-button' ),
-				buttonText  = button.data( 'original-text' );
+				buttonText  = this.button.data( 'original-text' );
 				
 			if ( data.error ) {
 				
 				if ( data.error ) {
-					form.find( '> .fl-form-error-message' ).text( data.error );
+					this.form.find( '> .fl-form-error-message' ).text( data.error );
 				}
 				
-				form.find( '> .fl-form-error-message' ).show();
-				button.removeClass( 'fl-form-button-disabled' );
-				button.find( '.fl-button-text' ).text( buttonText );
+				this.form.find( '> .fl-form-error-message' ).show();
+				this.button.removeClass( 'fl-form-button-disabled' );
+				this.button.find( '.fl-button-text' ).text( buttonText );
 			}
 			else if ( 'message' == data.action ) {
-				form.find( '> *' ).hide();
-				form.append( '<div class="fl-form-success-message">' + data.message + '</div>' );
+				this.form.find( '> *' ).hide();
+				this.form.append( '<div class="fl-form-success-message">' + data.message + '</div>' );
 			}
 			else if ( 'redirect' == data.action ) {
 				window.location.href = data.url;
 			}
 		}
-	};
-	
-	$( FLSubscribeForm.init );
+	}
 	
 })( jQuery );

@@ -1,16 +1,25 @@
 (function($) {
+
+	FLBuilderAccordion = function( settings )
+	{
+		this.settings 	= settings;
+		this.nodeClass  = '.fl-node-' + settings.id;
+		this._init();
+	};
+
+	FLBuilderAccordion.prototype = {
 	
-	var FLAccordion = {
+		settings	: {},
+		nodeClass   : '',
 		
-		init: function()
+		_init: function()
 		{
-			$( '.fl-accordion-button' ).off( 'click' );
-			$( '.fl-accordion-button' ).click( FLAccordion._buttonClick );
+			$( this.nodeClass + ' .fl-accordion-button' ).click( $.proxy( this._buttonClick, this ) );
 		},
 		
-		_buttonClick: function()
+		_buttonClick: function( e )
 		{
-			var button      = $(this),
+			var button      = $( e.target ).closest('.fl-accordion-button'),
 				accordion   = button.closest('.fl-accordion'),
 				item	    = button.closest('.fl-accordion-item'),
 				allContent  = accordion.find('.fl-accordion-content'),
@@ -27,7 +36,7 @@
 			
 			if(content.is(':hidden')) {
 				item.addClass( 'fl-accordion-item-active' );
-				content.slideDown('normal', FLAccordion._slideDownComplete);
+				content.slideDown('normal', this._slideDownComplete);
 				icon.addClass('fa-minus');
 				icon.removeClass('fa-plus');
 			}
@@ -63,7 +72,5 @@
 			accordion.trigger( 'fl-builder.fl-accordion-toggle-complete' );
 		}
 	};
-	
-	$( FLAccordion.init );
 	
 })(jQuery);

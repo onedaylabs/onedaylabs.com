@@ -133,7 +133,7 @@ final class FLBuilderServiceSendinBlue extends FLBuilderService {
 		$result = $api->get_lists( 1, 50 );
 		
 		if ( ! is_array( $result ) ) {
-			$response['error'] = __( 'There was an error connecting to SendinBlue. Please try again.' );
+			$response['error'] = __( 'There was an error connecting to SendinBlue. Please try again.', 'fl-builder' );
 		}
 		else if ( isset( $result['code'] ) && 'failure' == $result['code'] ) {
 			$response['error'] = sprintf( __( 'Error: Could not connect to SendinBlue. %s', 'fl-builder' ), $result['message'] );

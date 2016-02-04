@@ -15,10 +15,17 @@
 
 		editDiv.insertBefore(textarea);
 		textarea.css('display', 'none');
-
+		ace.require('ace/ext/language_tools');
 		editor = ace.edit(editDiv[0]);
+		editor.$blockScrolling = Infinity;
 		editor.getSession().setValue(textarea.val());
 		editor.getSession().setMode('ace/mode/' + mode);
+		
+		editor.setOptions({
+	        enableBasicAutocompletion: true,
+	        enableLiveAutocompletion: true,
+	        enableSnippets: false
+	    });
 		
 		editor.getSession().on('change', function(e) {
 			textarea.val(editor.getSession().getValue()).trigger('change');

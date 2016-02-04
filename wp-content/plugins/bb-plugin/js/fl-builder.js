@@ -91,6 +91,32 @@
 		 * @property {String} _exitUrl
 		 */
 		_exitUrl                    : null,
+	
+		/**
+		 * An instance of FLBuilderAJAXLayout for rendering
+		 * the layout via AJAX.
+		 *
+		 * @since 1.7
+		 * @property {FLBuilderAJAXLayout} _layout
+		 */
+		_layout                     : null,
+	
+		/**
+		 * A cached copy of custom layout CSS that is used to 
+		 * revert changes if the cancel button is clicked.
+		 *
+		 * @since 1.7
+		 * @property {String} _layoutSettingsCSSCache
+		 */
+		_layoutSettingsCSSCache     : null,
+	
+		/**
+		 * A timeout for throttling custom layout CSS changes.
+		 *
+		 * @since 1.7
+		 * @property {Object} _layoutSettingsCSSTimeout
+		 */
+		_layoutSettingsCSSTimeout   : null,
 		
 		/**
 		 * An instance of FLLightbox for displaying settings.
@@ -161,6 +187,25 @@
 		_newColGroupPosition        : 0,
 		
 		/**
+		 * A jQuery reference to a new module's parent.
+		 * 
+		 * @since 1.7
+		 * @access private
+		 * @property {Object} _newModuleParent
+		 */
+		_newModuleParent          	: null,
+		
+		/**
+		 * The position a new module should be added at once 
+		 * it finishes rendering.
+		 * 
+		 * @since 1.7
+		 * @access private
+		 * @property {Number} _newModulePosition
+		 */
+		_newModulePosition        	: 0,
+		
+		/**
 		 * The position a row should be added to within
 		 * the layout once it finishes rendering.
 		 * 
@@ -206,6 +251,15 @@
 		 * @property {Object} _singleVideoSelector
 		 */ 
 		_singleVideoSelector        : null,
+
+		/**
+		 * An instance of wp.media used to select a multiple audio.
+		 * 
+		 * @since 1.0
+		 * @access private
+		 * @property {Object} _multipleAudiosSelector
+		 */ 
+		_multipleAudiosSelector        : null,
 		
 		/**
 		 * Whether the current AJAX update is silent or not. Silent
@@ -587,10 +641,14 @@
 			$('body').delegate('.fl-builder-save-actions .fl-builder-discard-button', 'click', FLBuilder._discardButtonClicked);
 			
 			/* Tools Actions */
-			$('body').delegate('.fl-builder-duplicate-page-button', 'click', FLBuilder._duplicatePageClicked);
 			$('body').delegate('.fl-builder-save-user-template-button', 'click', FLBuilder._saveUserTemplateClicked);
+			$('body').delegate('.fl-builder-duplicate-layout-button', 'click', FLBuilder._duplicateLayoutClicked);
+			$('body').delegate('.fl-builder-layout-settings-button', 'click', FLBuilder._layoutSettingsClicked);
+			$('body').delegate('.fl-builder-layout-settings .fl-builder-settings-save', 'click', FLBuilder._saveLayoutSettingsClicked);
+			$('body').delegate('.fl-builder-layout-settings .fl-builder-settings-cancel', 'click', FLBuilder._cancelLayoutSettingsClicked);
 			$('body').delegate('.fl-builder-global-settings-button', 'click', FLBuilder._globalSettingsClicked);
 			$('body').delegate('.fl-builder-global-settings .fl-builder-settings-save', 'click', FLBuilder._saveGlobalSettingsClicked);
+			$('body').delegate('.fl-builder-global-settings .fl-builder-settings-cancel', 'click', FLBuilder._cancelLayoutSettingsClicked);
 			
 			/* Template Selector */
 			$('body').delegate('.fl-template-category-select', 'change', FLBuilder._templateCategoryChanged);
@@ -680,6 +738,11 @@
 			/* Video Fields */
 			$('body').delegate('.fl-video-field .fl-video-select', 'click', FLBuilder._selectSingleVideo);
 			$('body').delegate('.fl-video-field .fl-video-replace', 'click', FLBuilder._selectSingleVideo);
+
+			/* Multiple Audio Fields */
+			$('body').delegate('.fl-multiple-audios-field .fl-multiple-audios-select', 'click', FLBuilder._selectMultipleAudios);
+			$('body').delegate('.fl-multiple-audios-field .fl-multiple-audios-edit', 'click', FLBuilder._selectMultipleAudios);
+			$('body').delegate('.fl-multiple-audios-field .fl-multiple-audios-add', 'click', FLBuilder._selectMultipleAudios);
 			
 			/* Icon Fields */
 			$('body').delegate('.fl-icon-field .fl-icon-select', 'click', FLBuilder._selectIcon);
@@ -941,16 +1004,6 @@
 			var buttons             = {},
 				lite                = FLBuilderConfig.lite,
 				enabledTemplates    = FLBuilderConfig.enabledTemplates;
-				
-			// Duplicate button
-			if(FLBuilderConfig.isUserTemplate) {
-				if ( typeof window.opener == 'undefined' || ! window.opener ) {
-					buttons['duplicate-page'] = FLBuilderStrings.duplicateTemplate;
-				}
-			}
-			else {
-				buttons['duplicate-page'] = FLBuilderStrings.duplicatePage;
-			}
 			
 			// Template buttons
 			if(!lite && !FLBuilderConfig.isUserTemplate && (enabledTemplates == 'enabled' || enabledTemplates == 'user')) {
@@ -961,8 +1014,19 @@
 					buttons['save-template'] = FLBuilderStrings.saveCoreTemplate;
 				}
 			}
+				
+			// Duplicate button
+			if(FLBuilderConfig.isUserTemplate) {
+				if ( typeof window.opener == 'undefined' || ! window.opener ) {
+					buttons['duplicate-layout'] = FLBuilderStrings.duplicateLayout;
+				}
+			}
+			else {
+				buttons['duplicate-layout'] = FLBuilderStrings.duplicateLayout;
+			}
 			
-			// Global settings button 
+			// Settings button 
+			buttons['layout-settings'] = FLBuilderStrings.editLayoutSettings;
 			buttons['global-settings'] = FLBuilderStrings.editGlobalSettings;
 				
 			FLBuilder._showActionsLightbox({
@@ -1026,7 +1090,7 @@
 				buttons['knowledge-base'] = FLBuilderStrings.viewKnowledgeBase;
 			}
 			if ( FLBuilderConfig.help.forums ) {
-				buttons['forums'] = FLBuilderStrings.visitForums;
+				buttons.forums = FLBuilderStrings.visitForums;
 			}
 			
 			FLBuilder._showActionsLightbox({
@@ -1104,8 +1168,7 @@
 			FLBuilder.showAjaxLoader();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'save_layout'
+				action: 'save_layout'
 			}, FLBuilder._exit);
 				
 			FLBuilder._actionsLightbox.close();
@@ -1123,9 +1186,7 @@
 			FLBuilder.showAjaxLoader();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'save_draft',
-				render_assets: 0
+				action: 'save_draft'
 			}, FLBuilder._exit);
 			
 			FLBuilder._actionsLightbox.close();
@@ -1148,8 +1209,7 @@
 				FLBuilder.showAjaxLoader();
 				
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'clear_draft_layout'
+					action: 'clear_draft_layout'
 				}, FLBuilder._exit);
 					
 				FLBuilder._actionsLightbox.close();
@@ -1212,17 +1272,16 @@
 		 *
 		 * @since 1.0
 		 * @access private
-		 * @method _duplicatePageClicked
+		 * @method _duplicateLayoutClicked
 		 */
-		_duplicatePageClicked: function()
+		_duplicateLayoutClicked: function()
 		{
 			FLBuilder._actionsLightbox.close();
 			FLBuilder.showAjaxLoader();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'duplicate_post'
-			}, FLBuilder._duplicatePageComplete);
+				action: 'duplicate_post'
+			}, FLBuilder._duplicateLayoutComplete);
 		},
 		
 		/**
@@ -1234,12 +1293,161 @@
 		 * @method _duplicatePageComplete
 		 * @param {Number} The ID of the duplicated post.
 		 */
-		_duplicatePageComplete: function(response)
+		_duplicateLayoutComplete: function(response)
 		{
 			var adminUrl = $('#fl-admin-url').val();
 			
 			window.location.href = adminUrl + 'post.php?post='+ response +'&action=edit';
 		},
+		
+		/* Layout Settings
+		----------------------------------------------------------*/
+		
+		/**
+		 * Shows the layout settings lightbox when the layout
+		 * settings button is clicked.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _layoutSettingsClicked
+		 */       
+		_layoutSettingsClicked: function()
+		{
+			FLBuilder._actionsLightbox.close();
+			FLBuilder._showLightbox();
+			FLBuilder._closePanel();
+			
+			FLBuilder.ajax({
+				action: 'render_layout_settings'
+			}, FLBuilder._layoutSettingsLoaded);
+		},
+
+		/**
+		 * Sets the lightbox content when the layout settings have loaded.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _layoutSettingsLoaded
+		 * @param {String} response The JSON with the HTML for the layout settings form.
+		 */  
+		_layoutSettingsLoaded: function( response )
+		{
+			var data = JSON.parse( response );
+			
+			FLBuilder._setSettingsFormContent( data.html );
+			FLBuilder._layoutSettingsInitCSS();
+		},
+
+		/**
+		 * Initializes custom layout CSS for live preview.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _layoutSettingsInitCSS
+		 */  
+		_layoutSettingsInitCSS: function()
+		{
+			var css = $( '.fl-builder-settings #fl-field-css textarea:not(.ace_text-input)' );
+				
+			css.on( 'change', FLBuilder._layoutSettingsCSSChanged );
+			
+			FLBuilder._layoutSettingsCSSCache = css.val();
+		},
+
+		/**
+		 * Sets a timeout for throttling custom layout CSS changes.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _layoutSettingsCSSChanged
+		 */  
+		_layoutSettingsCSSChanged: function()
+		{
+			if ( FLBuilder._layoutSettingsCSSTimeout ) {
+				clearTimeout( FLBuilder._layoutSettingsCSSTimeout );
+			}
+			
+			FLBuilder._layoutSettingsCSSTimeout = setTimeout( $.proxy( FLBuilder._layoutSettingsCSSDoChange, this ), 600 );
+		},
+
+		/**
+		 * Updates the custom layout CSS when changes are made in the editor.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _layoutSettingsCSSDoChange
+		 */  
+		_layoutSettingsCSSDoChange: function()
+		{
+			var form	 = $( '.fl-builder-settings' ),
+				textarea = $( this ),
+				field    = textarea.parents( '#fl-field-css' );
+				
+			if ( field.find( '.ace_error' ).length > 0 ) {
+				return;
+			}
+			else if ( form.hasClass( 'fl-builder-layout-settings' ) ) {
+				$( '#fl-builder-layout-css' ).html( textarea.val() );
+			}
+			else {
+				$( '#fl-builder-global-css' ).html( textarea.val() );
+			}
+			
+			FLBuilder._layoutSettingsCSSTimeout = null;
+		},
+		
+		/**
+		 * Saves the layout settings when the save button is clicked.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _saveLayoutSettingsClicked
+		 */       
+		_saveLayoutSettingsClicked: function()
+		{
+			var form     = $( this ).closest( '.fl-builder-settings' ),
+				data     = form.serializeArray(),
+				settings = {},
+				i        = 0;
+					 
+			for( ; i < data.length; i++) {
+				settings[ data[ i ].name ] = data[ i ].value;
+			}
+			
+			FLBuilder.showAjaxLoader();
+			FLBuilder._lightbox.close();
+			FLBuilder._layoutSettingsCSSCache = null;
+			
+			FLBuilder.ajax( {
+				action: 'save_layout_settings',
+				settings: settings
+			}, FLBuilder._updateLayout );
+		},
+		
+		/**
+		 * Reverts changes made when the cancel button for the layout
+		 * settings has been clicked.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _cancelLayoutSettingsClicked
+		 */       
+		_cancelLayoutSettingsClicked: function()
+		{
+			var form = $( '.fl-builder-settings' );
+			
+			if ( form.hasClass( 'fl-builder-layout-settings' ) ) {
+				$( '#fl-builder-layout-css' ).html( FLBuilder._layoutSettingsCSSCache );
+			}
+			else {
+				$( '#fl-builder-global-css' ).html( FLBuilder._layoutSettingsCSSCache );
+			}
+			
+			FLBuilder._layoutSettingsCSSCache = null;
+		},
+		
+		/* Global Settings
+		----------------------------------------------------------*/
 		
 		/**
 		 * Shows the global builder settings lightbox when the global
@@ -1252,10 +1460,10 @@
 		_globalSettingsClicked: function()
 		{
 			FLBuilder._actionsLightbox.close();
-			FLBuilder._showLightbox(false);
+			FLBuilder._showLightbox();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_global_settings'
+				action: 'render_global_settings'
 			}, FLBuilder._globalSettingsLoaded);
 		},
 
@@ -1265,11 +1473,14 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _globalSettingsLoaded
-		 * @param {String} html The HTML for the global settings form.
+		 * @param {String} response The JSON with the HTML for the global settings form.
 		 */  
-		_globalSettingsLoaded: function(html)
+		_globalSettingsLoaded: function(response)
 		{
-			FLBuilder._setSettingsFormContent(html);  
+			var data = JSON.parse(response);
+			
+			FLBuilder._setSettingsFormContent(data.html);
+			FLBuilder._layoutSettingsInitCSS();
 					  
 			FLBuilder._initSettingsValidation({
 				module_margins: {
@@ -1317,10 +1528,10 @@
 				}
 				
 				FLBuilder.showAjaxLoader();
+				FLBuilder._layoutSettingsCSSCache = null;
 				
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'save_global_settings',
+					action: 'save_global_settings',
 					settings: settings
 				}, FLBuilder._updateLayout);
 					
@@ -1387,7 +1598,7 @@
 			FLBuilder._showLightbox( false );
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_template_selector'
+				action: 'render_template_selector'
 			}, FLBuilder._templateSelectorLoaded );
 		},
 		
@@ -1397,14 +1608,20 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _templateSelectorLoaded
-		 * @param {String} html The HTML for the template selector.
+		 * @param {String} response The JSON with the HTML for the template selector.
 		 */
-		_templateSelectorLoaded: function( html )
+		_templateSelectorLoaded: function( response )
 		{
-			FLBuilder._setLightboxContent( html );
+			var data 			= JSON.parse( response ),
+				select 			= null,
+				userTemplates 	= null;
 			
-			var select 			= $( '.fl-template-category-select' ),
-				userTemplates 	= $( '.fl-user-template' );
+			// Set the lightbox content.
+			FLBuilder._setLightboxContent( data.html );
+			
+			// Set the vars.
+			select 			= $( '.fl-template-category-select' );
+			userTemplates 	= $( '.fl-user-template' );
 			
 			// Default to the user templates tab?
 			if ( 'user' == FLBuilderConfig.enabledTemplates || userTemplates.length > 0 ) {
@@ -1450,7 +1667,7 @@
 			
 			if($(FLBuilder._contentClass).children('.fl-row').length > 0) {
 				
-				if(index == 0) {
+				if(index === 0) {
 					if(confirm(FLBuilderStrings.changeTemplateMessage)) {
 						FLBuilder._lightbox._node.hide();
 						FLBuilder._applyTemplate(0, false, 'core');
@@ -1552,8 +1769,7 @@
 			if(type == 'core') {
 		
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'apply_template',
+					action: 'apply_template',
 					template_id: id,
 					append: append
 				}, FLBuilder._updateLayout);
@@ -1561,8 +1777,7 @@
 			else {
 			
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'apply_user_template',
+					action: 'apply_user_template',
 					template_id: id,
 					append: append
 				}, FLBuilder._updateLayout);
@@ -1586,7 +1801,7 @@
 			FLBuilder._showLightbox(false);
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_user_template_settings'
+				action: 'render_user_template_settings'
 			}, FLBuilder._userTemplateSettingsLoaded);
 		},
 		
@@ -1596,11 +1811,13 @@
 		 * @since 1.1.9
 		 * @access private
 		 * @method _userTemplateSettingsLoaded
-		 * @param {String} html The HTML for the user template settings form.
+		 * @param {String} response The JSON with the HTML for the user template settings form.
 		 */  
-		_userTemplateSettingsLoaded: function(html)
+		_userTemplateSettingsLoaded: function(response)
 		{
-			FLBuilder._setSettingsFormContent(html);  
+			var data = JSON.parse(response);
+			
+			FLBuilder._setSettingsFormContent(data.html);  
 					  
 			FLBuilder._initSettingsValidation({
 				name: {
@@ -1627,8 +1844,7 @@
 				FLBuilder.showAjaxLoader();
 				
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'save_user_template',
+					action: 'save_user_template',
 					settings: settings
 				}, FLBuilder._saveUserTemplateSettingsComplete);
 					
@@ -1715,8 +1931,7 @@
 			if ( confirm( FLBuilderStrings.deleteTemplate ) ) {
 				
 				FLBuilder.ajax( {
-					action: 'fl_builder_save',
-					method: 'delete_user_template',
+					action: 'delete_user_template',
 					template_id: id
 				} );
 			
@@ -1928,117 +2143,24 @@
 			FLBuilder.showAjaxLoader();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_layout'
+				action: 'render_layout'
 			}, FLBuilder._renderLayout);
 		},
 		
 		/**
 		 * Removes the current layout and renders a new layout using
-		 * the provided data.
+		 * the provided data. Will render a node instead of the layout
+		 * if data.partial is true.
 		 *
 		 * @since 1.0
 		 * @access private
 		 * @method _renderLayout
 		 * @param {Object} data The layout data. May also be a JSON encoded string.
-		 * @param {String} data.html The HTML for the new layout.
-		 * @param {String} data.css The URL for the layout CSS.
-		 * @param {String} data.js The URL for the layout JavaScript.
 		 * @param {Function} callback A function to call when the layout has finished rendering.
 		 */
-		_renderLayout: function(data, callback)
+		_renderLayout: function( data, callback )
 		{
-			data = typeof data == 'string' ? JSON.parse(data) : data;
-		
-			var post    = $('#fl-post-id').val(),
-				head    = $('head').eq(0),
-				body    = $('body').eq(0),
-				content = $(FLBuilder._contentClass),
-				loader  = $('<img src="' + data.css + '" />'),
-				oldCss  = $('link[href*="/cache/' + post + '"]'),
-				oldJs   = $('script[src*="/cache/' + post + '"]'),
-				newCss  = $('<link rel="stylesheet" id="fl-builder-layout-' + post + '-css"  href="'+ data.css +'" />'),
-				newJs   = $('<script src="'+ data.js +'"></script>');
-				
-			// Image onerror hack to check if the stylesheet has been loaded.
-			loader.on('error', function() 
-			{
-				// Remove the loader.
-				loader.remove();
-				
-				// Add the new layout css.
-				if(oldCss.length > 0) {
-					oldCss.after(newCss);
-				}
-				else {
-					head.append(newCss);    
-				}
-				
-				// Set a quick timeout to ensure the css has taken effect.
-				setTimeout(function()
-				{
-					// Set the body height so the page doesn't scroll.
-					body.height(body.height());
-					
-					// Remove the old content and assets.
-					content.empty();
-					oldCss.remove();
-					oldJs.remove();
-					
-					// Add the new content.
-					content.append( FLBuilder._renderLayoutCleanContent( data.html ) );
-					
-					// Add the new layout js.
-					setTimeout(function(){
-						head.append(newJs);
-					}, 50);
-
-					// Send the layout rendered event.
-					$( FLBuilder._contentClass ).trigger( 'fl-builder.layout-rendered' );
-					
-					// Remove action overlays so they can reset.
-					FLBuilder._removeAllOverlays();
-					
-					// Hide the loader.
-					FLBuilder.hideAjaxLoader();
-					
-					// Run the callback.
-					if(typeof callback != 'undefined') {
-						callback();
-					}
-				
-				}, 250);
-			});
-			
-			body.append(loader);
-		},
-		
-		/**
-		 * Removes scripts that are already on the page from
-		 * new HTML content that is going to be rendered.
-		 *
-		 * @since 1.0
-		 * @access private
-		 * @method _renderLayoutCleanContent
-		 * @param {String} html The new HTML content to clean.
-		 * @return {String} The cleaned HTML content.
-		 */
-		_renderLayoutCleanContent: function( html )
-		{
-			var cleaned = $( '<div id="fl-cleaned-content">' + html + '</div>' ),
-				src     = '',
-				script  = null;
-			
-			cleaned.find( 'script' ).each( function() {
-				
-				src     = $( this ).attr( 'src' );
-				script  = $( 'script[src="' + src + '"]' );
-				
-				if ( script.length > 0 ) {
-					$( this ).remove();
-				}
-			});
-			
-			return cleaned.html();
+			FLBuilder._layout = new FLBuilderAJAXLayout( data, callback );
 		},
 		
 		/**
@@ -2051,15 +2173,10 @@
 		 */
 		_renderLayoutComplete: function()
 		{
-			FLBuilder._setupEmptyLayout();
-			FLBuilder._highlightEmptyCols();
-			FLBuilder._initSortables();
-			FLBuilder._resizeLayout();
-			FLBuilder._initMediaElements();
-			FLBuilderLayout.init();
-			
-			// Reset the body height.
-			$('body').height('auto');
+			if ( FLBuilder._layout ) {
+				FLBuilder._layout._complete();
+				FLBuilder._layout = null;
+			}
 		},
 		
 		/**
@@ -2098,7 +2215,7 @@
 					settings.pluginPath = _wpmejsSettings.pluginPath;
 				}
 				
-				$('.wp-audio-shortcode, .wp-video-shortcode').mediaelementplayer(settings);                
+				$('.wp-audio-shortcode, .wp-video-shortcode').not('.mejs-container').mediaelementplayer(settings);                
 			}
 		},
 		
@@ -2412,7 +2529,7 @@
 		 */
 		_highlightEmptyCols: function()
 		{
-			var noHighlight = 'row' == FLBuilderConfig.userTemplateType ? '' : ':not(.fl-node-global)';
+			var noHighlight = 'row' == FLBuilderConfig.userTemplateType ? '' : ':not(.fl-node-global)',
 				rows 		= $(FLBuilder._contentClass + ' .fl-row' + noHighlight),
 				cols 		= $(FLBuilder._contentClass + ' .fl-col' + noHighlight);
 			
@@ -2440,6 +2557,7 @@
 		{
 			$('.fl-row').removeClass('fl-block-overlay-active');
 			$('.fl-row-overlay').remove();
+			$('.fl-module').removeClass('fl-module-adjust-height');
 		},
 		
 		/**
@@ -2491,10 +2609,19 @@
 				template = wp.template( 'fl-row-overlay' );
 
 			if ( ! row.hasClass( 'fl-block-overlay-active' ) ) {
+				
+				// Append the overlay.
 				FLBuilder._appendOverlay( row, template( { 
 					global : row.hasClass( 'fl-node-global' ), 
 					node   : row.attr('data-node')
 				} ) );
+				
+				// Adjust the height of modules if needed.
+				row.find( '.fl-module' ).each( function(){
+					if ( $( this ).outerHeight( true ) < 20 ) {
+						$( this ).addClass( 'fl-module-adjust-height' );
+					}
+				} );
 			}
 		},
 		
@@ -2604,8 +2731,7 @@
 		_reorderRow: function(node_id, position)
 		{
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'reorder_node',
+				action: 'reorder_node',
 				node_id: node_id,
 				position: position,
 				silent: true
@@ -2628,7 +2754,7 @@
 			FLBuilder._newRowPosition = position;
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_new_row',
+				action: 'render_new_row',
 				cols: cols,
 				position: position
 			}, FLBuilder._addRowComplete);
@@ -2642,40 +2768,33 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _addRowComplete
-		 * @param {String} response The HTML for the new row.
+		 * @param {String} response The JSON response with the HTML for the new row.
 		 */     
 		_addRowComplete: function(response)
 		{
-			var content = $(FLBuilder._contentClass),
-				rows    = content.find('.fl-row'),
-				row     = $(response),
-				module  = null,
-				form    = null;
+			var data 	= JSON.parse(response),
+				content = $(FLBuilder._contentClass),
+				rowId   = $(data.html).data('node');
 				
-			if(rows.length === 0 || rows.length == FLBuilder._newRowPosition) {
-				content.append(row);
-			}
-			else {
-				rows.eq(FLBuilder._newRowPosition).before(row);
-			}
-			
-			FLBuilder._setupEmptyLayout();
-			FLBuilder._highlightEmptyCols();
-			FLBuilder._initSortables();
-			
-			// Add a module to the newly created row.
-			if(FLBuilder._addModuleAfterRowRender !== null) {
-			
-				// Add an existing module. 
-				if(FLBuilder._addModuleAfterRowRender.hasClass('fl-module')) {
-					module = FLBuilder._addModuleAfterRowRender;
-					row.find('.fl-col-content').eq(0).append(module);
-					FLBuilder._reorderModule(module);
+			// Add new row info to the data.
+			data.nodeParent 	= content;
+			data.nodePosition 	= FLBuilder._newRowPosition;
+				
+			// Render the layout.
+			FLBuilder._renderLayout( data, function(){
+				
+				// Add a module to the newly created row.
+				if(FLBuilder._addModuleAfterRowRender !== null) {
+					
+					// Add an existing module. 
+					if(FLBuilder._addModuleAfterRowRender.hasClass('fl-module')) {
+						$('.fl-node-' + rowId + ' .fl-col-content').append(FLBuilder._addModuleAfterRowRender);
+						FLBuilder._reorderModule(FLBuilder._addModuleAfterRowRender);
+					}
+					
+					FLBuilder._addModuleAfterRowRender = null;
 				}
-				
-				FLBuilder._highlightEmptyCols();
-				FLBuilder._addModuleAfterRowRender = null;
-			}
+			} );
 		},
 		
 		/**
@@ -2718,8 +2837,7 @@
 		_deleteRow: function(row)
 		{
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'delete_node',
+				action: 'delete_node',
 				node_id: row.attr('data-node'),
 				silent: true
 			});
@@ -2740,19 +2858,37 @@
 		 */ 
 		_rowCopyClicked: function(e)
 		{
-			var nodeId = $(this).closest('.fl-row-overlay').attr('data-node');
-			
+			var row 	= $( this ).closest( '.fl-row' ),
+				nodeId 	= row.attr( 'data-node' );
+				
 			FLBuilder.showAjaxLoader();
-			
 			FLBuilder._removeAllOverlays();
+			FLBuilder._newRowPosition = row.index( '.fl-row' ) + 1;
 			
-			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'copy_row',
+			FLBuilder.ajax( {
+				action: 'copy_row',
 				node_id: nodeId
-			}, FLBuilder._updateLayout);
+			}, FLBuilder._rowCopyComplete );
 			
 			e.stopPropagation();
+		},
+		
+		/**
+		 * Callback for when a row has been duplicated.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _rowCopyComplete
+		 * @param {String} response The JSON encoded response.
+		 */ 
+		_rowCopyComplete: function( response )
+		{
+			var data = JSON.parse( response );
+			
+			data.nodeParent 	= $( FLBuilder._contentClass );
+			data.nodePosition 	= FLBuilder._newRowPosition;
+			
+			FLBuilder._renderLayout( data );
 		},
 		
 		/**
@@ -2780,7 +2916,7 @@
 				FLBuilder._showLightbox();
 				
 				FLBuilder.ajax({
-					action: 'fl_builder_render_row_settings',
+					action: 'render_row_settings',
 					node_id: nodeId
 				}, FLBuilder._rowSettingsLoaded);
 			}
@@ -2795,13 +2931,18 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _rowSettingsLoaded
-		 * @param {String} response The HTML for the row settings form.
+		 * @param {String} response The JSON response with the HTML for the row settings form.
 		 */
 		_rowSettingsLoaded: function(response)
 		{
-			FLBuilder._setSettingsFormContent(response);
+			var data = JSON.parse(response);
 			
-			FLBuilder.preview = new FLBuilderPreview({ type : 'row' });
+			FLBuilder._setSettingsFormContent(data.settings);
+			
+			FLBuilder.preview = new FLBuilderPreview({ 
+				type  : 'row',
+				state : data.state 
+			});
 		},
 		
 		/* Columns
@@ -2914,7 +3055,7 @@
 			FLBuilder._showLightbox();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_column_settings',
+				action: 'render_column_settings',
 				node_id: nodeId
 			}, FLBuilder._colSettingsLoaded);
 			
@@ -2928,21 +3069,29 @@
 		 * @since 1.1.9
 		 * @access private
 		 * @method _colSettingsLoaded
-		 * @param {String} response The HTML for the column settings form.
+		 * @param {String} response The JSON response with the HTML for the column settings form.
 		 */
 		_colSettingsLoaded: function(response)
 		{
-			FLBuilder._setSettingsFormContent(response);
+			var data 	 = JSON.parse( response ),
+				settings = null,
+				nodeId   = null,
+				col      = null;
 			
-			var settings = $('.fl-builder-col-settings'),
-				nodeId   = settings.data('node'),
-				col      = $('.fl-col[data-node="' + nodeId + '"]');
+			FLBuilder._setSettingsFormContent( data.settings );
+			
+			settings = $('.fl-builder-col-settings');
+			nodeId   = settings.data('node');
+			col      = $('.fl-col[data-node="' + nodeId + '"]');
 				
 			if(col.siblings('.fl-col').length === 0) {
 				$(settings).find('#fl-builder-settings-section-general').css('display', 'none');
 			}
 			
-			FLBuilder.preview = new FLBuilderPreview({ type : 'col' });
+			FLBuilder.preview = new FLBuilderPreview({ 
+				type  : 'col',
+				state : data.state 
+			});
 		},
 		
 		/**
@@ -3014,8 +3163,7 @@
 				}
 			
 				FLBuilder.ajax({
-					action          : 'fl_builder_save',
-					method          : 'delete_col',
+					action          : 'delete_col',
 					node_id         : col.attr('data-node'),
 					new_width       : width,
 					silent          : true
@@ -3070,11 +3218,10 @@
 			FLBuilder._removeAllOverlays();
 			
 			FLBuilder.ajax( {
-				action          : 'fl_builder_save',
-				method          : 'insert_col',
+				action          : 'render_new_column',
 				node_id         : col.attr('data-node'),
 				insert 			: insert
-			}, FLBuilder._updateLayout );
+			}, FLBuilder._renderLayout );
 		},
 		
 		/**
@@ -3089,13 +3236,16 @@
 		 */
 		_addColGroup: function(nodeId, cols, position)
 		{
+			// Show the loader.
 			FLBuilder.showAjaxLoader();
 			
+			// Save the new column group info.
 			FLBuilder._newColGroupParent = $('.fl-node-' + nodeId + ' .fl-row-content');
 			FLBuilder._newColGroupPosition = position;
 			
+			// Send the request.
 			FLBuilder.ajax({
-				action      : 'fl_builder_render_new_column_group',
+				action      : 'render_new_column_group',
 				cols        : cols,
 				node_id     : nodeId,
 				position    : position
@@ -3110,39 +3260,32 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _addColGroupComplete
-		 * @param {String} response The HTML for the new column group.
+		 * @param {String} response The JSON response with the HTML for the new column group.
 		 */     
 		_addColGroupComplete: function(response)
 		{
-			var rowContent  = FLBuilder._newColGroupParent,
-				groups      = rowContent.find('.fl-col-group'),
-				group       = $(response),
-				col         = group.find('.fl-col-content').eq(0),
-				module      = null,
-				form        = null;
-			  
-			if(groups.length === 0 || groups.length == FLBuilder._newColGroupPosition) {
-				rowContent.append(group);
-			}
-			else {
-				groups.eq(FLBuilder._newColGroupPosition).before(group);
-			}
-
-			// Add a module to the newly created column group.
-			if(FLBuilder._addModuleAfterRowRender !== null) {
-			
-				// Add an existing module. 
-				if(FLBuilder._addModuleAfterRowRender.hasClass('fl-module')) {
-					module = FLBuilder._addModuleAfterRowRender;
-					col.append(module);
-					FLBuilder._reorderModule(module);
-				}
+			var data  = JSON.parse(response),
+				colId = $(data.html).find('.fl-col').data('node');
 				
-				FLBuilder._addModuleAfterRowRender = null;
-			}
-			
-			FLBuilder._highlightEmptyCols();
-			FLBuilder._initSortables();
+			// Add new column group info to the data.
+			data.nodeParent 	= FLBuilder._newColGroupParent;
+			data.nodePosition 	= FLBuilder._newColGroupPosition;
+				
+			// Render the layout.
+			FLBuilder._renderLayout( data, function(){
+				
+				// Add a module to the newly created column group.
+				if(FLBuilder._addModuleAfterRowRender !== null) {
+					
+					// Add an existing module. 
+					if(FLBuilder._addModuleAfterRowRender.hasClass('fl-module')) {
+						$('.fl-node-' + colId + ' .fl-col-content').append(FLBuilder._addModuleAfterRowRender);
+						FLBuilder._reorderModule(FLBuilder._addModuleAfterRowRender);
+					}
+					
+					FLBuilder._addModuleAfterRowRender = null;
+				}
+			} );
 		},
 		
 		/**
@@ -3293,8 +3436,7 @@
 			
 			// Save the resize data.
 			FLBuilder.ajax({
-				action			: 'fl_builder_save',
-				method			: 'resize_cols',
+				action			: 'resize_cols',
 				col_id			: data.col.data( 'node' ),
 				col_width		: parseFloat( data.col[ 0 ].style.width ),
 				sibling_id		: data.sibling.data( 'node' ),
@@ -3342,8 +3484,7 @@
 			
 			// Save the resize data.
 			FLBuilder.ajax({
-				action		: 'fl_builder_save',
-				method		: 'reset_col_widths',
+				action		: 'reset_col_widths',
 				group_id	: group.data( 'node' ),
 				silent		: true
 			});
@@ -3383,11 +3524,6 @@
 			}
 			// Show the overlay.
 			else if ( ! module.hasClass( 'fl-block-overlay-active' ) ) {
-
-				// Adjust the height if needed.
-				if ( module.outerHeight( true ) < 20 ) {
-					module.addClass( 'fl-module-adjust-height' );
-				}
 				
 				// Append the template.
 				FLBuilder._appendOverlay( module, template( { 
@@ -3438,7 +3574,6 @@
 		{
 			var modules = $('.fl-module');
 			
-			modules.removeClass('fl-module-adjust-height');
 			modules.removeClass('fl-block-overlay-active');
 			modules.find('.fl-module-overlay').remove();
 			$('body').removeClass('fl-block-overlay-muted');
@@ -3502,7 +3637,7 @@
 				}
 				
 				// Add the new module.
-				FLBuilder._addModule(parentId, item.attr('data-type'), position, item.attr('data-widget'))
+				FLBuilder._addModule(parent, parentId, item.attr('data-type'), position, item.attr('data-widget'));
 				
 				// Remove the drag helper.
 				ui.item.remove();
@@ -3546,8 +3681,7 @@
 				 
 			if(newParent == oldParent) {
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'reorder_node',
+					action: 'reorder_node',
 					node_id: node_id,
 					position: position,
 					silent: true
@@ -3557,8 +3691,7 @@
 				module.attr('data-parent', newParent);
 			
 				FLBuilder.ajax({
-					action: 'fl_builder_save',
-					method: 'move_node',
+					action: 'move_node',
 					new_parent: newParent,
 					node_id: node_id,
 					position: position,
@@ -3601,8 +3734,7 @@
 			var row = module.closest('.fl-row');
 
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'delete_node',
+				action: 'delete_node',
 				node_id: module.attr('data-node'),
 				silent: true
 			});
@@ -3628,14 +3760,33 @@
 			
 			FLBuilder.showAjaxLoader();
 			FLBuilder._removeAllOverlays();
+			FLBuilder._newModuleParent 	 = module.parent();
+			FLBuilder._newModulePosition = module.index() + 1;
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_save',
-				method: 'copy_module',
+				action: 'copy_module',
 				node_id: module.attr('data-node')
-			}, FLBuilder._updateLayout);
+			}, FLBuilder._moduleCopyComplete);
 			
 			e.stopPropagation();
+		},
+		
+		/**
+		 * Callback for when a module has been duplicated.
+		 *
+		 * @since 1.7
+		 * @access private
+		 * @method _moduleCopyComplete
+		 * @param {String} response The JSON encoded response.
+		 */ 
+		_moduleCopyComplete: function( response )
+		{
+			var data = JSON.parse( response );
+			
+			data.nodeParent 	= FLBuilder._newModuleParent;
+			data.nodePosition 	= FLBuilder._newModulePosition;
+			
+			FLBuilder._renderLayout( data );
 		},
 		
 		/**
@@ -3683,7 +3834,7 @@
 			FLBuilder._showLightbox();
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_module_settings',
+				action: 'render_module_settings',
 				node_id: nodeId,
 				type: type,
 				parent_id: parentId
@@ -3697,17 +3848,18 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _moduleSettingsLoaded
-		 * @param {Object} data Preview layout data. Can also be a JSON encoded string.
+		 * @param {Object} response The JSON encoded module settings data.
 		 */ 
-		_moduleSettingsLoaded: function(data)
+		_moduleSettingsLoaded: function(response)
 		{
-			var preview   = typeof data == 'string' ? null : data.layout,
-				content   = typeof data == 'string' ? data : data.settings,
-				html      = $('<div>'+ content +'</div>'),
+			var data 	  = JSON.parse(response),
+				html      = $('<div>'+ data.settings +'</div>'),
 				link      = html.find('link.fl-builder-settings-css'),
 				script    = html.find('script.fl-builder-settings-js'),
 				form      = html.find('.fl-builder-settings'),
 				type      = form.attr('data-type'),
+				layout	  = null,
+				state 	  = null,
 				helper    = null;
 			
 			// Append the settings css and js?
@@ -3724,10 +3876,23 @@
 			// Set the content.
 			FLBuilder._setSettingsFormContent(html);
 			
+			// Get layout data for a new module preview.
+			if ( 'undefined' != typeof data.layout ) {
+				layout 				= data.layout;				
+				layout.nodeParent 	= FLBuilder._newModuleParent;
+				layout.nodePosition = FLBuilder._newModulePosition;
+			}
+			
+			// Get state data for the module preview.
+			if ( 'undefined' != typeof data.state ) {
+				state = data.state;
+			}
+			
 			// Create a new preview.
 			FLBuilder.preview = new FLBuilderPreview({ 
 				type    : 'module',
-				layout  : preview
+				layout  : layout,
+				state   : state
 			});
 			
 			// Init the settings form helper.
@@ -3780,17 +3945,24 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _addModule
+		 * @param {Object} parent A jQuery reference to the new module's parent.
 		 * @param {String} parentId The node id of the new module's parent.
 		 * @param {String} type The type of module to add.
 		 * @param {Number} position The position of the new module within its parent.
 		 * @param {String} widget The type of widget if this module is a widget.
 		 */ 
-		_addModule: function(parentId, type, position, widget)
+		_addModule: function(parent, parentId, type, position, widget)
 		{
+			// Show the loader.
 			FLBuilder.showAjaxLoader();
 			
+			// Save the new module data.
+			FLBuilder._newModuleParent 	 = parent;
+			FLBuilder._newModulePosition = position;
+			
+			// Send the request.
 			FLBuilder.ajax({
-				action          : 'fl_builder_render_new_module_settings',
+				action          : 'render_new_module',
 				parent_id       : parentId,
 				type            : type,
 				position        : position,
@@ -3810,10 +3982,8 @@
 		 */ 
 		_addModuleComplete: function(response)
 		{
-			var data = JSON.parse(response);
-			
 			FLBuilder._showLightbox();
-			FLBuilder._moduleSettingsLoaded(data);
+			FLBuilder._moduleSettingsLoaded(response);
 			
 			$('.fl-builder-module-settings').data('new-module', '1');
 		},
@@ -3871,7 +4041,7 @@
 			FLBuilder._saveSettings();
 			
 			FLBuilder.ajax( {
-				action  : 'fl_builder_render_node_template_settings',
+				action  : 'render_node_template_settings',
 				node_id : form.attr( 'data-node' )
 			}, FLBuilder._nodeTemplateSettingsLoaded );
 		},
@@ -3882,12 +4052,14 @@
 		 * @since 1.6.3
 		 * @access private
 		 * @method _nodeTemplateSettingsLoaded
-		 * @param {String} response The HTML for the settings form.
+		 * @param {String} response The JSON with the HTML for the settings form.
 		 */
 		_nodeTemplateSettingsLoaded: function( response )
 		{
+			var data = JSON.parse( response );
+			
 			FLBuilder._showLightbox( false );
-			FLBuilder._setSettingsFormContent( response );
+			FLBuilder._setSettingsFormContent( data.html );
 			
 			FLBuilder._initSettingsValidation({
 				name: {
@@ -3913,8 +4085,7 @@
 				FLBuilder.showAjaxLoader();
 				
 				FLBuilder.ajax({
-					action	 : 'fl_builder_save',
-					method	 : 'save_node_template',
+					action	 : 'save_node_template',
 					node_id  : form.attr( 'data-node' ),
 					settings : FLBuilder._getSettings( form )
 				}, FLBuilder._saveNodeTemplateComplete);
@@ -3950,8 +4121,8 @@
 			}
 			
 			// Update the layout for global templates.			
-			if ( data.global ) {
-				FLBuilder._updateLayout();
+			if ( data.layout ) {
+				FLBuilder._renderLayout( data.layout );
 			}
 			
 			// Add the new template to the builder panel.
@@ -4001,7 +4172,6 @@
 				parentId	= null,
 				position 	= 0,
 				action 		= '',
-				method 		= '',
 				callback	= null;
 			
 			// Stop the drag.
@@ -4011,14 +4181,14 @@
 			if ( item.hasClass( 'fl-builder-block-saved-row' ) || item.hasClass( 'fl-builder-block-row-template' ) ) {
 				position = parent.children('.fl-row, .fl-builder-block').index( item );
 				parentId = null;
-				action	 = 'fl_builder_save';
-				method	 = 'apply_node_template';
-				callback = FLBuilder._updateLayout;
+				action	 = 'render_new_row';
+				callback = FLBuilder._addRowComplete;
+				FLBuilder._newRowPosition = position;
 			}
 			// A saved module was dropped.
 			else if ( item.hasClass( 'fl-builder-block-saved-module' ) || item.hasClass( 'fl-builder-block-module-template' ) ) {
 				
-				action	 = 'fl_builder_render_module_template_settings';
+				action	 = 'render_new_module';
 				callback = FLBuilder._addModuleComplete;
 				
 				// Dropped into a row position.
@@ -4036,6 +4206,10 @@
 					position = parent.children( '.fl-module, .fl-builder-block' ).index( item );
 					parentId = item.closest( '.fl-col' ).attr( 'data-node' );
 				}
+				
+				// Save the new module data.
+				FLBuilder._newModuleParent 	 = parent;
+				FLBuilder._newModulePosition = position;
 			}
 			
 			// Show the loader.
@@ -4044,7 +4218,6 @@
 			// Apply and render the node template.
 			FLBuilder.ajax({
 				action	 	 : action,
-				method 	     : method,
 				template_id  : item.attr( 'data-id' ),
 				parent_id    : parentId,
 				position 	 : position
@@ -4107,8 +4280,7 @@
 			
 				// Delete the template.
 				FLBuilder.ajax({
-					action	 	 : 'fl_builder_save',
-					method 	     : 'delete_node_template',
+					action 	     : 'delete_node_template',
 					template_id  : block.attr( 'data-id' ),
 					silent		 : block.hasClass( 'fl-builder-block-global' ) ? false : true
 				}, callback);
@@ -4187,6 +4359,7 @@
 				previewCol     = null,
 				existingCol    = null;
 			
+			// Delete a new module preview?
 			if(moduleSettings.length > 0 && typeof moduleSettings.data('new-module') != 'undefined') {
 			
 				existingNodes = $(FLBuilder.preview.state.html);
@@ -4201,13 +4374,13 @@
 					FLBuilder._deleteCol(previewCol);
 				}
 			}
-			
-			FLLightbox.closeParent(this);
-			
-			if(FLBuilder.preview) {
+			// Do a standard preview revert. 
+			else if( FLBuilder.preview ) {
 				FLBuilder.preview.revert();
-				FLBuilder.preview = null;
 			}
+			
+			FLBuilder.preview = null;
+			FLLightbox.closeParent(this);
 		},
 		
 		/**
@@ -4389,7 +4562,7 @@
 					settings[ key ] = $.grep( 
 						settings[ 'as_values_' + key ].split( ',' ), 
 						function( n ) { 
-							return n != ''; 
+							return n !== ''; 
 						}
 					).join( ',' );
 					
@@ -4423,8 +4596,7 @@
 			
 			// Make the AJAX call.
 			FLBuilder.ajax({
-				action          : 'fl_builder_save',
-				method          : 'save_settings',
+				action          : 'save_settings',
 				node_id         : nodeId,
 				settings        : settings
 			}, FLBuilder._saveSettingsComplete);
@@ -4508,7 +4680,8 @@
 			field.autoSuggest(FLBuilder._ajaxUrl({ 
 				'fl_action'         : 'fl_builder_autosuggest',
 				'fl_as_action'      : field.data('action'),
-				'fl_as_action_data' : field.data('action-data')
+				'fl_as_action_data' : field.data('action-data'),
+				'_wpnonce'			: FLBuilderConfig.ajaxNonce
 			}), {
 				asHtmlID                    : field.attr('name'),
 				selectedItemProp            : 'name',
@@ -4522,7 +4695,8 @@
 				preFill                     : field.data('value'),
 				queryParam                  : 'fl_as_query',
 				afterSelectionAdd           : FLBuilder._updateAutoSuggestField,
-				afterSelectionRemove        : FLBuilder._updateAutoSuggestField
+				afterSelectionRemove        : FLBuilder._updateAutoSuggestField,
+				selectionLimit				: field.data('limit')
 			});
 		},
 		
@@ -4790,8 +4964,9 @@
 		 */ 
 		_settingsSelectToggle: function(inputArray, func, prefix, suffix)
 		{
-			var i 		= 0,
-				suffix 	= 'undefined' == typeof suffix ? '' : suffix;
+			var i = 0;
+			
+			suffix = 'undefined' == typeof suffix ? '' : suffix;
 			
 			if(typeof inputArray !== 'undefined') {
 				for( ; i < inputArray.length; i++) {
@@ -4829,11 +5004,10 @@
 				}
 		    });
 
-			$( FLBuilder.colorPicker ).on( 'presetRemoved presetAdded', function( event, data ){
+			$( FLBuilder.colorPicker ).on( 'presetRemoved presetAdded', function( event, data ) {
 	    		FLBuilder.ajax({
-				    action: 'fl_builder_save',
-				    method: 'save_color_presets',
-				   presets: data.presets
+					action: 'save_color_presets',
+					presets: data.presets
 				});
 
 	    	});
@@ -4886,7 +5060,7 @@
 				wrap.addClass('fl-photo-empty');
 				photoField.val('');
 			}
-			else if(photo != '') {           
+			else if(photo !== '') {           
 				attachment = wp.media.attachment(photo);
 				attachment.fetch();
 				selection.add(attachment ? [attachment] : []);
@@ -5025,7 +5199,7 @@
 			var wrap           = $(this).closest('.fl-multiple-photos-field'),
 				photosField    = wrap.find('input[type=hidden]'),
 				photosFieldVal = photosField.val(),
-				content        = photosFieldVal == '' ? '[gallery ids="-1"]' : '[gallery ids="'+ JSON.parse(photosFieldVal).join() +'"]',
+				content        = photosFieldVal === '' ? '[gallery ids="-1"]' : '[gallery ids="'+ JSON.parse(photosFieldVal).join() +'"]',
 				shortcode      = wp.shortcode.next('gallery', content).shortcode,
 				defaultPostId  = wp.media.gallery.defaults.id,
 				attachments    = null, 
@@ -5152,6 +5326,111 @@
 			videoField.val(video.id).trigger('change');
 		},
 		
+		/* Multiple Audios Field
+		----------------------------------------------------------*/
+		
+		/**
+		 * Shows the multiple audio selector.
+		 *
+		 * @since 1.0
+		 * @access private
+		 * @method _selectMultipleAudios
+		 */ 
+		_selectMultipleAudios: function()
+		{	
+			var wrap           = $(this).closest('.fl-multiple-audios-field'),
+				audiosField    = wrap.find('input[type=hidden]'),
+				audiosFieldVal = audiosField.val(),
+				content        = audiosFieldVal == '' ? '[playlist ids="-1"]' : '[playlist ids="'+ JSON.parse(audiosFieldVal).join() +'"]',
+				shortcode      = wp.shortcode.next('playlist', content).shortcode,
+				defaultPostId  = wp.media.playlist.defaults.id,
+				attachments    = null, 
+				selection      = null;
+
+			if(_.isUndefined(shortcode.get('id')) && !_.isUndefined(defaultPostId)) {
+				shortcode.set('id', defaultPostId);
+			}
+			
+			attachments = wp.media.playlist.attachments(shortcode);
+
+			selection = new wp.media.model.Selection(attachments.models, {
+				props: attachments.props.toJSON(),
+				multiple: true
+			});
+
+			selection.playlist = attachments.playlist;
+
+			// Fetch the query's attachments, and then break ties from the
+			// query to allow for sorting.
+			selection.more().done(function() {
+				// Break ties with the query.
+				selection.props.set({ query: false });
+				selection.unmirror();
+				selection.props.unset('orderby');
+			});
+
+			// Destroy the previous frame.
+			if(FLBuilder._multipleAudiosSelector) {
+				FLBuilder._multipleAudiosSelector.dispose();
+			}
+			
+			// Store the current frame.
+			FLBuilder._multipleAudiosSelector = wp.media({
+				frame:     'post',
+				state:     $(this).hasClass('fl-multiple-audios-edit') ? 'playlist-edit' : 'playlist-library',
+				title:     wp.media.view.l10n.editPlaylistTitle,
+				editing:   true,
+				multiple:  true,
+				selection: selection
+			}).open();
+
+			// Hide the default playlist settings since we have them added in the audio settings
+			FLBuilder._multipleAudiosSelector.content.get('view').sidebar.unset('playlist');
+			FLBuilder._multipleAudiosSelector.on( 'content:render:browse', function( browser ) {
+			    if ( !browser ) return;
+			    // Hide Playlist Settings in sidebar
+			    browser.sidebar.on('ready', function(){
+			        browser.sidebar.unset('playlist');
+			    });
+			});
+ 
+
+			FLBuilder._multipleAudiosSelector.once('update', $.proxy(FLBuilder._multipleAudiosSelected, this));
+			
+		},
+		
+		/**
+		 * Callback for when a single/multiple audo is selected.
+		 *
+		 * @since 1.0
+		 * @access private
+		 * @method _multipleAudiosSelected
+		 */ 
+		_multipleAudiosSelected: function(data)
+		{
+			var wrap       		= $(this).closest('.fl-multiple-audios-field'),
+				count      		= wrap.find('.fl-multiple-audios-count'),				
+				audioField 		= wrap.find('input[type=hidden]'),
+				audios     		= [],
+				i          		= 0;
+
+			for( ; i < data.models.length; i++) {
+				audios.push(data.models[i].id);
+			}
+			
+			if(audios.length == 1) {
+				count.html('1 ' + FLBuilderStrings.audioSelected);
+			}
+			else {
+				count.html(audios.length + ' ' + FLBuilderStrings.audiosSelected);
+			}
+
+			audioField.val(JSON.stringify(audios)).trigger('change');
+			wrap.removeClass('fl-multiple-audios-empty');
+			wrap.find('label.error').remove();
+			
+		},
+
 		/* Icon Fields
 		----------------------------------------------------------*/
 		
@@ -5252,13 +5531,17 @@
 			});
 			
 			FLBuilder.ajax({
-				action: 'fl_builder_render_settings_form',
+				action: 'render_settings_form',
+				node_id: form.attr('data-node'),
+				node_settings: FLBuilder._getSettings(form),
 				type: type,
 				settings: settings.replace(/&#39;/g, "'")
 			}, 
 			function(response) 
 			{
-				lightbox.setContent(response); 
+				var data = JSON.parse(response);
+				
+				lightbox.setContent(data.html); 
 				lightbox._node.find('form.fl-builder-settings').attr('data-type', type); 
 				lightbox._node.find('.fl-builder-settings-cancel').on('click', FLBuilder._closeFormFieldLightbox);
 				FLBuilder._initSettingsForms();
@@ -5289,8 +5572,8 @@
 				lightbox            = FLLightbox._instances[instanceId],
 				linkLightbox        = $('.fl-builder-settings-lightbox'),
 				linkLightboxForm    = linkLightbox.find('form'),
-				linkLightboxLeft    = lightbox._node.find('.fl-lightbox').css('left');
-				linkLightboxTop     = lightbox._node.find('.fl-lightbox').css('top');
+				linkLightboxLeft    = lightbox._node.find('.fl-lightbox').css('left'),
+				linkLightboxTop     = lightbox._node.find('.fl-lightbox').css('top'),
 				boxHeight           = 0,
 				win                 = $(window),
 				winHeight           = win.height();
@@ -5436,7 +5719,8 @@
 				
 			searchInput.autoSuggest(FLBuilder._ajaxUrl({ 
 				'fl_action'         : 'fl_builder_autosuggest',
-				'fl_as_action'      : 'fl_as_links'
+				'fl_as_action'      : 'fl_as_links',
+				'_wpnonce'			: FLBuilderConfig.ajaxNonce
 			}), {
 				asHtmlID                    : searchInput.attr('name'),
 				selectedItemProp            : 'name',
@@ -5544,6 +5828,7 @@
 				font         = currentFont.val(),
 				weightMap    = {
 					'default' : 'Default',
+					'regular' : 'Regular',
 					'100': 'Thin 100',
 					'200': 'Extra-Light 200',
 					'300': 'Light 300',
@@ -5584,10 +5869,10 @@
 		 */  
 		initEditorField: function(id)
 		{
-			var newEditor = tinyMCEPreInit.mceInit['flhiddeneditor'];
+			var newEditor = tinyMCEPreInit.mceInit.flhiddeneditor;
 			
-			newEditor['elements'] = id;
-			tinyMCEPreInit.mceInit[id] = newEditor;
+			newEditor.elements = id;
+			tinyMCEPreInit.mceInit[ id ] = newEditor;
 		},
 
 		/**
@@ -5705,7 +5990,7 @@
 		 */   
 		ajax: function(data, callback)
 		{
-			var key;
+			var prop;
 			
 			// Show the loader and save the data for
 			// later if a silent update is running.
@@ -5721,6 +6006,16 @@
 			else if(data.silent === true) {
 				FLBuilder._silentUpdate = true;
 			}
+			
+			// Undefined props don't get sent to the server, so make them null.
+			for ( prop in data ) {
+				if ( 'undefined' == typeof data[ prop ] ) {
+					data[ prop ] = null;
+				}
+			}
+			
+			// Add the ajax nonce to the data.
+			data._wpnonce = FLBuilderConfig.ajaxNonce;
 			
 			// Send the post id to the server. 
 			data.post_id = $('#fl-post-id').val();

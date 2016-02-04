@@ -65,7 +65,7 @@
 				FLIconSelector._lightbox.open('<div class="fl-builder-lightbox-loading"></div>');
 			
 				FLBuilder.ajax({
-					action: 'fl_builder_render_icon_selector'
+					action: 'render_icon_selector'
 				}, FLIconSelector._getContentComplete);
 			}
 			else {
@@ -102,12 +102,14 @@
 		 * @since 1.0
 		 * @access private
 		 * @method _getContentComplete
-		 * @param {String} html The lightbox content.
+		 * @param {String} response The JSON with the HTML lightbox content.
 		 */ 
-		_getContentComplete: function(html)
+		_getContentComplete: function(response)
 		{
-			FLIconSelector._content = html;
-			FLIconSelector._lightbox.setContent(html);
+			var data = JSON.parse(response);
+			
+			FLIconSelector._content = data.html;
+			FLIconSelector._lightbox.setContent(data.html);
 			$('.fl-icons-filter-select').on('change', FLIconSelector._filter);
 			$('.fl-icons-filter-text').on('keyup', FLIconSelector._filter);
 			$('.fl-icons-list i').on('click', FLIconSelector._select);
@@ -139,7 +141,7 @@
 			// Filter icons.
 			FLIconSelector._filterText = text;
 			
-			if ( '' != text ) {
+			if ( '' !== text ) {
 				$( '.fl-icons-list i' ).each( FLIconSelector._filterIcon );
 			}
 			else {

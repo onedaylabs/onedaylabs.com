@@ -46,15 +46,18 @@
 	</div>
 	<?php endif; ?>
 
-	<?php if($settings->show_content) : ?>
+	<?php if($settings->show_content || $settings->show_more_link) : ?>
 	<div class="fl-post-feed-content" itemprop="text">
 		<?php 
-		
-		if ( 'full' == $settings->content_type ) {
-			the_content();
-		}
-		else {
-			the_excerpt(); 
+			
+		if ($settings->show_content) {
+			
+			if ( 'full' == $settings->content_type ) {
+				the_content();
+			}
+			else {
+				the_excerpt(); 
+			}
 		}
 		
 		?>

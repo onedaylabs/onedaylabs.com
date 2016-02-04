@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="fl-pricing-table fl-pricing-table-spacing-<?php echo $settings->spacing; ?> fl-pricing-table-border-<?php echo $settings->border_size; ?>">
+<div class="fl-pricing-table fl-pricing-table-spacing-<?php echo $settings->spacing; ?> fl-pricing-table-border-<?php echo $settings->border_size; ?> fl-pricing-table-<?php echo $settings->border_radius; ?>">
 	<?php
 
 	for ($i=0; $i < count($settings->pricing_columns); $i++) :
@@ -27,7 +27,11 @@
 					<li><?php echo trim($feature); ?></li>
 					<?php endforeach; ?>
 				</ul>
-				<a href="<?php echo $pricingColumn->button_url; ?>" class="fl-button"><?php echo $pricingColumn->button_text; ?></a><br />
+
+				<?php $module->render_button($i); ?>
+
+				<br />
+
 			</div>
 		</div>
 	</div>

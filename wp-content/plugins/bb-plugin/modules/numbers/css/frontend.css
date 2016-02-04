@@ -28,6 +28,13 @@
 	padding: 5px; 
 }
 
+.fl-number .fl-number-position-above .fl-number-bar {
+	 margin-top: 5px;
+}
+.fl-number .fl-number-position-below .fl-number-bar {
+	margin-bottom: 5px;
+}
+
 .fl-number .svg-container{
 	display: inline-block;
 	position: relative;

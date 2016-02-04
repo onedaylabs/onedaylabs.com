@@ -11,9 +11,10 @@ class FLContentSliderModule extends FLBuilderModule {
 	public function __construct()
 	{
 		parent::__construct(array(
-			'name'          => __('Content Slider', 'fl-builder'),
-			'description'   => __('Displays multiple slides with an optional heading and call to action.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder')
+			'name'          	=> __('Content Slider', 'fl-builder'),
+			'description'   	=> __('Displays multiple slides with an optional heading and call to action.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'partial_refresh'	=> true
 		));
 
 		$this->add_css('jquery-bxslider');

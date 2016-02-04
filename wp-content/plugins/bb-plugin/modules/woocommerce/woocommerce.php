@@ -13,10 +13,11 @@ class FLWooCommerceModule extends FLBuilderModule {
 		$enabled = class_exists('Woocommerce');
 
 		parent::__construct(array(
-			'name'          => __('WooCommerce', 'fl-builder'),
-			'description'   => __('Display products or categories from your WooCommerce store.', 'fl-builder'),
-			'category'      => __('Advanced Modules', 'fl-builder'),
-			'enabled'       => $enabled
+			'name'          	=> __('WooCommerce', 'fl-builder'),
+			'description'   	=> __('Display products or categories from your WooCommerce store.', 'fl-builder'),
+			'category'      	=> __('Advanced Modules', 'fl-builder'),
+			'enabled'       	=> $enabled,
+			'partial_refresh'	=> true
 		));
 	}
 
@@ -59,6 +60,7 @@ FLBuilder::register_module('FLWooCommerceModule', array(
 						'options'       => array(
 							''              => __('Choose...', 'fl-builder'),
 							'product'       => __('Single Product', 'fl-builder'),
+							'product_page'  => __('Product Page', 'fl-builder'),
 							'products'      => __('Multiple Products', 'fl-builder'),
 							'add-cart'      => __( '"Add to Cart" Button', 'fl-builder' ),
 							'categories'    => __('Categories', 'fl-builder'),
@@ -69,6 +71,9 @@ FLBuilder::register_module('FLWooCommerceModule', array(
 						),
 						'toggle'        => array(
 							'product'       => array(
+								'fields'        => array('product_id')
+							),
+							'product_page'       => array(
 								'fields'        => array('product_id')
 							),
 							'products'      => array(

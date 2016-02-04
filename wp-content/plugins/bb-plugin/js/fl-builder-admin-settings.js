@@ -67,12 +67,12 @@
 		{
 			var links  = $('.fl-settings-nav a'),
 				hash   = window.location.hash,
-				active = hash == '' ? [] : links.filter('[href~='+ hash +']');
+				active = hash === '' ? [] : links.filter('[href~='+ hash +']');
 				
 			$('a.fl-active').removeClass('fl-active');
 			$('.fl-settings-form').hide();
 				
-			if(hash == '' || active.length === 0) {
+			if(hash === '' || active.length === 0) {
 				active = links.eq(0);
 			}
 			
@@ -209,7 +209,7 @@
 				toggle = input.is( ':checked' );
 			}
 			else {
-				toggle = '' != val;
+				toggle = '' !== val;
 			}
 			
 			overrideNodes.toggle( toggle );

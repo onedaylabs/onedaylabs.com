@@ -120,42 +120,18 @@ FLBuilder::register_settings_form('row', array(
 									'sections'      => array('bg_color')
 								),
 								'photo'         => array(
-									'sections'      => array('bg_photo', 'bg_overlay')
+									'sections'      => array('bg_color', 'bg_photo', 'bg_overlay')
 								),
 								'video'         => array(
-									'sections'      => array('bg_video', 'bg_overlay')
+									'sections'      => array('bg_color', 'bg_video', 'bg_overlay')
 								),
 								'slideshow'     => array(
-									'sections'      => array('bg_slideshow', 'bg_overlay')
+									'sections'      => array('bg_color', 'bg_slideshow', 'bg_overlay')
 								),
 								'parallax'      => array(
-									'sections'      => array('bg_parallax', 'bg_overlay')
+									'sections'      => array('bg_color','bg_parallax', 'bg_overlay')
 								)
 							),
-							'preview'         => array(
-								'type'            => 'none'
-							)
-						)
-					)
-				),
-				'bg_color'     => array(
-					'title'         => __('Background Color', 'fl-builder'),
-					'fields'        => array(
-						'bg_color'      => array(
-							'type'          => 'color',
-							'label'         => __('Color', 'fl-builder'),
-							'show_reset'    => true,
-							'preview'         => array(
-								'type'            => 'none'
-							)
-						),
-						'bg_opacity'    => array(
-							'type'          => 'text',
-							'label'         => __('Opacity', 'fl-builder'),
-							'default'       => '100',
-							'description'   => '%',
-							'maxlength'     => '3',
-							'size'          => '5',
 							'preview'         => array(
 								'type'            => 'none'
 							)
@@ -377,6 +353,30 @@ FLBuilder::register_settings_form('row', array(
 								'5'             => _x( 'Medium', 'Speed.', 'fl-builder' ),
 								'8'             => __('Slow', 'fl-builder')
 							),
+							'preview'         => array(
+								'type'            => 'none'
+							)
+						)
+					)
+				),
+				'bg_color'     => array(
+					'title'         => __('Background Color', 'fl-builder'),
+					'fields'        => array(
+						'bg_color'      => array(
+							'type'          => 'color',
+							'label'         => __('Color', 'fl-builder'),
+							'show_reset'    => true,
+							'preview'         => array(
+								'type'            => 'none'
+							)
+						),
+						'bg_opacity'    => array(
+							'type'          => 'text',
+							'label'         => __('Opacity', 'fl-builder'),
+							'default'       => '100',
+							'description'   => '%',
+							'maxlength'     => '3',
+							'size'          => '5',
 							'preview'         => array(
 								'type'            => 'none'
 							)

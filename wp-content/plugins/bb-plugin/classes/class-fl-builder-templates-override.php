@@ -148,7 +148,8 @@ final class FLBuilderTemplatesOverride {
 	 */
 	static public function apply( $template_id = null, $append = false )
 	{
-		$site_id = self::get_source_site_id();
+		$site_id  = self::get_source_site_id();
+		$template = new StdClass();
 		
 		if ( $site_id ) {
 			
@@ -156,13 +157,14 @@ final class FLBuilderTemplatesOverride {
 				switch_to_blog( $site_id );
 			}
 			
-			$template_data = FLBuilderModel::get_layout_data( 'published', $template_id );
+			$template->data 	= FLBuilderModel::get_layout_data( 'published', $template_id );
+			$template->settings = FLBuilderModel::get_layout_settings( 'published', $template_id );
 			
 			if ( is_multisite() ) {
 				restore_current_blog();
 			}
 			
-			FLBuilderModel::apply_user_template( $template_id, $append, $template_data );
+			FLBuilderModel::apply_user_template( $template, $append );
 			
 			return true;
 		}
@@ -181,7 +183,8 @@ final class FLBuilderTemplatesOverride {
 	 */
 	static public function apply_node( $template_id = null, $parent_id = null, $position = 0 )
 	{
-		$site_id = self::get_source_site_id();
+		$site_id  = self::get_source_site_id();
+		$template = new StdClass();
 		
 		if ( $site_id ) {
 			
@@ -189,14 +192,16 @@ final class FLBuilderTemplatesOverride {
 				switch_to_blog( $site_id );
 			}
 			
-			$template_data = FLBuilderModel::get_layout_data( 'published', $template_id );
-			$type 		   = FLBuilderModel::get_user_template_type( $template_id );
+			$template->data 	= FLBuilderModel::get_layout_data( 'published', $template_id );
+			$template->settings = FLBuilderModel::get_layout_settings( 'published', $template_id );
+			$template->type 	= FLBuilderModel::get_user_template_type( $template_id );
+			$template->global 	= false;
 			
 			if ( is_multisite() ) {
 				restore_current_blog();
 			}
 			
-			return FLBuilderModel::apply_node_template( $template_id, $parent_id, $position, $template_data, $type, false );
+			return FLBuilderModel::apply_node_template( $template_id, $parent_id, $position, $template );
 		}
 		
 		return false;

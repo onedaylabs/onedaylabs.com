@@ -59,19 +59,28 @@ $taxonomies = get_object_taxonomies(NimblePortfolioPlugin::getPostType(), 'objec
         });
         $('#nimble_portfolio_shortcode_skin').change(function () {
             var skin = $(this).val();
+            var post = $('#nimble_portfolio_shortcode_post_type').val();
+            var taxonomy = $('#nimble_portfolio_shortcode_taxonomy').val();            
             var _this = $(this);
             $("#nimble_portfolio_shortcode_skin_ajax_response").html('<img src="' + loaderurl + '" />');
             $(this).attr('disabled', 'disabled');
             $.get(ajaxurl,
                     {
                         'action': 'nimble_portfolio_shortcode_skin_change',
-                        'skin': skin
+                        'skin': skin,
+                        'post_type': post,
+                        'taxonomy': taxonomy,
                     },
             function (response) {
                 $('#nimble_portfolio_shortcode_skin_ajax_response').html(response);
                 _this.removeAttr('disabled');
             })
         });
+        
+        $(document).on("nimble_portfolio_tinymce_taxonomy_change nimble_portfolio_shortcode_taxonomy_change", function (event, obj) {
+			$('#nimble_portfolio_shortcode_skin').trigger('change');
+		});
+        
         $('#nimble_portfolio_shortcode_post_type').change(function () {
             var post_type = $(this).val();
             var _this = $(this);

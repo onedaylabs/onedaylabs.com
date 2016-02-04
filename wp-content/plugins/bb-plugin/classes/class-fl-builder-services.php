@@ -164,10 +164,10 @@ final class FLBuilderServices {
 	/**
 	 * Save the API connection of a service and retrieve account settings markup.
 	 *
-	 * Called via the fl_ajax_fl_builder_connect_service action.
+	 * Called via the connect_service frontend AJAX action.
 	 *
 	 * @since 1.5.4
-	 * @return string The JSON encoded response.
+	 * @return array The response array.
 	 */  
 	static public function connect_service() 
 	{
@@ -220,18 +220,16 @@ final class FLBuilderServices {
 		}
 		
 		// Return the response.
-		echo json_encode( $response );
-		
-		die();
+		return $response;
 	}
 	
 	/**
 	 * Render the connection settings or account settings for a service.
 	 *
-	 * Called via the fl_ajax_fl_builder_render_service_settings action.
+	 * Called via the render_service_settings frontend AJAX action.
 	 *
 	 * @since 1.5.4
-	 * @return string The JSON encoded response.
+	 * @return array The response array.
 	 */
 	static public function render_settings() 
 	{
@@ -256,9 +254,7 @@ final class FLBuilderServices {
 		}
 		
 		// Return the response.
-		echo json_encode( $response );
-		
-		die();
+		return $response;
 	}
 	
 	/**
@@ -350,10 +346,10 @@ final class FLBuilderServices {
 	/**
 	 * Render the markup for service specific fields. 
 	 *
-	 * Called via the fl_ajax_fl_builder_render_service_fields action.
+	 * Called via the render_service_fields frontend AJAX action.
 	 *
 	 * @since 1.5.4
-	 * @return string The JSON encoded response.
+	 * @return array The response array.
 	 */ 
 	static public function render_fields() 
 	{
@@ -362,15 +358,13 @@ final class FLBuilderServices {
 		$instance   = self::get_service_instance( $post_data['service'] );
 		$response   = $instance->render_fields( $post_data['account'], $module->settings );
 		
-		echo json_encode( $response );
-		
-		die();
+		return $response;
 	}
 	
 	/**
 	 * Delete a saved account from the database.
 	 *
-	 * Called via the fl_ajax_fl_builder_delete_service_account action.
+	 * Called via the delete_service_account frontend AJAX action.
 	 *
 	 * @since 1.5.4
 	 * @return void
